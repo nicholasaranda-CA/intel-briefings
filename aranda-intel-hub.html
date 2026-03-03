@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aranda Intel — Student Intelligence Briefings</title>
+<style>
+  :root {
+    --slate:   #282F44;
+    --crimson: #8C2122;
+    --red:     #C8102E;
+    --teal:    #1F5673;
+    --gold:    #BF9000;
+    --gray:    #474747;
+    --lgray:   #f3f3f3;
+    --mgray:   #d0d0d0;
+    --white:   #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: #1a1c26;
+    color: var(--gray);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--slate);
+    border-bottom: 4px solid var(--crimson);
+    padding: 0;
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 28px 40px 22px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .header-left .site-title {
+    font-family: 'Georgia', serif;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--white);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .header-left .site-title span {
+    color: var(--gold);
+  }
+
+  .header-left .site-subtitle {
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    color: var(--mgray);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+  .header-right {
+    text-align: right;
+  }
+
+  .header-right .school-name {
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    color: var(--mgray);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .header-right .course-tags {
+    margin-top: 6px;
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .course-tag {
+    background: var(--teal);
+    color: var(--white);
+    font-family: 'Courier New', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+
+  /* ── CLASSBAR ── */
+  .classbar {
+    background: var(--crimson);
+    text-align: center;
+    padding: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+  }
+
+  /* ── MAIN CONTENT ── */
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 40px 80px;
+  }
+
+  /* ── INTRO BAND ── */
+  .intro-band {
+    background: var(--slate);
+    border-left: 5px solid var(--gold);
+    padding: 22px 28px;
+    margin-bottom: 48px;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .intro-band p {
+    font-family: 'Georgia', serif;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+  }
+
+  .intro-band p strong {
+    color: var(--gold);
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .section-label .label-text {
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  .section-label .label-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--crimson), transparent);
+  }
+
+  /* ── BRIEFING GRID ── */
+  .briefings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+
+  /* ── BRIEFING CARD ── */
+  .brief-card {
+    background: var(--slate);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-top: 3px solid var(--crimson);
+    border-radius: 3px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, border-top-color 0.15s ease;
+  }
+
+  .brief-card:hover {
+    transform: translateY(-2px);
+    border-top-color: var(--gold);
+  }
+
+  .card-meta {
+    padding: 16px 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-date {
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--mgray);
+    text-transform: uppercase;
+  }
+
+  .card-region {
+    font-family: 'Courier New', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    background: rgba(31, 86, 115, 0.5);
+    color: #7dbdd4;
+    border: 1px solid rgba(31, 86, 115, 0.6);
+  }
+
+  .card-region.middle-east { background: rgba(140,33,34,0.3); color: #e07878; border-color: rgba(140,33,34,0.5); }
+  .card-region.latin-america { background: rgba(31,86,115,0.3); color: #7dbdd4; border-color: rgba(31,86,115,0.5); }
+  .card-region.central-asia { background: rgba(191,144,0,0.2); color: #d4aa40; border-color: rgba(191,144,0,0.4); }
+  .card-region.domestic { background: rgba(71,71,71,0.4); color: #aaaaaa; border-color: rgba(71,71,71,0.6); }
+
+  .card-body {
+    padding: 6px 20px 16px;
+    flex: 1;
+  }
+
+  .card-title {
+    font-family: 'Georgia', serif;
+    font-size: 1.08rem;
+    font-weight: bold;
+    color: var(--white);
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+
+  .card-desc {
+    font-family: 'Georgia', serif;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  .card-tags {
+    padding: 0 20px 14px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-family: 'Courier New', monospace;
+    font-size: 0.52rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.45);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .card-footer {
+    padding: 12px 20px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-course {
+    font-family: 'Courier New', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mgray);
+  }
+
+  .brief-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--crimson);
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 2px;
+    transition: background 0.15s ease;
+  }
+
+  .brief-link:hover {
+    background: #a32829;
+  }
+
+  .brief-link .arrow {
+    font-size: 0.75rem;
+  }
+
+  /* ── PLACEHOLDER CARD ── */
+  .brief-card.placeholder {
+    border-top-color: rgba(255,255,255,0.1);
+    opacity: 0.45;
+  }
+
+  .brief-card.placeholder .brief-link {
+    background: rgba(255,255,255,0.1);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  /* ── HOW TO USE SECTION ── */
+  .how-to {
+    background: rgba(31,86,115,0.15);
+    border: 1px solid rgba(31,86,115,0.3);
+    border-left: 4px solid var(--teal);
+    padding: 24px 28px;
+    border-radius: 0 3px 3px 0;
+    margin-bottom: 48px;
+  }
+
+  .how-to h3 {
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #7dbdd4;
+    margin-bottom: 12px;
+  }
+
+  .how-to ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+  }
+
+  .how-to ul li {
+    font-family: 'Georgia', serif;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .how-to ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-weight: bold;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--slate);
+    border-top: 2px solid var(--crimson);
+    padding: 18px 40px;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-brand {
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .footer-center {
+    font-family: 'Courier New', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mgray);
+    text-align: center;
+  }
+
+  .footer-disclosure {
+    font-family: 'Georgia', serif;
+    font-size: 0.65rem;
+    font-style: italic;
+    color: var(--mgray);
+    max-width: 360px;
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 680px) {
+    .header-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .header-right .course-tags { justify-content: flex-start; }
+    .main { padding: 32px 20px 60px; }
+    .briefings-grid { grid-template-columns: 1fr; }
+    .how-to ul { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; gap: 10px; text-align: center; }
+    .footer-disclosure { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="site-title">Aranda <span>Intel</span></div>
+      <div class="site-subtitle">Student Intelligence Briefings &nbsp;|&nbsp; Colorado Academy</div>
+    </div>
+    <div class="header-right">
+      <div class="school-name">Colorado Academy &nbsp;·&nbsp; Social Studies</div>
+      <div class="course-tags">
+        <span class="course-tag">American Interventionism</span>
+        <span class="course-tag">Global Perspectives</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="classbar">
+  Unclassified &nbsp;//&nbsp; For Educational Use &nbsp;//&nbsp; Student Distribution
+</div>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- INTRO -->
+  <div class="intro-band">
+    <p>These briefings are <strong>analytical intelligence documents</strong> produced for students in Mr. Aranda's courses. Each brief synthesizes reporting from primary intelligence sources, major news outlets, and OSINT analysts into a format designed to move beyond summary toward genuine assessment. Open any briefing below to read it in your browser — or print to PDF via File → Print.</p>
+  </div>
+
+  <!-- BRIEFINGS -->
+  <div class="section-label">
+    <span class="label-text">Active Briefings</span>
+    <div class="label-line"></div>
+  </div>
+
+  <div class="briefings-grid">
+
+    <!-- CARD 1: Iran Homeland Threat -->
+    <div class="brief-card">
+      <div class="card-meta">
+        <span class="card-date">March 2026</span>
+        <span class="card-region middle-east">Middle East</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Iran: Non-Conventional Threats to the U.S. Homeland</div>
+        <div class="card-desc">Cyber operations, assassination plots, proxy networks, and influence campaigns — Iran's asymmetric toolkit for retaliation below the threshold of conventional war.</div>
+      </div>
+      <div class="card-tags">
+        <span class="tag">Cyber</span>
+        <span class="tag">IRGC</span>
+        <span class="tag">Terrorism</span>
+        <span class="tag">Homeland Security</span>
+        <span class="tag">ISW · CTP · FBI</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-course">American Interventionism</span>
+        <a href="iran-homeland-threat-assessment.html" target="_blank" class="brief-link">Open Brief <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <!-- CARD 2: US-Iran War -->
+    <div class="brief-card">
+      <div class="card-meta">
+        <span class="card-date">March 2026</span>
+        <span class="card-region middle-east">Middle East</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The U.S.–Iran War: Current Status & Regional Response</div>
+        <div class="card-desc">Operation Epic Fury/Roaring Lion — the timeline of U.S.-Israeli strikes on Iran, the collapse of the Axis of Resistance, and the global power response.</div>
+      </div>
+      <div class="card-tags">
+        <span class="tag">Kinetic</span>
+        <span class="tag">Nuclear</span>
+        <span class="tag">Regional Actors</span>
+        <span class="tag">ISW · Al Jazeera · NYT</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-course">American Interventionism</span>
+        <a href="us-iran-war-brief.html" target="_blank" class="brief-link">Open Brief <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <!-- CARD 3: Mexico Cartel -->
+    <div class="brief-card">
+      <div class="card-meta">
+        <span class="card-date">February 2026</span>
+        <span class="card-region latin-america">Latin America</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Mexico: CJNG Fragmentation After "El Mencho"</div>
+        <div class="card-desc">Assessment of cartel violence and territorial shifts following the reported killing of Rubén Oseguera Cervantes and the fragmentation of the Jalisco New Generation Cartel.</div>
+      </div>
+      <div class="card-tags">
+        <span class="tag">Cartel</span>
+        <span class="tag">CJNG</span>
+        <span class="tag">Drug Trafficking</span>
+        <span class="tag">Organized Crime</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-course">American Interventionism</span>
+        <a href="mexico-cartel-brief.html" target="_blank" class="brief-link">Open Brief <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <!-- CARD 4: Afghanistan-Pakistan -->
+    <div class="brief-card">
+      <div class="card-meta">
+        <span class="card-date">February 2026</span>
+        <span class="card-region central-asia">Central Asia</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Afghanistan–Pakistan: Military Confrontation</div>
+        <div class="card-desc">Pakistan's airstrikes into Afghan territory targeting TTP camps, the Taliban's retaliatory offensive, and the limits of military solutions to cross-border insurgency.</div>
+      </div>
+      <div class="card-tags">
+        <span class="tag">Taliban</span>
+        <span class="tag">TTP</span>
+        <span class="tag">Counterinsurgency</span>
+        <span class="tag">UNAMA</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-course">Global Perspectives</span>
+        <a href="afghanistan-pakistan-brief.html" target="_blank" class="brief-link">Open Brief <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDER: Coming Soon -->
+    <div class="brief-card placeholder">
+      <div class="card-meta">
+        <span class="card-date">Coming Soon</span>
+        <span class="card-region">——</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Next Briefing</div>
+        <div class="card-desc">Additional briefings will be posted as they are issued for active units.</div>
+      </div>
+      <div class="card-tags"></div>
+      <div class="card-footer">
+        <span class="card-course">TBD</span>
+        <a href="#" class="brief-link">Coming Soon</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="section-label">
+    <span class="label-text">How to Use These Briefings</span>
+    <div class="label-line"></div>
+  </div>
+
+  <div class="how-to">
+    <h3>Analytical Guidance for Students</h3>
+    <ul>
+      <li>Read for <em>argument and assessment</em>, not just facts — what does the analyst conclude?</li>
+      <li>Track which sources are cited and what perspective each brings</li>
+      <li>Note where sources agree or conflict — that tension is analytically valuable</li>
+      <li>Discussion questions at the end of each brief require original analysis, not recall</li>
+      <li>Print to PDF: File → Print → Save as PDF, Paper: Letter, Margins: Minimum</li>
+      <li>Briefings are updated as situations develop — check back for revised versions</li>
+    </ul>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">Aranda Intel</div>
+    <div class="footer-center">Colorado Academy &nbsp;·&nbsp; Social Studies Department<br>Student Distribution Only &nbsp;·&nbsp; Unclassified</div>
+    <div class="footer-disclosure">Assessment reflects original research and analytical process; critically elevated and visually polished using Claude Tools.</div>
+  </div>
+</footer>
+
+</body>
+</html>
