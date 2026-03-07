@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARANDA INTEL | Operation Epic Fury: Week One Assessment | March 7, 2026</title>
+<style>
+  :root {
+    --slate:   #282F44;
+    --crimson: #8C2122;
+    --red:     #C8102E;
+    --teal:    #1F5673;
+    --gold:    #BF9000;
+    --gray:    #474747;
+    --lgray:   #f3f3f3;
+    --mgray:   #d0d0d0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Georgia', serif;
+    font-size: 9.5pt;
+    color: var(--gray);
+    background: #fff;
+  }
+
+  /* PAGE WRAPPER */
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 0.4in auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--mgray);
+    page-break-after: always;
+  }
+
+  /* HEADER */
+  .page-header {
+    background: var(--slate);
+    border-bottom: 3px solid var(--crimson);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .header-left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-brand {
+    font-family: 'Courier New', monospace;
+    font-size: 7pt;
+    color: var(--gold);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .header-title {
+    font-family: 'Georgia', serif;
+    font-size: 13pt;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 0.03em;
+    line-height: 1.2;
+  }
+
+  .header-subtitle {
+    font-family: 'Courier New', monospace;
+    font-size: 6.5pt;
+    color: #aab0c0;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  .header-right {
+    text-align: right;
+  }
+
+  .header-right .ai-brand {
+    font-family: 'Courier New', monospace;
+    font-size: 8pt;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    font-weight: bold;
+  }
+
+  .header-right .ai-date {
+    font-family: 'Courier New', monospace;
+    font-size: 7pt;
+    color: #aab0c0;
+    letter-spacing: 0.1em;
+    margin-top: 3px;
+  }
+
+  /* CLASSBAR */
+  .classbar {
+    background: var(--crimson);
+    padding: 3px 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 6.5pt;
+    color: #f8d0d0;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  /* CONTENT AREA */
+  .content {
+    flex: 1;
+    padding: 16px 20px 12px 20px;
+    overflow: hidden;
+  }
+
+  /* FOOTER */
+  .page-footer {
+    background: var(--slate);
+    border-top: 2px solid var(--crimson);
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .footer-brand {
+    font-family: 'Courier New', monospace;
+    font-size: 6.5pt;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    font-weight: bold;
+  }
+
+  .footer-center {
+    font-family: 'Courier New', monospace;
+    font-size: 6pt;
+    color: #8899aa;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+
+  .footer-page {
+    font-family: 'Courier New', monospace;
+    font-size: 6pt;
+    color: #8899aa;
+    letter-spacing: 0.1em;
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    background: var(--slate);
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+    margin-top: 14px;
+    border-left: 4px solid var(--gold);
+  }
+
+  .section-header:first-child { margin-top: 0; }
+
+  .section-header-teal {
+    background: var(--teal);
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+    margin-top: 14px;
+    border-left: 4px solid var(--gold);
+  }
+
+  .section-header-crimson {
+    background: var(--crimson);
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+    margin-top: 14px;
+    border-left: 4px solid var(--gold);
+  }
+
+  /* PARAGRAPH TEXT */
+  p {
+    line-height: 1.55;
+    margin-bottom: 7px;
+    color: var(--gray);
+  }
+
+  /* KEY DEVELOPMENTS GRID */
+  .devgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 7px;
+    margin-bottom: 6px;
+  }
+
+  .dev-card {
+    background: var(--lgray);
+    border-top: 3px solid var(--crimson);
+    padding: 8px 10px;
+  }
+
+  .dev-card.alert {
+    border-top-color: var(--red);
+  }
+
+  .dev-date {
+    font-family: 'Courier New', monospace;
+    font-size: 6.5pt;
+    color: var(--crimson);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+    font-weight: bold;
+  }
+
+  .dev-card.alert .dev-date { color: var(--red); }
+
+  .dev-headline {
+    font-size: 8pt;
+    font-weight: bold;
+    color: var(--slate);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .dev-body {
+    font-size: 8pt;
+    line-height: 1.45;
+    color: var(--gray);
+  }
+
+  /* ACTORS TABLE */
+  table.actors {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+    font-size: 8pt;
+  }
+
+  table.actors th {
+    background: var(--slate);
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 5px 8px;
+    text-align: left;
+  }
+
+  table.actors td {
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--mgray);
+    vertical-align: top;
+    line-height: 1.4;
+  }
+
+  table.actors tr:nth-child(even) td { background: var(--lgray); }
+
+  .tag {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    font-size: 6pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1px 5px;
+    border-radius: 2px;
+    font-weight: bold;
+  }
+
+  .tag-red { background: var(--red); color: #fff; }
+  .tag-crimson { background: var(--crimson); color: #fff; }
+  .tag-teal { background: var(--teal); color: #fff; }
+  .tag-gold { background: var(--gold); color: #fff; }
+  .tag-slate { background: var(--slate); color: #fff; }
+
+  /* CAPABILITY GRID */
+  .capgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .cap-box {
+    background: var(--lgray);
+    border-left: 4px solid var(--teal);
+    padding: 10px 12px;
+  }
+
+  .cap-box.warn { border-left-color: var(--crimson); }
+  .cap-box.alert-box { border-left-color: var(--red); }
+
+  .cap-title {
+    font-family: 'Courier New', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .cap-box.warn .cap-title { color: var(--crimson); }
+  .cap-box.alert-box .cap-title { color: var(--red); }
+
+  .cap-body {
+    font-size: 8pt;
+    line-height: 1.5;
+  }
+
+  /* ASSET LOSS TABLE */
+  table.losses {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8pt;
+    margin-bottom: 8px;
+  }
+
+  table.losses th {
+    background: var(--red);
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 5px 8px;
+    text-align: left;
+  }
+
+  table.losses td {
+    padding: 5px 8px;
+    border-bottom: 1px solid var(--mgray);
+    vertical-align: top;
+    line-height: 1.4;
+  }
+
+  table.losses tr:nth-child(even) td { background: #fff3f3; }
+
+  /* ANALYSIS BOX */
+  .analysis-horizon {
+    margin-bottom: 10px;
+  }
+
+  .horizon-label {
+    font-family: 'Courier New', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: bold;
+    border-bottom: 1px solid var(--mgray);
+    padding-bottom: 3px;
+    margin-bottom: 5px;
+  }
+
+  /* DISCUSSION QUESTIONS */
+  .dq-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .dq-list li {
+    background: var(--lgray);
+    border-left: 4px solid var(--gold);
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    font-size: 8.5pt;
+    line-height: 1.5;
+    counter-increment: dq;
+  }
+
+  .dq-num {
+    font-family: 'Courier New', monospace;
+    font-size: 7pt;
+    color: var(--gold);
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  /* SOURCES */
+  .source-entry {
+    font-size: 7.5pt;
+    line-height: 1.5;
+    margin-bottom: 6px;
+    padding-left: 14px;
+    text-indent: -14px;
+    color: var(--gray);
+  }
+
+  /* ALERT BOX */
+  .alert-full {
+    background: #fff0f0;
+    border: 2px solid var(--red);
+    border-left: 6px solid var(--red);
+    padding: 10px 14px;
+    margin: 10px 0;
+  }
+
+  .alert-full-title {
+    font-family: 'Courier New', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  /* TWO-COLUMN LAYOUT */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  /* WATERMARK on sources page */
+  .watermark-container {
+    position: relative;
+  }
+
+  .disclosure {
+    margin-top: 18px;
+    padding-top: 10px;
+    border-top: 1px solid var(--mgray);
+    font-size: 7pt;
+    color: #999;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  strong.key { color: var(--slate); }
+
+  @media print {
+    body { background: #fff; }
+    .page {
+      margin: 0;
+      border: none;
+      page-break-after: always;
+      width: 8.5in;
+      min-height: 11in;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!--  PAGE 1: SITUATION OVERVIEW + KEY DEVELOPMENTS              -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-left">
+      <div class="header-brand">Aranda Intel &nbsp;|&nbsp; Student Intelligence Brief</div>
+      <div class="header-title">Operation Epic Fury: Week One Assessment</div>
+      <div class="header-subtitle">Iran War &nbsp;|&nbsp; Regional Escalation &nbsp;|&nbsp; Great Power Interference</div>
+    </div>
+    <div class="header-right">
+      <div class="ai-brand">ARANDA INTEL</div>
+      <div class="ai-date">March 7, 2026</div>
+    </div>
+  </div>
+  <div class="classbar">Unclassified &nbsp;//&nbsp; For Educational Use &nbsp;//&nbsp; Student Distribution</div>
+
+  <div class="content">
+
+    <div class="section-header">Situation Overview</div>
+
+    <p><strong class="key">On February 28, 2026, the United States and Israel launched Operation Epic Fury</strong> — a massive joint air campaign targeting Iran's nuclear infrastructure, ballistic missile arsenal, air defense systems, and senior leadership. The opening strikes, totaling approximately 900 US sorties and 500 Israeli strikes in the first twelve hours, succeeded in killing Supreme Leader Ali Khamenei, the top of the Islamic Republic's command structure, along with dozens of senior military and intelligence officials. CENTCOM stated four strategic objectives: halt Iran's nuclear enrichment, destroy its ballistic missile production capacity, degrade its naval capabilities, and curtail its proxy network. Trump publicly confirmed the broader aim of regime change.</p>
+
+    <p>Iran responded immediately with hundreds of ballistic missiles and thousands of one-way attack drones targeting US military bases across nine countries — Bahrain, Iraq, Jordan, Kuwait, Oman, Qatar, Saudi Arabia, the UAE, and vessels at sea — as well as Israeli population centers. As of March 7 (Day 8), US and Israeli strikes have reportedly hit over 3,000 targets across 26 of Iran's 31 provinces. The US Institute for the Study of War (ISW) assesses that coalition operations have focused on three priorities: <em>suppressing Iranian air defenses</em>, <em>degrading Iran's capacity to retaliate</em>, and <em>disrupting Iranian command and control</em>. The campaign is the largest combined use of US airpower since Operation Shock and Awe in 2003.</p>
+
+    <p>The human and financial costs are escalating rapidly. At least 1,332 Iranian civilians have been confirmed killed, including 181 children. Six US service members have been killed in action, with 18 seriously wounded. The first 100 hours of Operation Epic Fury alone cost an estimated $3.7 billion — approximately $891 million per day, the majority of which was not pre-budgeted. The Strait of Hormuz has been declared closed by Iran, driving Brent crude to $90 per barrel. The conflict has displaced more than 330,000 people across the region and triggered mass civilian evacuations from at least 14 countries. Iran has issued back-channel signals through another nation's intelligence service indicating potential openness to ceasefire terms — though the destruction of Iran's own leadership infrastructure has made it unclear who can actually enforce a deal.</p>
+
+    <div class="section-header">Key Developments — Feb. 28 – March 7, 2026</div>
+
+    <div class="devgrid">
+      <div class="dev-card alert">
+        <div class="dev-date">Feb. 28</div>
+        <div class="dev-headline">Khamenei Killed; War Begins</div>
+        <div class="dev-body">US and Israel launch ~900 strikes in 12 hours. Supreme Leader Khamenei, members of his family, and dozens of senior IRGC and intelligence officials killed. Iran immediately launches 420+ missiles at US bases and Israel. Three US soldiers killed in Kuwait drone strike — the war's first American KIAs.</div>
+      </div>
+      <div class="dev-card">
+        <div class="dev-date">Mar. 1–2</div>
+        <div class="dev-headline">Iran's Navy Eliminated; Hormuz Threatened</div>
+        <div class="dev-body">CENTCOM confirms sinking of Iran's newly commissioned drone carrier <em>Shahid Bagheri</em> (40,000 tons), a Jamaran-class corvette, and over 30 additional naval vessels. Iran declares the Strait of Hormuz closed; a senior IRGC official threatens any ship attempting transit. Three US F-15s destroyed by Kuwaiti friendly fire; all six crew survive.</div>
+      </div>
+      <div class="dev-card">
+        <div class="dev-date">Mar. 2–3</div>
+        <div class="dev-headline">Regional Spillover Intensifies</div>
+        <div class="dev-body">Hezbollah enters conflict, firing missiles at northern Israel "in revenge" for Khamenei's killing. Iran strikes Dubai, Abu Dhabi, Doha, and Riyadh. Debris hits the Burj Al Arab hotel. Iranian missiles hit the US Fifth Fleet HQ in Bahrain and reach a UK RAF base in Cyprus — the first strike on British sovereign territory. State Dept. urges Americans to leave 14 Middle Eastern countries.</div>
+      </div>
+      <div class="dev-card">
+        <div class="dev-date">Mar. 3–4</div>
+        <div class="dev-headline">B-2 Bombers Strike Underground Sites</div>
+        <div class="dev-body">US B-2 Spirit bombers drop dozens of 2,000-lb penetrating bombs on buried Iranian ballistic missile launcher complexes — including what Israeli officials describe as an underground nuclear weapons facility. US Sec. of State Rubio announces strikes will increase in intensity. Iran's Assembly of Experts targeted as it convenes to elect Khamenei's successor.</div>
+      </div>
+      <div class="dev-card alert">
+        <div class="dev-date">Mar. 5–6</div>
+        <div class="dev-headline">Russia Confirmed Sharing Intel; China Weighing Support</div>
+        <div class="dev-body">Washington Post and CNN confirm Russia is providing Iran with satellite imagery of US warship and aircraft positions. Intelligence suggests China may be preparing to supply financial aid, spare parts, and missile components. Iranian FM Araghchi acknowledges Russia and China are "supporting us politically and otherwise." Qatar arrests ten IRGC operatives caught surveilling military infrastructure.</div>
+      </div>
+      <div class="dev-card">
+        <div class="dev-date">Mar. 6–7</div>
+        <div class="dev-headline">Iran Signals Backchannel; Hormuz Crisis Deepens</div>
+        <div class="dev-body">Iran's Ministry of Intelligence quietly contacts CIA through a third country's intelligence service, offering to discuss ceasefire terms. Trump acknowledges Iran "sought to make a deal" but demands unconditional surrender. QatarEnergy halts LNG production at Ras Laffan after drone strikes, threatening 20% of global LNG supply. Brent crude hits $90/barrel.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">ARANDA INTEL</div>
+    <div class="footer-center">ARANDA | March 7, 2026</div>
+    <div class="footer-page">PAGE 1</div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  PAGE 2: ACTOR/THREAT TABLE + US ASSET LOSSES               -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-left">
+      <div class="header-brand">Aranda Intel &nbsp;|&nbsp; Student Intelligence Brief</div>
+      <div class="header-title">Operation Epic Fury: Week One Assessment</div>
+      <div class="header-subtitle">Iran War &nbsp;|&nbsp; Regional Escalation &nbsp;|&nbsp; Great Power Interference</div>
+    </div>
+    <div class="header-right">
+      <div class="ai-brand">ARANDA INTEL</div>
+      <div class="ai-date">March 7, 2026</div>
+    </div>
+  </div>
+  <div class="classbar">Unclassified &nbsp;//&nbsp; For Educational Use &nbsp;//&nbsp; Student Distribution</div>
+
+  <div class="content">
+
+    <div class="section-header">Actor & Threat Landscape</div>
+
+    <table class="actors">
+      <thead>
+        <tr>
+          <th style="width:17%">Actor</th>
+          <th style="width:13%">Status</th>
+          <th style="width:35%">Current Role & Posture</th>
+          <th style="width:35%">Key Capability / Threat Vector</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>United States</strong></td>
+          <td><span class="tag tag-red">Belligerent</span></td>
+          <td>Leading coalition air campaign. Two carrier strike groups (USS Gerald R. Ford, USS Abraham Lincoln) operational. B-1, B-2, F/A-18, F-35 assets deployed across region. CENTCOM has struck 3,000+ Iranian targets since Day 1.</td>
+          <td>Unmatched air superiority, precision strike capability, B-2 bunker-buster penetration of underground sites. Stated goal: destroy Iran's nuclear and missile industrial base — "not just what they have, but their ability to rebuild."</td>
+        </tr>
+        <tr>
+          <td><strong>Israel (IDF)</strong></td>
+          <td><span class="tag tag-red">Belligerent</span></td>
+          <td>2,500 strikes conducted. Claims 80% of Iran's air defense systems destroyed. 70,000 reservists on duty. Simultaneously re-engaging Hezbollah in Lebanon after ceasefire collapse. IDF declares "new phase" targeting regime infrastructure.</td>
+          <td>F-35I "Adir" jets (achieved first-ever F-35 air-to-air kill of Iranian Yak-130). Deep deception operation prior to Feb. 28 masked strike preparations from satellite surveillance. Coordinating with Mossad units potentially operating inside Iran.</td>
+        </tr>
+        <tr>
+          <td><strong>Iran (IRGC leadership)</strong></td>
+          <td><span class="tag tag-crimson">Degraded / Resisting</span></td>
+          <td>Supreme Leader killed. Chief of Staff, Defense Minister, IRGC Commander, and 7+ senior security officials confirmed dead. IRGC hardliners reportedly dominating remaining decision-making. Launched 500+ ballistic missiles and ~2,000 drones since Day 1.</td>
+          <td>Ballistic missile salvos (86-90% suppressed vs. Day 1 peak), one-way attack drones — Iran's hit rate has risen from 4% to 24% as targeting intelligence improves. 460 kg of 60%-enriched uranium (≈11 weapons-worth) location uncertain. Strait of Hormuz closure threatens global energy supply.</td>
+        </tr>
+        <tr>
+          <td><strong>Russia</strong></td>
+          <td><span class="tag tag-slate">Shadow Actor</span></td>
+          <td>Providing Iran with satellite imagery (Khayyam/Kanopus-V constellation) of US warship, aircraft, and radar positions. Putin offered condolences for Khamenei's death; Russian FM calls US-Israeli strikes "unprovoked armed aggression." Rosatom evacuates staff from Bushehr nuclear plant vicinity.</td>
+          <td>Intelligence sharing fills Iran's critical gap in tracking mobile US assets. Iranian strikes are now more focused on US command and control nodes — a pattern analysts note resembles Russian drone doctrine in Ukraine. Delivered Su-35 jets and S-400 components to Iran prior to war.</td>
+        </tr>
+        <tr>
+          <td><strong>China</strong></td>
+          <td><span class="tag tag-slate">Watching / Preparing</span></td>
+          <td>Officially condemns strikes as "grave violation" of sovereignty. Foreign Minister Wang Yi coordinating with Russia. Private firm Mizarvision reportedly tracking US military assets. US intelligence indicates China may be preparing financial aid and missile components for Iran.</td>
+          <td>Economic leverage: China depends on Iranian oil and is pressuring Tehran to reopen Hormuz. "More cautious" than Russia — prefers war ends quickly to protect energy supply. Any material support would mark significant escalation of great-power involvement.</td>
+        </tr>
+        <tr>
+          <td><strong>Hezbollah</strong></td>
+          <td><span class="tag tag-crimson">Re-engaged</span></td>
+          <td>Entered conflict March 2, firing missiles at northern Israel "in revenge" for Khamenei's assassination. Lebanon's government bans Hezbollah military activity and calls for disarmament. Israeli strikes kill head of Hezbollah intelligence HQ and Quds Force Lebanon branch commander.</td>
+          <td>Reduced capacity after 2024–2025 Israeli campaign. Framing re-engagement as "defensive act." A potential Israeli ground incursion into southern Lebanon would likely trigger full Hezbollah re-mobilization.</td>
+        </tr>
+        <tr>
+          <td><strong>Gulf States (GCC)</strong></td>
+          <td><span class="tag tag-gold">Strained Hosts</span></td>
+          <td>Absorbing Iranian retaliation despite hosting US forces. Iran has struck Qatar, Bahrain, Kuwait, UAE, and Saudi Arabia. Qatar halts LNG production. Kuwait suspends US embassy. Bahrain's oil refinery hit. UAE and Qatar air defenses intercept 120+ drones. GCC vows collective self-defense.</td>
+          <td>Air defense systems (Patriot, THAAD, national systems) increasingly stressed. Qatar's Ras Laffan represents 20% of global LNG — its extended shutdown would trigger global energy crisis. Germany withdrawing troops from Bahrain and Kuwait.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-header-crimson">US Asset Losses — Confirmed & Reported (Days 1–7)</div>
+
+    <table class="losses">
+      <thead>
+        <tr>
+          <th style="width:28%">Asset / Location</th>
+          <th style="width:18%">Type of Loss</th>
+          <th style="width:29%">Details</th>
+          <th style="width:25%">Estimated Cost / Significance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>AN/FPS-132 Early Warning Radar</strong><br><em>Al Udeid AB, Qatar</em></td>
+          <td><span class="tag tag-red">Destroyed</span></td>
+          <td>Iranian missile strike hit radar on Day 1. Satellite communications infrastructure at Fifth Fleet HQ in Bahrain also struck, destroying two terminals and several buildings.</td>
+          <td><strong>~$1.1 billion</strong>. Single most costly US asset loss. Significant reduction in early warning coverage over the Gulf.</td>
+        </tr>
+        <tr>
+          <td><strong>AN/TPY-2 THAAD Radar Component</strong><br><em>Al-Ruwais, UAE</em></td>
+          <td><span class="tag tag-red">Destroyed</span></td>
+          <td>Iranian strike confirmed via satellite imagery analysis. The radar is the critical targeting element of THAAD air defense batteries, rendering associated interceptors significantly less effective.</td>
+          <td><strong>~$500 million</strong>. Represents a deliberate Iranian strategy to degrade US air defense — enabling follow-on drone swarms to penetrate more effectively.</td>
+        </tr>
+        <tr>
+          <td><strong>Three F-15E Strike Eagles</strong><br><em>Kuwait</em></td>
+          <td><span class="tag tag-crimson">Destroyed (Friendly Fire)</span></td>
+          <td>Kuwaiti air defense systems mistakenly shot down three US Air Force F-15E jets. All six crew members ejected and were safely recovered. Kuwait acknowledged the incident; investigation ongoing.</td>
+          <td><strong>~$282 million</strong>. Highlights coordination hazards of operating in a saturated airspace with coalition partners under simultaneous Iranian drone-and-missile assault.</td>
+        </tr>
+        <tr>
+          <td><strong>CIA Station, US Embassy — Riyadh</strong><br><em>Saudi Arabia</em></td>
+          <td><span class="tag tag-crimson">Struck</span></td>
+          <td>Two Iranian drones hit the US Embassy compound. Saudi Defense Ministry reported limited structural damage. Washington Post later confirmed the CIA station inside the compound was also affected.</td>
+          <td>Intelligence significance uncertain. First confirmed strike on a CIA foreign station. Embassy Kuwait closed "until further notice"; non-essential staff evacuated.</td>
+        </tr>
+        <tr>
+          <td><strong>Camp Arifjan, Erbil Base, Ali Al Salem AB, Camp Buehring</strong><br><em>Kuwait / Iraq</em></td>
+          <td><span class="tag tag-red">Struck; Casualties</span></td>
+          <td>Six US Army Reserve soldiers killed at Camp Arifjan (Port Shuaiba, Kuwait) when Iranian drone struck tactical operations center. 18 more seriously wounded. Collapsed rooftops at Ali Al Salem. Drone video confirmed penetrating Camp Buehring perimeter.</td>
+          <td>All six KIAs assigned to 103rd Sustainment Command (5 named by Pentagon). The IRGC targeted 27 US bases across the region; Iraq's Islamic Resistance claimed 23+ drone strikes on Erbil alone.</td>
+        </tr>
+        <tr>
+          <td><strong>Total Equipment Losses (Days 1–4)</strong><br><em>All locations</em></td>
+          <td><span class="tag tag-red">Cumulative</span></td>
+          <td>OSINT estimate of advanced radar systems, fighter jets, satellite communications, and base infrastructure across Qatar, Bahrain, Kuwait, Iraq, and UAE.</td>
+          <td><strong>~$1.9 billion</strong> in first four days. Running US operational cost anchored at ~$36 billion as of March 4 and accruing at approximately $200 million per day.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">ARANDA INTEL</div>
+    <div class="footer-center">ARANDA | March 7, 2026</div>
+    <div class="footer-page">PAGE 2</div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  PAGE 3: RUSSIA/CHINA DETAIL + ISW OPERATIONAL STATUS       -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-left">
+      <div class="header-brand">Aranda Intel &nbsp;|&nbsp; Student Intelligence Brief</div>
+      <div class="header-title">Operation Epic Fury: Week One Assessment</div>
+      <div class="header-subtitle">Iran War &nbsp;|&nbsp; Regional Escalation &nbsp;|&nbsp; Great Power Interference</div>
+    </div>
+    <div class="header-right">
+      <div class="ai-brand">ARANDA INTEL</div>
+      <div class="ai-date">March 7, 2026</div>
+    </div>
+  </div>
+  <div class="classbar">Unclassified &nbsp;//&nbsp; For Educational Use &nbsp;//&nbsp; Student Distribution</div>
+
+  <div class="content">
+
+    <div class="section-header">Russian & Chinese Involvement: The Shadow War</div>
+
+    <div class="capgrid">
+      <div class="cap-box warn">
+        <div class="cap-title">Russia: Active Intelligence Support</div>
+        <div class="cap-body">
+          <p>The Washington Post and CNN independently confirmed on March 6 that Russia is providing Iran with satellite imagery of US warship movements, aircraft positions, and radar system locations. The data originates from Russia's sophisticated overhead satellite constellation — including the Khayyam/Kanopus-V satellite, a joint Russian-Iranian project that provides 1.2-meter high-resolution imagery capable of monitoring specific US and Israeli bases.</p>
+          <p>US analysts note that Iran's targeting has become markedly more precise since the opening days. Iranian strikes are now more concentrated on command and control nodes — radar sites and communication infrastructure — rather than broad area targets. This doctrinal shift mirrors Russia's own drone campaign in Ukraine: swarms of drones disrupt air defenses, followed by ballistic missile strikes. Defense Secretary Hegseth told CBS that the US is "tracking everything" regarding Russian support.</p>
+          <p>Prior to the war, Russia delivered S-400 air defense components to Iran and began delivering Su-35 "Flanker-E" jets (48-unit order, est. $6.5B), equipped with Khibiny-M electronic warfare pods designed specifically to detect stealth aircraft like the F-35. A Rezonans-NE over-the-horizon radar was also provided, capable of tracking stealth targets at long ranges. Russia's military pact with Iran does not require it to enter combat — but its intelligence role constitutes meaningful indirect belligerence.</p>
+        </div>
+      </div>
+      <div class="cap-box warn">
+        <div class="cap-title">China: Economic Stakes, Covert Preparation</div>
+        <div class="cap-body">
+          <p>China has publicly condemned the strikes as a "grave violation" of sovereignty and Iran's right to security. Foreign Minister Wang Yi, in coordination with Russian FM Lavrov, called for an "immediate ceasefire." China's official position demands a return to diplomacy and opposes "regime change" by force. At the UN Security Council, China and Russia convened an emergency session — though no resolution or vote has occurred.</p>
+          <p>Beneath the diplomatic surface, US intelligence indicates China may be preparing to provide Iran with <strong>financial assistance, spare parts, and missile components</strong>. A private Chinese firm, Mizarvision, has reportedly been tracking American military movements. Iranian FM Araghchi acknowledged in an NBC interview that Russia and China are "supporting us politically and otherwise," declining to elaborate.</p>
+          <p>China's core calculation differs from Russia's: it is heavily dependent on Iranian oil and is actively pressuring Tehran to reopen the Strait of Hormuz to protect Chinese energy supply chains. The Belt and Road Initiative relies on the International North-South Transport Corridor through Iran's Bandar Abbas port — which has been struck. "China is more cautious," one US source assessed. "It wants the war to end because it endangers their energy supply." Whether Beijing moves from political support to material support would mark a significant great-power escalation threshold.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert-full">
+      <div class="alert-full-title">&#9888; Alert: Great Power Complicity Threshold</div>
+      <p>The combination of Russian targeting intelligence and potential Chinese material support represents the emergence of a proxy great-power confrontation embedded within the US-Iran war. Iranian Foreign Minister Araghchi explicitly confirmed foreign "political and other" support. If China crosses into material resupply — even spare parts or financial transfers — the United States would face a qualitatively different strategic environment: one in which Iranian military persistence is externally subsidized and Iranian targeting is externally enhanced. This threshold has not yet been crossed, but US intelligence assesses it is under active Chinese consideration as of March 6–7.</p>
+    </div>
+
+    <div class="section-header-teal">ISW Operational Status Report — As of March 6, 2026</div>
+
+    <p>The Institute for the Study of War assesses Operation Epic Fury has achieved significant kinetic success against three of four stated US objectives while the fourth — regime change — remains structurally elusive under an air campaign alone.</p>
+
+    <div class="capgrid">
+      <div class="cap-box">
+        <div class="cap-title">Objective 1: Suppress Air Defenses ✓ LARGELY ACHIEVED</div>
+        <div class="cap-body">Israel claims 80% of Iranian air defense systems destroyed. The US and Israel established effective control of Iranian airspace from western Iran to central Tehran within 24 hours of Day 1. The initial strike wave targeted approximately 200 air defense systems. Iran's Russian-supplied S-400 components have been rendered largely inoperable.</div>
+      </div>
+      <div class="cap-box">
+        <div class="cap-title">Objective 2: Degrade Retaliation Capacity ✓ SUBSTANTIAL PROGRESS</div>
+        <div class="cap-body">Iranian theater ballistic missile launches down 86–90% from Day 1 peak. Drone attacks down 83%. Iran has fired 500+ ballistic missiles and ~2,000 drones total. However, Iran's hit rate per missile fired has <em>increased</em> from 4% to 24% as Russian intelligence improves targeting. Drone swarms continue to penetrate Gulf state defenses.</div>
+      </div>
+      <div class="cap-box">
+        <div class="cap-title">Objective 3: Disrupt Command & Control ✓ SEVERE DISRUPTION</div>
+        <div class="cap-body">Khamenei killed. Chief of Staff, Defense Minister, IRGC Commander, head of emergency command intelligence, SPND director, and 7+ senior security leaders confirmed dead. Iran's Foreign Ministry stated "the military has lost control over several units, that are operating according to old general instructions." IRGC hardliners now dominate remaining decision-making — complicating negotiations.</div>
+      </div>
+      <div class="cap-box alert-box">
+        <div class="cap-title">Objective 4: Regime Change ✗ NOT ACHIEVED — STRUCTURALLY UNCERTAIN</div>
+        <div class="cap-body">Despite decapitation of leadership and unprecedented military degradation, the Islamic Republic's institutional apparatus remains intact. IRGC maintains internal security. Civilian populations are unarmed and unorganized. No evidence of large-scale military defections. ISW and ACLED both assess that air campaigns alone have never achieved regime collapse — and this one is unlikely to be the exception.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">ARANDA INTEL</div>
+    <div class="footer-center">ARANDA | March 7, 2026</div>
+    <div class="footer-page">PAGE 3</div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  PAGE 4: TURKEY & KURDISH HOTFLASH                         -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-left">
+      <div class="header-brand">Aranda Intel &nbsp;|&nbsp; Student Intelligence Brief</div>
+      <div class="header-title">Operation Epic Fury: Week One Assessment</div>
+      <div class="header-subtitle">Iran War &nbsp;|&nbsp; Regional Escalation &nbsp;|&nbsp; The Kurdish Dimension</div>
+    </div>
+    <div class="header-right">
+      <div class="ai-brand">ARANDA INTEL</div>
+      <div class="ai-date">March 7, 2026</div>
+    </div>
+  </div>
+  <div class="classbar">Unclassified &nbsp;//&nbsp; For Educational Use &nbsp;//&nbsp; Student Distribution</div>
+
+  <div class="content">
+
+    <div class="section-header-crimson">&#9889; HOTFLASH — Turkey &amp; the Kurdish Dimension</div>
+
+    <p style="margin-bottom:10px;">The war has opened a volatile secondary front involving Iranian Kurdish armed groups, Iraqi Kurdish political leaders, and a deeply uncomfortable NATO ally — Turkey — whose interests cut across virtually every actor in the conflict. This dimension is one of the war's highest-risk escalation vectors: a potential ground war inside Iran's western border, fueled by CIA weapons, opposed by Ankara, and complicated by a century of unresolved Kurdish statelessness.</p>
+
+    <div class="section-header">The Kurdish Coalition</div>
+    <div class="capgrid">
+
+      <div class="cap-box">
+        <div class="cap-title">Who Is the CPFIK?</div>
+        <div class="cap-body">
+          <p>Five major Iranian Kurdish opposition parties formally united on February 22 — just six days before the war began — under the <strong>Coalition of Political Forces of Iranian Kurdistan (CPFIK)</strong>: PJAK, PDKI, PAK, the Khabat Organization, and a branch of the Komala Party. Komala of Iranian Kurdistan joined as a sixth member on March 4. The coalition's stated aims are "toppling the Iranian regime" and achieving Kurdish self-determination in Iranian Kurdistan. After eight months of negotiations, the coalition produced a joint command structure for armed wings, a diplomatic committee, and a framework for elections in liberated territory — a degree of organizational sophistication that analysts say rebuts the standard dismissal of Iran's opposition as too fractured to matter.</p>
+          <p>On March 2, the coalition called on Iranian armed forces in Kurdish regions to "separate themselves from the remnants of the Islamic Republic." PDKI forces confirmed attacks on Iranian military and missile facilities. By March 6, a senior PDKI official stated that "a large force of ours is already in Iran" and that military action would begin "as soon as possible." The groups are publicly awaiting a US "green light."</p>
+        </div>
+      </div>
+
+      <div class="cap-box warn">
+        <div class="cap-title">CIA Arming Operation — Confirmed</div>
+        <div class="cap-body">
+          <p>CNN confirmed on March 3 that the CIA has been actively arming Iranian Kurdish forces — and that this effort began <em>months before</em> the war. The agency maintains an outpost in Iraqi Kurdistan near the Iran border. ITV News reported that weapons have been smuggled into western Iran since the prior year's Twelve-Day War, arming thousands of Kurdish volunteers.</p>
+          <p>Trump personally called KDPI president Mustafa Hijri on March 4. He separately called Iraqi Kurdish leaders Masoud Barzani and Bafel Talabani to "discuss the next stages of war." But Barzani and Talabani expressed reservations: Peshmerga involvement risks catastrophic Iranian retaliation against the Kurdistan Region of Iraq. The KRG formally stated that allegations it is part of any arming plan are "completely unfounded." Iran preemptively struck PAK and PDKI bases in Erbil on March 2, killing at least one fighter, and on March 6 threatened to target "all facilities" in the Kurdistan Region if Kurdish militants are permitted to enter Iran.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-header">Turkey's Position — NATO's Uncomfortable Ally</div>
+    <div class="capgrid">
+
+      <div class="cap-box">
+        <div class="cap-title">Ankara's Core Interests</div>
+        <div class="cap-body">
+          <p>Turkey sits at the intersection of every pressure point in this conflict: NATO member, Iran's neighbor, in active PKK peace negotiations, and deeply opposed to a Kurdish-fueled insurgency on its eastern flank. Turkey <strong>refused to allow its airspace to be used for strikes on Iran</strong> — a meaningful constraint on US logistics. Turkish FM Hakan Fidan told his Iranian counterpart in January, weeks before the war, that "the complete neutralization of PJAK constitutes an urgent necessity for Iran's security."</p>
+          <p>On March 5, Turkey's Defense Ministry formally stated that groups "fueling ethnic separatism, such as PJAK, negatively affect not only Iran's security but also the overall peace and stability of the region" — a pointed signal directed as much at Washington as at Tehran. Carnegie Endowment senior fellow Alper Coşkun warned that US cooperation with Kurdish actors "hostile to Turkey" risks making the Iran war "the next stress test in US-Turkish relations," potentially unraveling the fragile diplomatic momentum between the two NATO allies.</p>
+        </div>
+      </div>
+
+      <div class="cap-box alert-box">
+        <div class="cap-title">Iranian Missile Strikes Turkey — Article 4 Invoked</div>
+        <div class="cap-body">
+          <p>In one of the war's most dangerous moments for alliance cohesion, an Iranian ballistic missile landed in <strong>Dörtyol, Hatay Province, Turkey</strong>. NATO air defense systems — including Spanish assets at Incirlik — intercepted the missile. NATO Secretary General Mark Rutte reaffirmed the alliance's commitment to Turkey's defense. Iran officially denied intentional targeting, calling it a "technical anomaly."</p>
+          <p>Turkey invoked <strong>NATO Article 4</strong> (consultation on threats to territorial integrity), triggering urgent contacts between FM Fidan and allied leadership. Turkish analysts assess that Iran's intent was to signal Ankara: stop sharing intelligence with the United States or face escalation. Turkey separately condemned Iran's drone strikes on Azerbaijan on March 5. Ankara is now simultaneously managing a missile near its border, a CIA-armed Kurdish proxy force being built by its ally, and domestic public opinion: <em>nearly 60% of Turks favor regime change in Iran</em> — running directly counter to Erdoğan's cautious policy posture.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-header">The PKK Complication</div>
+    <p style="margin-bottom:8px;">Turkey's deepest anxiety is not Iran — it is the PKK. Ankara is mid-process in negotiations to dissolve and disarm the PKK, a process that could collapse if PJAK (widely seen as the PKK's Iranian branch) launches a high-profile US-backed offensive inside Iran. Turkish analysts warn that a strengthened PJAK presence could revive the PKK as a geopolitical actor and create a <em>"Kurdish belt"</em> stretching from Syria through northern Iraq into western Iran — precisely the scenario Ankara has opposed for decades. The threat is not hypothetical: Trump has reportedly threatened to cut US funding for Kurdish security forces unless they assist in the Iran campaign, potentially forcing Barzani and Talabani into a corner that also pressures Ankara.</p>
+    <p>Notably, Turkey's own pro-Kurdish party — the <strong>DEM Party</strong>, the third-largest bloc in parliament — <em>opposed</em> the Kurdish offensive on March 3, calling it a vehicle for "external designs" by global powers rather than a genuine path to Kurdish liberation. Even within Kurdish political culture, the war has produced a split between those who see it as a strategic opportunity and those who see it as great-power manipulation.</p>
+
+    <div class="alert-full">
+      <div class="alert-full-title">&#9888; Assessment — The Kurdish Card: High Risk, Uncertain Payoff</div>
+      <p>The CIA arming operation and potential Kurdish ground offensive represent the Trump administration's bet that territorial pressure from the west can accelerate Iranian regime collapse. The bet is analytically contested on multiple levels. Iran has already demonstrated willingness to strike Kurdish bases in Iraq preemptively. Iraqi Kurdish leaders have explicitly warned that Peshmerga involvement risks catastrophic Iranian retaliation. Turkey — a NATO member the US cannot afford to alienate — has signaled that US cooperation with PJAK-linked forces will damage bilateral relations. The large Iraqi Kurdish parties (KDP and PUK) have declined involvement. And JINSA itself acknowledges the "bitter example" of US abandonment of Kurdish partners in Syria — a recent wound that makes Kurdish commitment to any partnership contingent on credible, sustained US support. The green light has not yet been given. If it is, the conflict acquires a ground dimension no air campaign can manage — and the war's political costs will extend well beyond the Middle East into the NATO alliance itself.</p>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">ARANDA INTEL</div>
+    <div class="footer-center">ARANDA | March 7, 2026</div>
+    <div class="footer-page">PAGE 4</div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  PAGE 5: ANALYSIS + DISCUSSION QUESTIONS                    -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-left">
+      <div class="header-brand">Aranda Intel &nbsp;|&nbsp; Student Intelligence Brief</div>
+      <div class="header-title">Operation Epic Fury: Week One Assessment</div>
+      <div class="header-subtitle">Iran War &nbsp;|&nbsp; Regional Escalation &nbsp;|&nbsp; Great Power Interference</div>
+    </div>
+    <div class="header-right">
+      <div class="ai-brand">ARANDA INTEL</div>
+      <div class="ai-date">March 7, 2026</div>
+    </div>
+  </div>
+  <div class="classbar">Unclassified &nbsp;//&nbsp; For Educational Use &nbsp;//&nbsp; Student Distribution</div>
+
+  <div class="content">
+
+    <div class="section-header">Analysis & Assessment</div>
+
+    <div class="analysis-horizon">
+      <div class="horizon-label">Near-Term (Days 8–21) — The Kinetic-Diplomatic Race</div>
+      <p>Operation Epic Fury has succeeded in its immediate military objectives: Iranian airspace is contested, its navy is largely eliminated, its missile launch rate is suppressed by 86-90%, and its senior command structure has been gutted. These are remarkable kinetic achievements. But the war is entering a phase where military success and strategic success diverge. Iran has opened a backchannel to the CIA, but the very strikes that pressured Tehran into signaling have also eliminated most of the Iranian officials Washington would need to negotiate with. Trump acknowledged this directly: "Most of the people we had in mind are dead." The next two to three weeks will determine whether a ceasefire framework can be assembled before the US intercept stockpiles — already stressed after seven days of intensive air defense — become a constraining factor. CSIS estimates initial munitions expenditure at $3.7B in 100 hours; resupply timelines are not publicly known.</p>
+    </div>
+
+    <div class="analysis-horizon">
+      <div class="horizon-label">Medium-Term (Weeks 3–8) — The Great Power Complication</div>
+      <p>Russian intelligence support has already improved Iran's targeting precision — demonstrated by a shift from broad-area strikes toward US command, control, and radar infrastructure. If China crosses the threshold into material resupply (missile components, financial transfers), the US faces a qualitatively different adversary: one whose military persistence is externally subsidized. This creates an uncomfortable parallel to the Afghanistan and Vietnam dynamics, where external resupply prolonged conflicts indefinitely. The US has escalation options — sanctioning Chinese firms involved in resupply, direct diplomatic confrontation with Moscow — but these carry risks of broader great-power conflict. The most likely medium-term outcome is a negotiated suspension of hostilities, not a decisive US-Israeli victory, as Iran retains sufficient institutional and territorial integrity to make occupation or forced regime transition untenable.</p>
+    </div>
+
+    <div class="analysis-horizon">
+      <div class="horizon-label">Long-Term (Months 2+) — The Regime Change Paradox</div>
+      <p>The dominant analytical framework in Washington appears to assume that sufficient military pressure will either produce regime collapse or a maximally favorable ceasefire. Neither outcome is assured. ACLED and CFR's Richard Haass independently assess that air campaigns alone have never toppled a regime — not in Serbia, not in Libya (where ground-level collapse preceded NATO action), and not in any prior case in modern history. IRGC hardliners now control Iranian decision-making; they are more ideologically committed and less pragmatic than the civilian leadership that was killed. Iran may calculate that it is better positioned to absorb the costs of a long war than the United States, which faces domestic economic pressure (Dow -1,000 on Day 2, oil at $90/barrel), an unbounded military expenditure, and no clear endgame. The most durable long-term outcome consistent with US stated objectives — a non-nuclear, non-missile Iran — requires a successor Iranian government willing to enforce verified disarmament, and no such government yet exists. If one does not emerge organically, the US faces a choice between an indefinite military occupation and a negotiated settlement that preserves some version of the Islamic Republic.</p>
+    </div>
+
+    <div class="section-header">Discussion Questions</div>
+
+    <ul class="dq-list">
+      <li><span class="dq-num">01 //</span> Operation Epic Fury achieved significant kinetic results — air defense suppression, naval elimination, and command decapitation — but has not achieved regime change. What does this gap between operational success and strategic success reveal about the limits of military power as a tool of foreign policy?</li>
+      <li><span class="dq-num">02 //</span> Russia is providing Iran with satellite targeting intelligence while China assesses whether to supply missile components. Neither has formally entered the conflict. How does this kind of "shadow belligerence" challenge traditional definitions of war — and what obligations, if any, does it create for the United States to respond?</li>
+      <li><span class="dq-num">03 //</span> Trump demanded Iran's "unconditional surrender," but acknowledged that most of the Iranian officials the US had "in mind" for negotiations are now dead. What does it mean strategically to destroy your adversary's ability to negotiate? Does military success ever become self-defeating?</li>
+      <li><span class="dq-num">04 //</span> Iran's hit rate per missile fired has increased from 4% to 24% over the first week, even as the total number of launches has dropped. Russian targeting intelligence appears to explain this. What does this tell you about the evolving nature of warfare — and how should the United States think about the vulnerability of its forward-deployed assets in an era of adversary intelligence sharing?</li>
+      <li><span class="dq-num">05 //</span> Richard Haass of CFR argues this was a "war of choice," not a "war of necessity," and that the US has not offered convincing evidence of an imminent Iranian threat. Do you find this distinction meaningful in this case? Under what conditions, if any, should states launch preventive military action — and who gets to make that judgment?</li>
+    </ul>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">ARANDA INTEL</div>
+    <div class="footer-center">ARANDA | March 7, 2026</div>
+    <div class="footer-page">PAGE 5</div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  PAGE 6: SOURCES + DISCLOSURE                               -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-left">
+      <div class="header-brand">Aranda Intel &nbsp;|&nbsp; Student Intelligence Brief</div>
+      <div class="header-title">Operation Epic Fury: Week One Assessment</div>
+      <div class="header-subtitle">Iran War &nbsp;|&nbsp; Regional Escalation &nbsp;|&nbsp; Great Power Interference</div>
+    </div>
+    <div class="header-right">
+      <div class="ai-brand">ARANDA INTEL</div>
+      <div class="ai-date">March 7, 2026</div>
+    </div>
+  </div>
+  <div class="classbar">Unclassified &nbsp;//&nbsp; For Educational Use &nbsp;//&nbsp; Student Distribution</div>
+
+  <div class="content watermark-container">
+
+    <div class="section-header">Sources</div>
+
+    <div class="two-col">
+      <div>
+        <p class="source-entry">Armed Conflict Location and Event Data Project (ACLED). "Middle East Special Issue: March 2026." March 2026. https://acleddata.com/update/middle-east-special-issue-march-2026</p>
+
+        <p class="source-entry">Arms Control Association. "Trump Strikes Iran Amid Nuclear Talks." March 2026. https://www.armscontrol.org/act/2026-03/news/trump-strikes-iran-amid-nuclear-talks</p>
+
+        <p class="source-entry">Britannica Editors. "2026 Iran Conflict." Encyclopaedia Britannica. Updated March 6, 2026. https://www.britannica.com/event/2026-Iran-Conflict</p>
+
+        <p class="source-entry">Center for Strategic and International Studies (CSIS). "Operation Epic Fury and the Remnants of Iran's Nuclear Program." February 28, 2026. https://www.csis.org</p>
+
+        <p class="source-entry">Cooper, Admiral Brad (CENTCOM Commander) and Hegseth, Pete (Secretary of Defense). Pentagon press briefing on Operation Epic Fury. MacDill Air Force Base, March 5, 2026. Reported by Military Times and Navy Times.</p>
+
+        <p class="source-entry">Dempsey, Joseph (@JosephHDempsey). "INS Makran, a former oil tanker converted into an Expeditionary Mobile Base, indicated damaged in strikes at Bandar Abbas." X/Twitter. March 2, 2026. https://x.com/JosephHDempsey</p>
+
+        <p class="source-entry">GlobalSecurity.org. "Iran War 2026 — Day 7 Update — 06 March 2026." https://www.globalsecurity.org/military/ops/iran-war-oprep.htm</p>
+
+        <p class="source-entry">Haass, Richard. "The War at One Week." Substack. March 6, 2026. https://richardhaass.substack.com/p/the-war-at-one-week-march-6-2026</p>
+
+        <p class="source-entry">House of Commons Library. "US-Israel Strikes on Iran: February/March 2026." Research Briefing CBP-10521. March 2026. https://commonslibrary.parliament.uk/research-briefings/cbp-10521/</p>
+
+        <p class="source-entry">Institute for the Study of War (ISW). Operational updates on Operation Epic Fury campaign priorities. March 1–7, 2026. https://isw.pub</p>
+
+        <p class="source-entry">Iran War Cost Tracker. "US Iran Conflict 2026 Cost Tracker." Anchored March 4, 2026. https://iranwarcost.com/</p>
+
+        <p class="source-entry">Jerusalem Post. "Iran Reached Out to CIA for Terms to End War with Israel." March 2026. https://www.jpost.com/middle-east/iran-news/article-888816</p>
+
+        <p class="source-entry">JINSA (Jewish Institute for National Security of America). "Operations Epic Fury and Roaring Lion: 3/1/26 Update 1." March 1, 2026. https://jinsa.org/wp-content/uploads/2026/03/Operations-Epic-Fury-and-Roaring-Lion-03-01-26.pdf</p>
+      </div>
+      <div>
+        <p class="source-entry">JINSA. "Operations Epic Fury and Roaring Lion: 3/3/26 Update 1." March 3, 2026. https://jinsa.org/wp-content/uploads/2026/03/Operations-Epic-Fury-and-Roaring-Lion-03-03.pdf</p>
+
+        <p class="source-entry">Mao Ning (Chinese Foreign Ministry Spokesperson). "Regular Press Conference." Ministry of Foreign Affairs, People's Republic of China. March 2, 2026. https://www.fmprc.gov.cn/mfa_eng/xw/fyrbt/202603/t20260302_11867202.html</p>
+
+        <p class="source-entry">Naval News. "US Strikes Destroy Iran's Main Naval Assets." March 2, 2026. https://www.navalnews.com/naval-news/2026/03/us-strikes-destroy-irans-main-naval-assets/</p>
+
+        <p class="source-entry">NBC News. "Russia is Providing Intelligence to Iran on the Location of U.S. Forces, Sources Say." March 6, 2026. https://www.nbcnews.com/politics/national-security/russia-providing-intelligence-iran-location-us-forces-sources-say-rcna262115</p>
+
+        <p class="source-entry">NPR. "6 U.S. Soldiers Have Been Killed as the War with Iran Further Engulfs the Region." March 2, 2026. https://www.npr.org/2026/03/02/g-s1-112151/iran-war-widens-threatens-to-engulf-lebanon</p>
+
+        <p class="source-entry">Special Eurasia. "How Russian and China Tech Underpins Iranian Strategic Depth." March 1, 2026. https://www.specialeurasia.com/2026/03/01/russia-china-iran-tech-military/</p>
+
+        <p class="source-entry">Strobel, Warren P. "Russia is Giving Iran Intelligence to Target U.S. Forces, Officials Say." The Washington Post. March 6, 2026. https://www.washingtonpost.com/national-security/2026/03/06/russia-iran-intelligence-us-targets/</p>
+
+        <p class="source-entry">U.S. Central Command (@CENTCOM). Operational updates on Operation Epic Fury. X/Twitter. February 28 – March 7, 2026. https://x.com/CENTCOM</p>
+
+        <p class="source-entry">White House. "America's Warriors Are Obliterating Iranian Terror Regime with Unrelenting Force." White House official releases. March 4, 2026. https://www.whitehouse.gov/articles/2026/03/americas-warriors-are-obliterating-iranian-terror-regime-with-unrelenting-force/</p>
+
+        <p class="source-entry">Wikipedia contributors. "2026 Iran War." Wikipedia. Accessed March 7, 2026. https://en.wikipedia.org/wiki/2026_Iran_war</p>
+
+        <p class="source-entry">Wikipedia contributors. "2026 United States Military Buildup in the Middle East." Wikipedia. Accessed March 7, 2026. https://en.wikipedia.org/wiki/2026_United_States_military_buildup_in_the_Middle_East</p>
+
+        <p class="source-entry">Al Jazeera. "Iran War: What Is Happening on Day Eight of US-Israel Attacks?" March 7, 2026. https://www.aljazeera.com/news/2026/3/7/iran-war-what-is-happening-on-day-eight-of-us-israel-attacks</p>
+
+        <p class="source-entry">Aviation A2Z. "US Military Equipment Losses Near $2 Billion After Four Days of Iran Strikes." March 4, 2026. https://aviationa2z.com/index.php/2026/03/04/us-military-equipment-losses-near-2-billion-after-four-days-of-iran-strikes/</p>
+
+        <p class="source-entry">Axios. "Who Are the Kurds and What Role Could They Play in the War with Iran?" March 5, 2026. https://www.axios.com/2026/03/05/trump-iran-war-kurds-soldiers-iraq</p>
+
+        <p class="source-entry">CNN Politics. "CIA Working to Arm Kurdish Forces to Spark Uprising in Iran, Sources Say." March 3, 2026. https://www.cnn.com/2026/03/03/politics/cia-arming-kurds-iran</p>
+
+        <p class="source-entry">Coşkun, Alper. "Turkey Has Two Key Interests in the Iran Conflict." Carnegie Endowment for International Peace. March 6, 2026. https://carnegieendowment.org/emissary/2026/03/turkey-interests-iran-conflict-united-states-israel</p>
+
+        <p class="source-entry">JINSA. "The Kurdish Moment in Iran." Jewish Institute for National Security of America. March 4, 2026. https://jinsa.org/jinsa_report/the-kurdish-moment-in-iran/</p>
+
+        <p class="source-entry">Middle East Eye. "Turkey's Kurds Reject US-Israeli 'Designs' in Iran as Netanyahu Bets on Uprising." March 3, 2026. https://www.middleeasteye.net/news/turkeys-kurds-reject-iran-designs-netanyahu-bets-uprising</p>
+
+        <p class="source-entry">PBS NewsHour. "Who Are the Kurds and What Role Could They Play in the War with Iran?" March 6, 2026. https://www.pbs.org/newshour/politics/who-are-the-kurds-and-what-role-could-they-play-in-the-war-with-iran</p>
+
+        <p class="source-entry">Reuters. "Turkey Says It Closely Following Actions of Iranian Kurdish PJAK Militant Group." March 5, 2026. https://english.alarabiya.net/News/middle-east/2026/03/05/turkey-says-it-closely-following-actions-of-iranian-kurdish-pjak-militant-group</p>
+
+        <p class="source-entry">Wikipedia contributors. "2026 Kurdish Rebellion in Iran." Wikipedia. Accessed March 7, 2026. https://en.wikipedia.org/wiki/2026_Kurdish_rebellion_in_Iran</p>
+
+        <p class="source-entry">Yeşilada, Atilla. "Iran War Raises New Concern for Ankara: PKK Enters the Equation." P.A. Turkey. March 6, 2026. https://www.paturkey.com/news/2026/iran-war-raises-new-concern-for-ankara-pkk-enters-the-equation-28481/</p>
+
+      </div>
+    </div>
+
+    <div class="disclosure">
+      <em>Assessment reflects original research efforts, analytical process, and personal insight; this brief has been critically elevated, organizationally collated, and visually polished using Claude Tools.</em>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">ARANDA INTEL</div>
+    <div class="footer-center">ARANDA | March 7, 2026</div>
+    <div class="footer-page">PAGE 6</div>
+  </div>
+</div>
+
+</body>
+</html>
