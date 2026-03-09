@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iran War — Day 9 Update | Aranda Intel</title>
+<style>
+  :root {
+    --slate:   #282F44;
+    --crimson: #8C2122;
+    --red:     #C8102E;
+    --teal:    #1F5673;
+    --gold:    #BF9000;
+    --gray:    #474747;
+    --lgray:   #f3f3f3;
+    --mgray:   #d0d0d0;
+    --white:   #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', serif;
+    font-size: 10pt;
+    color: var(--gray);
+    background: #e8e8e8;
+  }
+
+  /* PAGE */
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    background: var(--white);
+    margin: 0.25in auto;
+    display: flex;
+    flex-direction: column;
+    page-break-after: always;
+  }
+
+  /* HEADER */
+  .page-header {
+    background: var(--slate);
+    border-bottom: 3px solid var(--crimson);
+    padding: 10px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .header-left { display: flex; flex-direction: column; gap: 2px; }
+  .header-brand {
+    font-family: 'Courier New', monospace;
+    font-size: 18pt;
+    font-weight: bold;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+  }
+  .header-title {
+    font-family: 'Georgia', serif;
+    font-size: 11pt;
+    color: var(--white);
+    font-weight: bold;
+  }
+  .header-sub {
+    font-family: 'Georgia', serif;
+    font-size: 8.5pt;
+    color: var(--mgray);
+    font-style: italic;
+  }
+  .header-right { text-align: right; }
+  .header-right-brand {
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+  }
+  .header-right-date {
+    font-family: 'Georgia', serif;
+    font-size: 8.5pt;
+    color: var(--mgray);
+    margin-top: 2px;
+  }
+
+  /* CLASSBAR */
+  .classbar {
+    background: var(--crimson);
+    color: var(--white);
+    font-family: 'Courier New', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 3px 0;
+    flex-shrink: 0;
+  }
+
+  /* BODY */
+  .page-body {
+    flex: 1;
+    padding: 16px 20px 12px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* FOOTER */
+  .page-footer {
+    background: var(--slate);
+    border-top: 2px solid var(--crimson);
+    padding: 6px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .footer-brand {
+    font-family: 'Courier New', monospace;
+    font-size: 8pt;
+    color: var(--gold);
+    font-weight: bold;
+    letter-spacing: 0.1em;
+  }
+  .footer-center {
+    font-family: 'Courier New', monospace;
+    font-size: 7.5pt;
+    color: var(--mgray);
+    letter-spacing: 0.06em;
+  }
+  .footer-page {
+    font-family: 'Courier New', monospace;
+    font-size: 7.5pt;
+    color: var(--mgray);
+  }
+
+  /* SECTION BARS */
+  .section-bar {
+    background: var(--slate);
+    color: var(--white);
+    font-family: 'Courier New', monospace;
+    font-size: 8pt;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+  }
+  .section-bar.crimson { background: var(--crimson); }
+  .section-bar.teal    { background: var(--teal); }
+  .section-bar.gold    { background: var(--gold); color: var(--slate); }
+
+  /* BODY TEXT */
+  p {
+    font-size: 9.5pt;
+    line-height: 1.55;
+    color: var(--gray);
+    margin-bottom: 6px;
+  }
+
+  /* ALERT BOX */
+  .alert-box {
+    border-left: 5px solid var(--red);
+    background: #fff5f5;
+    padding: 10px 14px;
+    margin: 4px 0;
+  }
+  .alert-title {
+    font-family: 'Courier New', monospace;
+    font-size: 8.5pt;
+    font-weight: bold;
+    color: var(--red);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .alert-box p { font-size: 9pt; margin-bottom: 0; }
+
+  /* KEY DEVELOPMENTS GRID */
+  .dev-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .dev-card {
+    background: var(--lgray);
+    border-top: 3px solid var(--crimson);
+    padding: 8px 10px;
+  }
+  .dev-date {
+    font-family: 'Courier New', monospace;
+    font-size: 7.5pt;
+    color: var(--gold);
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    margin-bottom: 3px;
+  }
+  .dev-head {
+    font-size: 9pt;
+    font-weight: bold;
+    color: var(--slate);
+    margin-bottom: 4px;
+  }
+  .dev-body {
+    font-size: 8.5pt;
+    line-height: 1.45;
+    color: var(--gray);
+  }
+
+  /* TWO / THREE COL */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 9px;
+  }
+
+  /* CAP CARDS */
+  .cap-card {
+    background: var(--lgray);
+    border-top: 3px solid var(--teal);
+    padding: 8px 10px;
+  }
+  .cap-card.crimson-top { border-top-color: var(--crimson); }
+  .cap-card.gold-top    { border-top-color: var(--gold); }
+  .cap-card.red-top     { border-top-color: var(--red); }
+  .cap-title {
+    font-size: 8.5pt;
+    font-weight: bold;
+    color: var(--slate);
+    margin-bottom: 4px;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .cap-text {
+    font-size: 8.5pt;
+    line-height: 1.45;
+    color: var(--gray);
+  }
+
+  /* ACTOR TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.5pt;
+  }
+  thead tr { background: var(--slate); color: var(--white); }
+  thead th {
+    padding: 6px 8px;
+    text-align: left;
+    font-family: 'Courier New', monospace;
+    font-size: 8pt;
+    letter-spacing: 0.06em;
+    font-weight: bold;
+  }
+  tbody tr:nth-child(even) { background: var(--lgray); }
+  tbody tr:nth-child(odd)  { background: var(--white); }
+  tbody td {
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--mgray);
+    vertical-align: top;
+    line-height: 1.4;
+  }
+  .td-actor { font-weight: bold; color: var(--slate); font-size: 8.5pt; }
+  .td-flag {
+    display: inline-block;
+    padding: 1px 5px;
+    font-size: 7pt;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    margin-top: 2px;
+  }
+  .flag-red    { background: var(--red);    color: var(--white); }
+  .flag-orange { background: #C86000;       color: var(--white); }
+  .flag-teal   { background: var(--teal);   color: var(--white); }
+  .flag-gold   { background: var(--gold);   color: var(--slate); }
+  .flag-gray   { background: var(--gray);   color: var(--white); }
+
+  /* ANALYSIS TIME-HORIZON */
+  .horizon-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 0;
+    border: 1px solid var(--mgray);
+    margin-bottom: 5px;
+  }
+  .horizon-label {
+    background: var(--slate);
+    color: var(--white);
+    font-family: 'Courier New', monospace;
+    font-size: 7.5pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8px 6px;
+  }
+  .horizon-label.red    { background: var(--red); }
+  .horizon-label.orange { background: #C86000; }
+  .horizon-label.teal   { background: var(--teal); }
+  .horizon-body {
+    padding: 8px 10px;
+    font-size: 9pt;
+    line-height: 1.5;
+  }
+
+  /* DISCUSSION QUESTIONS */
+  .dq-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .dq-list li {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 8px;
+    align-items: start;
+  }
+  .dq-num {
+    background: var(--crimson);
+    color: var(--white);
+    font-family: 'Courier New', monospace;
+    font-size: 8pt;
+    font-weight: bold;
+    text-align: center;
+    padding: 2px 0;
+    min-width: 22px;
+  }
+  .dq-text { font-size: 9.5pt; line-height: 1.5; }
+
+  /* SOURCES */
+  .source-entry {
+    font-size: 8pt;
+    line-height: 1.5;
+    color: var(--gray);
+    border-bottom: 1px solid var(--lgray);
+    padding: 5px 0;
+  }
+
+  .disclosure {
+    font-style: italic;
+    font-size: 7.5pt;
+    color: #999;
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid var(--mgray);
+  }
+
+  /* DIVIDER */
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--mgray);
+    margin: 8px 0;
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; }
+    .page {
+      margin: 0;
+      width: 100%;
+      min-height: auto;
+      page-break-after: always;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ PAGE 1 — SITUATION OVERVIEW ═══════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-left">
+      <div class="header-brand">ARANDA INTEL</div>
+      <div class="header-title">Operation Epic Fury — Day 9 Update</div>
+      <div class="header-sub">Environmental Crisis · Kurdish Front · China &amp; Russia Positions</div>
+    </div>
+    <div class="header-right">
+      <div class="header-right-brand">ARANDA INTEL</div>
+      <div class="header-right-date">March 9, 2026</div>
+    </div>
+  </div>
+  <div class="classbar">Unclassified &nbsp;//&nbsp; For Educational Use &nbsp;//&nbsp; Student Distribution</div>
+
+  <div class="page-body">
+
+    <div class="alert-box">
+      <div class="alert-title">⚑ Critical Escalation — Day 9 Developments</div>
+      <p>Israeli strikes on four Tehran oil depots overnight March 7–8 unleashed a toxic black cloud over nearly 10 million residents. Iran struck a Bahrain desalination plant in apparent retaliation — the first confirmed attack on Gulf water infrastructure. Iran has named a new supreme leader. Oil has reached $120/barrel. The Kurdish ground phase is believed to have begun.</p>
+    </div>
+
+    <div class="section-bar">▶ Situation Overview</div>
+
+    <p>Operation Epic Fury entered its ninth day on March 9 with no ceasefire in sight and the war's character shifting in three significant ways. First, what began as a precision leadership-decapitation campaign is now a full infrastructure war: both sides are striking civilian energy and water systems, raising the specter of a regional humanitarian catastrophe that transcends the original military objectives. Second, the Kurdish dimension — long anticipated in our prior briefings — has formally opened as a probable ground phase, with CIA-backed groups reportedly crossing or preparing to cross into western Iran. Third, China has quietly moved from pure diplomatic condemnation to active mediation on Hormuz shipping lanes, potentially making Beijing the single most consequential actor for how this war ends.</p>
+
+    <p>Trump has demanded "unconditional surrender" and warned of escalation. Iranian President Pezeshkian, representing the new tripartite leadership council, has been publicly conciliatory — calling attacks on Gulf neighbors a "miscommunication in the ranks" — while privately vowing to expand operations against American targets. The contradiction signals a fractured Iranian command structure, not a pivot toward peace.</p>
+
+    <p>The Strait of Hormuz remains a near-total blockade. Twenty percent of the world's daily oil supply and a significant share of global LNG remain suspended. Brent crude briefly crossed $120/barrel on news of Iran's new supreme leader and continued strikes. Goldman Sachs warns that if Hormuz remains closed for weeks, U.S. gas prices will hit $3.50/gallon and global inflation will become a structural problem.</p>
+
+    <div class="section-bar crimson">▶ Key Developments — March 6–9, 2026</div>
+
+    <div class="dev-grid">
+      <div class="dev-card">
+        <div class="dev-date">March 7–8 | Environmental Crisis</div>
+        <div class="dev-head">Tehran Oil Depots Struck — Black Rain</div>
+        <div class="dev-body">Israeli strikes hit four oil storage facilities and a petroleum transfer terminal in Tehran and Alborz. Toxic black smoke blanketed nearly 10 million residents. Oil-saturated rain fell across the city. Iran's Red Crescent reported "significant quantities of toxic hydrocarbon compounds, sulfur, and nitrogen oxides" released into the atmosphere. The NIOC CEO confirmed four personnel killed. Widespread respiratory advisories issued.</div>
+      </div>
+      <div class="dev-card">
+        <div class="dev-date">March 8 | Water War Opens</div>
+        <div class="dev-head">Bahrain Desalination Plant Struck</div>
+        <div class="dev-body">Iran struck a Bahrain desalination plant in the first confirmed attack on Gulf water infrastructure since the war began. Bahrain accused Tehran of "randomly bombing civilian targets." Iran's FM Araghchi justified the strike by pointing to a prior U.S. attack on a desalination plant on Iran's Qeshm Island, which disrupted water supply to 30 villages — saying "The US set this precedent, not Iran." Deliberate attacks on water infrastructure constitute potential war crimes under Geneva Protocol I.</div>
+      </div>
+      <div class="dev-card">
+        <div class="dev-date">March 6–8 | Kurdish Front</div>
+        <div class="dev-head">Kurdish Forces Reportedly Enter Iran</div>
+        <div class="dev-body">CNN confirmed the CIA is actively arming Kurdish opposition forces to spark an uprising in western Iran. A senior PDKI official stated "a large force of ours is already in Iran." Trump personally called Kurdish leaders in Iraq — including Masoud Barzani and Bafel Talabani — to coordinate. Israel and the U.S. have conducted systematic airstrikes on Iranian border posts and IRGC facilities in Kurdistan to "pave the way" for Kurdish advance. Iran threatened to strike all Kurdistan Region of Iraq facilities if militants cross.</div>
+      </div>
+      <div class="dev-card">
+        <div class="dev-date">March 9 | Succession &amp; Oil Spike</div>
+        <div class="dev-head">Iran Names New Supreme Leader; Oil Surges</div>
+        <div class="dev-body">Iran named a new supreme leader on Day 9, triggering a fresh round of Iranian missile and drone salvos and a spike in oil prices to near $120/barrel. Stock markets shuddered globally. Iran's new leadership has signaled intent to continue fighting. Mojtaba Khamenei, the late supreme leader's son, survived an earlier airstrike and remains a succession wildcard. Iran formally rejected Trump's "unconditional surrender" demand.</div>
+      </div>
+      <div class="dev-card">
+        <div class="dev-date">March 8 | Hormuz Economics</div>
+        <div class="dev-head">Iraq Cuts Oil Output 60%; Qatar Force Majeure</div>
+        <div class="dev-body">Iraq slashed oil output from ~4.3 million barrels/day to 1.7–1.8 million due to full storage capacity with no export route. QatarEnergy declared force majeure after Iranian drone attacks on Ras Laffan LNG facility. Qatar supplies 20% of global LNG. Saudi Aramco's Ras Tanura refinery — its largest domestic oil facility — shut down after Iranian drone attacks. Bahrain's Kuwait's international airport fuel tanks hit. New Iran drone struck the Bahrain Juffair U.S. Navy base.</div>
+      </div>
+      <div class="dev-card">
+        <div class="dev-date">March 8–9 | Diplomatic Track</div>
+        <div class="dev-head">China Moves Toward Active Mediation</div>
+        <div class="dev-body">FM Wang Yi called this "a war that should never have happened and a war that benefited no one" at the NPC sidelines. More significantly: Reuters reported China is in active talks with Iran to allow Chinese vessels and Qatari LNG safe passage through Hormuz — a concrete economic pressure point China has not previously leveraged. A Xi–Trump summit remains scheduled for later this month. China's energy exposure to Hormuz (Qatar provides ~30% of China's LNG) is the sharpest incentive for Beijing to broker a corridor deal.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-brand">ARANDA INTEL</span>
+    <span class="footer-center">ARANDA | March 9, 2026</span>
+    <span class="footer-page">PAGE 1</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════ PAGE 2 — ACTORS / THREAT LANDSCAPE ═══════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-left">
+      <div class="header-brand">ARANDA INTEL</div>
+      <div class="header-title">Operation Epic Fury — Day 9 Update</div>
+      <div class="header-sub">Actor &amp; Threat Assessment</div>
+    </div>
+    <div class="header-right">
+      <div class="header-right-brand">ARANDA INTEL</div>
+      <div class="header-right-date">March 9, 2026</div>
+    </div>
+  </div>
+  <div class="classbar">Unclassified &nbsp;//&nbsp; For Educational Use &nbsp;//&nbsp; Student Distribution</div>
+
+  <div class="page-body">
+
+    <div class="section-bar">▶ Regional Actor Assessment — Updated Day 9</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Actor</th>
+          <th>Status</th>
+          <th>Key Action (Day 6–9)</th>
+          <th>Critical Variable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-actor">United States<br><span class="td-flag flag-red">Kinetic</span></td>
+          <td>Escalating. Trump threatens further intensification and warns areas "not previously considered" are now targets.</td>
+          <td>Continued strikes on IRGC infrastructure, missile sites, leadership. U.S. Navy at near-maximum presence. CIA Kurdish arming program active.</td>
+          <td>Whether Kurdish ground phase receives official U.S. air cover. Kurdish success/failure shapes next 72 hrs.</td>
+        </tr>
+        <tr>
+          <td class="td-actor">Israel<br><span class="td-flag flag-red">Kinetic</span></td>
+          <td>Escalating. Re-opened Lebanon front. Ground invasion of southern Lebanon authorized.</td>
+          <td>Tehran oil depot strikes (March 7–8). Systematic border-area strikes to clear Kurdish corridor. Lebanon ground incursion (91st Division).</td>
+          <td>Whether Netanyahu accelerates or pauses. Israeli economy straining; early elections announced for late June/July.</td>
+        </tr>
+        <tr>
+          <td class="td-actor">Iran<br><span class="td-flag flag-red">Kinetic</span></td>
+          <td>Absorbing damage; retaliating broadly across Gulf. New leadership named March 9. Command fractures visible.</td>
+          <td>Hormuz blockade sustained. Bahrain desalination strike. Lebanon Hezbollah rockets. Drone attacks on Kuwait airport, UAE, Bahrain. 100+ missile/drone salvo on UAE.</td>
+          <td>New supreme leader's posture — hardline escalation vs. regime survival diplomacy. Will define war's next phase.</td>
+        </tr>
+        <tr>
+          <td class="td-actor">Turkey<br><span class="td-flag flag-orange">Complicated</span></td>
+          <td>Maintaining strategic ambiguity. Second Iranian missile intercepted over Turkish airspace reported March 9. Erdoğan pursuing "intense" diplomatic efforts.</td>
+          <td>Called for immediate ceasefire with Russia and China (March 4). Summoned Iran's ambassador. Publicly opposed both Iranian strikes and U.S. Kurdish arming.</td>
+          <td>Kurdish arming is Turkey's red line. If CIA-backed Kurds begin holding territory in northwest Iran, Ankara faces an existential policy crisis.</td>
+        </tr>
+        <tr>
+          <td class="td-actor">Kurdish Forces (CPFIK)<br><span class="td-flag flag-red">Emerging Kinetic</span></td>
+          <td>Active. CIA backing confirmed. At least one coalition leader confirmed forces "already in Iran." Ground phase likely begun or imminent.</td>
+          <td>PDKI, PAK, PJAK coalition formed Feb. 22. Trump personal calls to Barzani, Talabani, Hijri. Israeli clearing strikes on Iranian border positions. IRGC counter-striking Kurdish bases in KRI.</td>
+          <td>Whether Iraqi Kurdish leaders (Barzani/Talabani) allow KRI as weapons transit hub. KRI sovereignty could fracture Iraq's position.</td>
+        </tr>
+        <tr>
+          <td class="td-actor">China<br><span class="td-flag flag-teal">Diplomatic/Active</span></td>
+          <td>Upgraded from passive condemnation to active mediation. Quietly leveraging Hormuz energy dependence as pressure instrument.</td>
+          <td>Wang Yi called for immediate ceasefire at NPC (March 8). China-Iran talks on allowing Chinese/Qatari vessels through Hormuz. Evacuated 3,000+ citizens from Iran. Barred rare earth exports for military use.</td>
+          <td>Whether Xi–Trump summit (planned this month) produces a Hormuz corridor deal. China's LNG dependence on Qatar (~30% of imports) is the decisive economic lever.</td>
+        </tr>
+        <tr>
+          <td class="td-actor">Russia<br><span class="td-flag flag-gold">Diplomatic Only</span></td>
+          <td>Verbal condemnation; no military support. Watching strategically. Benefiting from oil price spike (funds Ukraine war machine).</td>
+          <td>Lavrov warned strikes could paradoxically cause nuclear proliferation. Russia–Iran–China naval exercises preceded war by days. Rosatom evacuated from Bushehr.</td>
+          <td>Russia will not intervene militarily — Ukraine overstretch confirmed by multiple analysts. Russia's priority is preserving Trump's Ukraine mediation posture.</td>
+        </tr>
+        <tr>
+          <td class="td-actor">Gulf States (GCC)<br><span class="td-flag flag-orange">Defensive/Exposed</span></td>
+          <td>Under active attack. Absorbing Iranian salvos while refusing to join the war. Deeply alarmed about desalination vulnerability.</td>
+          <td>Saudi Aramco Ras Tanura shut down. Qatar force majeure on LNG. Kuwait oil output halted. Bahrain desalination plant struck. UAE intercepted 100+ Iran projectiles March 8.</td>
+          <td>Whether desalination attacks escalate. Analysts warn Saudi Arabia's Jubail plant is existential — a direct strike would trigger evacuation of Riyadh within days.</td>
+        </tr>
+        <tr>
+          <td class="td-actor">Lebanon / Hezbollah<br><span class="td-flag flag-red">Kinetic</span></td>
+          <td>Re-engaged. Lebanese parliament extended its term 2 years. Israeli ground incursion active.</td>
+          <td>Hezbollah fired rockets on Israel (March 2) after Khamenei's death. Israeli 91st Division entered southern Lebanon. 394+ dead in Lebanon (83 children).</td>
+          <td>Whether Hezbollah escalates beyond rockets. Hezbollah drone struck British RAF base in Cyprus — NATO-adjacent incident.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-brand">ARANDA INTEL</span>
+    <span class="footer-center">ARANDA | March 9, 2026</span>
+    <span class="footer-page">PAGE 2</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════ PAGE 3 — ENVIRONMENTAL & WATER CRISIS / KURDS ═══════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-left">
+      <div class="header-brand">ARANDA INTEL</div>
+      <div class="header-title">Operation Epic Fury — Day 9 Update</div>
+      <div class="header-sub">Environmental Crisis &amp; Water War · Kurdish Ground Phase</div>
+    </div>
+    <div class="header-right">
+      <div class="header-right-brand">ARANDA INTEL</div>
+      <div class="header-right-date">March 9, 2026</div>
+    </div>
+  </div>
+  <div class="classbar">Unclassified &nbsp;//&nbsp; For Educational Use &nbsp;//&nbsp; Student Distribution</div>
+
+  <div class="page-body">
+
+    <div class="section-bar crimson">▶ Environmental Crisis — Oil &amp; Water as Weapons of War</div>
+
+    <p>The war has crossed a threshold that prior Middle East conflicts largely avoided: the deliberate targeting of civilian energy and water infrastructure. The consequences are both humanitarian and strategic.</p>
+
+    <div class="two-col">
+      <div>
+        <div class="section-bar teal" style="font-size:7.5pt; padding:4px 8px; margin-bottom:8px;">OIL INFRASTRUCTURE</div>
+        <p style="font-size:9pt;">Israeli strikes on Tehran oil depots March 7–8 triggered the worst environmental event in the Iranian capital's modern history. Four storage facilities and a petroleum transfer terminal were struck, causing fires that burned for hours and released a toxic cocktail — hydrocarbon compounds, sulfur dioxide, and nitrogen oxides — over nearly 10 million people. Black, oil-saturated rain fell on residential neighborhoods. Iran's Red Crescent issued health alerts; environmental authorities ordered residents indoors.</p>
+        <p style="font-size:9pt;">Beyond Tehran: Saudi Aramco's Ras Tanura facility — its largest domestic refinery — shut down after Iranian drone attacks. QatarEnergy's Ras Laffan LNG terminal was struck and declared force majeure. New drone strikes hit a major oil refinery in Bahrain. The oil tanker <em>Sonangol Namibe</em> was struck near Kuwait, causing an oil spill. This is, in the assessment of IEA analyst Daniel Yergin, the largest disruption to oil production in recorded history, combined with a "resounding shock to global gas markets."</p>
+      </div>
+      <div>
+        <div class="section-bar teal" style="font-size:7.5pt; padding:4px 8px; margin-bottom:8px;">WATER INFRASTRUCTURE</div>
+        <p style="font-size:9pt;">Water may be the more dangerous front. Roughly 100 million people in the Gulf depend on desalination plants for their drinking water — in Kuwait, approximately 90% of potable water comes from desalination; in Qatar and Bahrain, similar proportions. Without functioning plants, these countries cannot sustain their populations in the regional heat.</p>
+        <p style="font-size:9pt;">The precedent exchange is alarming: the U.S. struck a desalination plant on Iran's Qeshm Island, disrupting water supply to 30 villages. Iran's FM Araghchi posted: "The U.S. set this precedent, not Iran." Within 24 hours, Iran struck a Bahrain desalination plant — and Iranian strikes have already come within 12 miles of Dubai's Jebel Ali complex, which produces much of that city's water. A leaked 2008 U.S. diplomatic cable from Riyadh warned that a direct strike on the Jubail plant — which supplies over 90% of Riyadh's water — could force the evacuation of 8.5 million people within one week.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+    <div class="section-bar">▶ Kurdish Front — The Ground Phase Opens</div>
+
+    <div class="alert-box">
+      <div class="alert-title">⚑ New Development — CIA Arming Program Active</div>
+      <p>CNN confirmed March 3 that the CIA is actively working to arm Iranian Kurdish opposition groups with the aim of fomenting a popular uprising in western Iran. A senior PDKI official told CNN that "a large force of ours is already in Iran" and operations would begin "as soon as possible." Trump personally called Kurdish leaders Masoud Barzani, Bafel Talabani, and KDPI head Mustafa Hijri. Secretary of State Rubio told Congress in closed session: "We're not arming the Kurds. But you never know with the Israelis."</p>
+    </div>
+
+    <div class="three-col" style="margin-top:8px;">
+      <div class="cap-card crimson-top">
+        <div class="cap-title">Who Are the Kurds?</div>
+        <div class="cap-text">The CPFIK coalition (formed Feb. 22) unites six Iranian Kurdish opposition groups: KDPI (~1,200 fighters), PAK (~1,000), PJAK/YRK (1,000–3,000, many women, based in Qandil Mountains), Khabat, and Komala. They operate along the Iran-Iraq border in KRI, have CIA/Mossad backing and U.S. training dating to the anti-ISIS campaign. They have conducted cross-border raids on IRGC positions for years.</div>
+      </div>
+      <div class="cap-card crimson-top">
+        <div class="cap-title">Strategic Logic</div>
+        <div class="cap-text">U.S. officials describe three goals: stretch IRGC forces thin to create space for urban protests; pin down security units so civilians can mobilize without a massacre; and potentially seize and hold territory in northwest Iran as a buffer zone for Israel. Israeli strikes have been systematically targeting Iranian border posts, police stations, and Basij facilities in Kurdistan — assessed as deliberate corridor-clearing for Kurdish ground forces.</div>
+      </div>
+      <div class="cap-card gold-top">
+        <div class="cap-title">Turkey's Red Line</div>
+        <div class="cap-text">Kurdish arming is Ankara's clearest trigger for direct confrontation with Washington. PJAK — one of the six coalition parties — is an offshoot of the PKK, which Turkey designates a terrorist organization. If CIA-backed Kurdish forces seize territory in northwest Iran, Turkey faces the prospect of a U.S.-backed proto-Kurdish state on its southeastern flank. Erdoğan has been diplomatically active precisely because he knows this phase is coming.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-brand">ARANDA INTEL</span>
+    <span class="footer-center">ARANDA | March 9, 2026</span>
+    <span class="footer-page">PAGE 3</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════ PAGE 4 — ANALYSIS & DISCUSSION ═══════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-left">
+      <div class="header-brand">ARANDA INTEL</div>
+      <div class="header-title">Operation Epic Fury — Day 9 Update</div>
+      <div class="header-sub">Analysis by Time Horizon · Discussion Questions</div>
+    </div>
+    <div class="header-right">
+      <div class="header-right-brand">ARANDA INTEL</div>
+      <div class="header-right-date">March 9, 2026</div>
+    </div>
+  </div>
+  <div class="classbar">Unclassified &nbsp;//&nbsp; For Educational Use &nbsp;//&nbsp; Student Distribution</div>
+
+  <div class="page-body">
+
+    <div class="section-bar">▶ Analysis — Three Frames, Three Time Horizons</div>
+
+    <div class="horizon-row">
+      <div class="horizon-label red">Immediate<br>Days 10–14</div>
+      <div class="horizon-body">The war's character is shifting from a kinetic decapitation campaign to an infrastructure war — and the infrastructure war is more dangerous. Oil infrastructure strikes in Tehran have crossed a threshold that risks Tehran's civilian population directly. The water precedent exchange (Qeshm → Bahrain) is the most alarming development since Khamenei's death. If Iran escalates from Bahrain to Saudi Arabia's Jubail desalination facility, the Gulf faces a water-security crisis that could force GCC states off the sidelines. The Kurdish ground phase, if it generates U.S. air cover requests, will force a direct collision between Turkey and Washington within the same theater. Watch the Kurdish ground announcement — that is the trigger event for the next phase.</div>
+    </div>
+
+    <div class="horizon-row">
+      <div class="horizon-label orange">Near-Term<br>Weeks 2–4</div>
+      <div class="horizon-body">China holds the most powerful off-ramp lever: Hormuz. Reuters' March 6 report that Beijing is in talks with Tehran to allow Chinese vessels and Qatari LNG through the strait is analytically underweighted in most Western coverage. China's LNG dependence on Qatar (~30% of imports) and broader Hormuz oil exposure gives Beijing a concrete economic stake in ending the blockade — and China alone has the political relationship with Tehran to negotiate a partial corridor. A Xi–Trump summit planned for later this month could produce a quiet Hormuz deal. This is not altruism — it is Chinese economic self-interest. Iran's new supreme leader's posture in the first 72 hours will also reveal whether succession has produced a more pragmatic or more hardline course.</div>
+    </div>
+
+    <div class="horizon-row">
+      <div class="horizon-label teal">Strategic<br>Months 1–6</div>
+      <div class="horizon-body">Three structural consequences are now near-certain regardless of how the war ends. First, the nuclear question is unresolved and potentially worse: Russia's Lavrov warned the strikes could paradoxically incentivize nuclear acquisition — "the U.S. doesn't attack those who have nuclear bombs." Second, the environmental damage is not reversible on a short timeline. Tehran's oil depot fires, Gulf oil spills, and the disruption to desalination infrastructure will leave public health and ecological consequences measured in years. Third, the Kurdish factor has been activated and cannot be un-activated: whatever happens in the war, Washington has now publicly associated itself with Kurdish autonomy aspirations in western Iran — a commitment that will outlast the conflict and shape regional dynamics for a generation. The Kurds, as ITV observed, have been used and abandoned by the U.S. before. The question is whether this time is different.</div>
+    </div>
+
+    <hr class="divider">
+    <div class="section-bar crimson">▶ Discussion Questions</div>
+
+    <ul class="dq-list">
+      <li>
+        <span class="dq-num">1</span>
+        <span class="dq-text">The oil infrastructure strikes in Tehran have created both a military and a humanitarian impact. Using evidence from the briefing, argue whether targeting civilian energy infrastructure is ever a legitimate act of war — and apply that argument to what Iran and Israel have each done in this conflict.</span>
+      </li>
+      <li>
+        <span class="dq-num">2</span>
+        <span class="dq-text">Iran's FM Araghchi said "The U.S. set this precedent" on desalination attacks before striking Bahrain's water plant. How does the logic of precedent-setting affect the escalation dynamics of war? Who is responsible when a precedent leads to humanitarian harm?</span>
+      </li>
+      <li>
+        <span class="dq-num">3</span>
+        <span class="dq-text">China has condemned the war and called for a ceasefire, but is also negotiating with Iran to allow Chinese ships through Hormuz. Is this hypocritical, pragmatic, or both? What does China's posture reveal about how major powers calculate their interests in someone else's war?</span>
+      </li>
+      <li>
+        <span class="dq-num">4</span>
+        <span class="dq-text">The CIA-backed Kurdish arming program was reportedly designed before the war started as part of a broader regime change strategy. ITV and IPS analysts suggest the Kurds are being used as a tactical instrument, not partners. Using historical examples of U.S. relationships with the Kurds (Iraq, Syria), assess whether the U.S. has earned the trust it is now asking Kurdish forces to act on.</span>
+      </li>
+      <li>
+        <span class="dq-num">5</span>
+        <span class="dq-text">Russia's Lavrov warned that bombing Iran to prevent nuclear proliferation may actually incentivize nuclear acquisition: "The U.S. doesn't attack those who have nuclear bombs." Evaluate this argument. Does the 2026 war make it more or less likely that other countries will pursue nuclear weapons? Cite at least two historical cases in your answer.</span>
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-brand">ARANDA INTEL</span>
+    <span class="footer-center">ARANDA | March 9, 2026</span>
+    <span class="footer-page">PAGE 4</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════ PAGE 5 — SOURCES ═══════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-left">
+      <div class="header-brand">ARANDA INTEL</div>
+      <div class="header-title">Operation Epic Fury — Day 9 Update</div>
+      <div class="header-sub">Sources &amp; Citations</div>
+    </div>
+    <div class="header-right">
+      <div class="header-right-brand">ARANDA INTEL</div>
+      <div class="header-right-date">March 9, 2026</div>
+    </div>
+  </div>
+  <div class="classbar">Unclassified &nbsp;//&nbsp; For Educational Use &nbsp;//&nbsp; Student Distribution</div>
+
+  <div class="page-body">
+
+    <div class="section-bar">▶ Sources — Alphabetical</div>
+
+    <div style="margin-top: 8px; display: flex; flex-direction: column; gap: 1px;">
+
+      <div class="source-entry">Al Jazeera Staff. "After Iran's Salvo Hit Their Skylines, Will Gulf States Enter the War?" <em>Al Jazeera.</em> March 2, 2026. https://www.aljazeera.com/features/2026/3/2/after-irans-salvo-hit-their-skylines-will-the-gulf-states-enter-the-war</div>
+
+      <div class="source-entry">Al Jazeera Staff. "Bahrain Says Water Desalination Plant Damaged in Iranian Drone Attack." <em>Al Jazeera.</em> March 8, 2026. https://www.aljazeera.com/news/2026/3/8/bahrain-says-water-desalination-plant-damaged-in-iranian-drone-attack</div>
+
+      <div class="source-entry">Al Jazeera Staff. "How Targeting of Desalination Plants Could Disrupt Water Supply in the Gulf." <em>Al Jazeera.</em> March 8, 2026. https://www.aljazeera.com/news/2026/3/8/how-targeting-of-desalination-plants-could-disrupt-water-supply-in-the-gulf</div>
+
+      <div class="source-entry">Al Jazeera Staff. "Iran Oil Facilities Hit for First Time as War with US-Israel Enters Day 9." <em>Al Jazeera.</em> March 8, 2026. https://www.aljazeera.com/news/2026/3/8/israel-strikes-irans-oil-facilities-for-first-time-as-war-enters-ninth-day</div>
+
+      <div class="source-entry">Al Jazeera Staff. "Iran War Threatens Prolonged Impact on Energy Markets as Oil Prices Rise." <em>Al Jazeera.</em> March 8, 2026. https://www.aljazeera.com/news/2026/3/8/iran-war-threatens-prolonged-impact-on-energy-markets-as-oil-prices-rise</div>
+
+      <div class="source-entry">Al Jazeera Staff. "Is the CIA Planning to Arm Kurdish Forces to Spark an Uprising in Iran?" <em>Al Jazeera.</em> March 4, 2026. https://www.aljazeera.com/news/2026/3/4/is-the-cia-planning-to-arm-kurdish-forces-to-spark-an-uprising-in-iran</div>
+
+      <div class="source-entry">Al Jazeera Staff. "Where Are Iran's Allies? Why Moscow, Beijing Are Keeping Their Distance." <em>Al Jazeera.</em> March 5, 2026. https://www.aljazeera.com/features/2026/3/5/where-are-irans-allies-why-moscow-beijing-are-keeping-their-distance</div>
+
+      <div class="source-entry">Al Jazeera Staff. "Which Kurdish Groups Is the US Rallying to Fight Iran?" <em>Al Jazeera.</em> March 5, 2026. https://www.aljazeera.com/news/2026/3/5/which-kurdish-groups-is-the-us-rallying-to-fight</div>
+
+      <div class="source-entry">Atlantic Council Staff. "How Would a Kurdish Offensive Change the War in Iran?" <em>Atlantic Council.</em> March 6, 2026. https://www.atlanticcouncil.org/dispatches/how-would-a-kurdish-offensive-change-the-war-in-iran/</div>
+
+      <div class="source-entry">Britannica Editors. "2026 Iran Conflict." <em>Encyclopædia Britannica.</em> Updated March 9, 2026. https://www.britannica.com/event/2026-Iran-Conflict</div>
+
+      <div class="source-entry">CNN Staff. "China Warns 'Flames of War' Spreading, Signals Welcome for Xi–Trump Meeting." <em>CNN.</em> March 7, 2026. https://www.cnn.com/2026/03/07/china/china-us-iran-wang-yi-intl-hnk</div>
+
+      <div class="source-entry">CNN Staff. "Day 9 of Middle East Conflict — New Iranian Leader Named, Global Markets React to Oil Surges." <em>CNN.</em> March 8, 2026. https://edition.cnn.com/world/live-news/iran-war-us-israel-trump-03-08-26</div>
+
+      <div class="source-entry">CNN Staff. "The US Just Took Out Two China-Friendly Leaders in Two Months. Why Has Beijing Done Very Little About It?" <em>CNN.</em> March 4, 2026. https://www.cnn.com/2026/03/04/china/china-us-iran-war-response-analysis-intl-hnk</div>
+
+      <div class="source-entry">Domonoske, Camila. "How the War in Iran Is Affecting Oil and Natural Gas Markets." <em>NPR.</em> March 7, 2026. https://www.npr.org/2026/03/07/nx-s1-5734035/oil-and-gas-in-iran-wars-first-week</div>
+
+      <div class="source-entry">Edwards, Jim. "In the Iran War, It's Not the Oil That's Important — It's the Water." <em>Fortune.</em> March 5, 2026. https://fortune.com/2026/03/05/iran-war-its-not-the-oil-its-the-water/</div>
+
+      <div class="source-entry">Iran International Staff. "Everyone Is Watching Oil in Iran War, but Real Risk Is Water." <em>Iran International.</em> March 6, 2026. https://www.iranintl.com/en/202603044239</div>
+
+      <div class="source-entry">ITV News Staff. "United States Seeking an Armed Uprising Inside Iran, with Ground Operation Expected Within Days." <em>ITV News.</em> March 3, 2026. https://www.itv.com/news/2026-03-03/united-states-seeking-an-armed-uprising-inside-iran</div>
+
+      <div class="source-entry">Ma, Jason. "'Nightmare Scenario' Looms as Global Markets Head for Biggest Oil Output Disruption in History." <em>Fortune.</em> March 8, 2026. https://fortune.com/2026/03/08/oil-prices-nightmare-scenario-biggest-output-disruption-us-iran-war/</div>
+
+      <div class="source-entry">Mao Ning (spokesperson). "Foreign Ministry Spokesperson Mao Ning's Regular Press Conference on March 2, 2026." <em>Ministry of Foreign Affairs, People's Republic of China.</em> March 2, 2026. https://www.fmprc.gov.cn/mfa_eng/xw/fyrbt/202603/t20260302_11867202.html</div>
+
+      <div class="source-entry">Mao Ning (spokesperson). "Foreign Ministry Spokesperson Mao Ning's Regular Press Conference on March 6, 2026." <em>Ministry of Foreign Affairs, People's Republic of China.</em> March 6, 2026. https://www.fmprc.gov.cn/eng/xw/fyrbt/202603/t20260306_11870067.html</div>
+
+      <div class="source-entry">NPR Staff. "Middle East Conflicts Largely Avoided Energy Facilities in the Past. Not in This War." <em>NPR.</em> March 6, 2026. https://www.npr.org/2026/03/06/nx-s1-5736593/middle-east-iran-energy-lng</div>
+
+      <div class="source-entry">Quilliam, Neil. "Iran's Strike on Bahrain Desalination Plant Brings Gulf Water Security into Focus." <em>The National.</em> March 8, 2026. https://www.thenationalnews.com/business/energy/2026/03/08/irans-strike-brings-gulf-water-security-into-focus/</div>
+
+      <div class="source-entry">Ruck, Courtney, and Ravid, Barak. "Iran War: Kurds Backed by Mossad, CIA May Lead Next Phase for US, Israel." <em>Axios.</em> March 5, 2026. https://www.axios.com/2026/03/05/iran-war-us-israel-kurds-cia-mossad</div>
+
+      <div class="source-entry">Sciutto, Jim, et al. "CIA Working to Arm Kurdish Forces to Spark Uprising in Iran, Sources Say." <em>CNN Politics.</em> March 3, 2026. https://www.cnn.com/2026/03/03/politics/cia-arming-kurds-iran</div>
+
+      <div class="source-entry">Times of Israel Staff. "Black Clouds Over Tehran Rain Down Oil Drops After Israel Strikes Oil Facilities." <em>Times of Israel.</em> March 8, 2026. https://www.timesofisrael.com/black-clouds-over-tehran-rain-down-oil-drops-after-israel-strikes-oil-facilities/</div>
+
+      <div class="source-entry">Times of Israel Staff. "Russia, China and Turkey Push for Immediate End to Iran War." <em>Times of Israel.</em> March 4, 2026. https://www.timesofisrael.com/russia-china-and-turkey-push-for-immediate-end-to-iran-war/</div>
+
+      <div class="source-entry">TIME Staff. "Tehran Shrouded in Toxic Smoke After Israel Strikes Fuel Depots." <em>TIME.</em> March 8, 2026. https://time.com/7383099/iran-news-oil-strikes-tehran/</div>
+
+      <div class="source-entry">Wikipedia Contributors. "2026 Iran War." <em>Wikipedia.</em> Updated March 9, 2026. https://en.wikipedia.org/wiki/2026_Iran_war</div>
+
+      <div class="source-entry">Wikipedia Contributors. "2026 Strait of Hormuz Crisis." <em>Wikipedia.</em> Updated March 9, 2026. https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis</div>
+
+      <div class="source-entry">Wikipedia Contributors. "2026 Kurdish–Iranian Crisis." <em>Wikipedia.</em> Updated March 5, 2026. https://en.wikipedia.org/wiki/2026_Kurdish%E2%80%93Iranian_crisis</div>
+
+    </div>
+
+    <div class="disclosure">
+      <em>Assessment reflects original research efforts, analytical process, and personal insight; this brief has been critically elevated, organizationally collated, and visually polished using Claude Tools.</em>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-brand">ARANDA INTEL</span>
+    <span class="footer-center">ARANDA | March 9, 2026</span>
+    <span class="footer-page">PAGE 5</span>
+  </div>
+</div>
+
+</body>
+</html>
