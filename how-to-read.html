@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On Reading — Mr. Aranda</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:   #1c1c24;
+  --cream: #f4f0e6;
+  --pale:  #eae6db;
+  --rust:  #9c3a1e;
+  --gold:  #b8882a;
+  --sage:  #3d5a4c;
+  --muted: #6b6455;
+  --rule:  rgba(28,28,36,0.13);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* ── HERO ─────────────────────────────────────────── */
+.hero {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 52px 64px 44px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '"';
+  position: absolute;
+  right: 48px; top: -20px;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 24rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.03);
+  line-height: 1;
+  pointer-events: none;
+}
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  max-width: 680px;
+}
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-body {
+  margin-top: 18px;
+  max-width: 600px;
+  font-size: 0.93rem;
+  font-weight: 300;
+  color: rgba(244,240,230,0.72);
+  line-height: 1.78;
+}
+.hero-body p + p { margin-top: 10px; }
+.hero-rule { width: 36px; height: 2px; background: var(--gold); margin-top: 26px; }
+
+/* ── SECTION LABEL ────────────────────────────────── */
+.label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+.label-gold { color: var(--gold); }
+
+/* ── READING TYPES ────────────────────────────────── */
+.types-section {
+  padding: 44px 64px;
+  border-bottom: 1px solid var(--rule);
+}
+.types-intro {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.72;
+  color: var(--ink);
+  max-width: 700px;
+  margin-bottom: 28px;
+}
+.types-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+.type-card {
+  padding: 24px 22px;
+  border-right: 1px solid var(--rule);
+  background: white;
+  position: relative;
+}
+.type-card:last-child { border-right: none; }
+.type-card::before {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  top: 0; left: 0;
+}
+.tc-skim::before   { background: var(--sage); }
+.tc-survey::before { background: var(--gold); }
+.tc-study::before  { background: var(--rust); }
+.tc-close::before  { background: var(--ink); }
+
+.type-name {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  margin-top: 4px;
+}
+.tc-skim .type-name   { color: var(--sage); }
+.tc-survey .type-name { color: var(--gold); }
+.tc-study .type-name  { color: var(--rust); }
+.tc-close .type-name  { color: var(--ink); }
+
+.type-speed {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.type-speed span {
+  font-size: 0.65rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  color: var(--muted);
+  display: block;
+  margin-top: 3px;
+  letter-spacing: 0.06em;
+}
+.type-desc {
+  font-size: 0.8rem;
+  line-height: 1.68;
+  color: #3a3028;
+  margin-bottom: 10px;
+}
+.type-when {
+  font-size: 0.73rem;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.55;
+  border-top: 1px dashed var(--rule);
+  padding-top: 9px;
+  margin-top: 4px;
+}
+
+/* ── SPEED BAR SECTION ────────────────────────────── */
+.speed-section {
+  background: var(--ink);
+  padding: 36px 64px;
+}
+.speed-section .label { color: rgba(244,240,230,0.35); margin-bottom: 18px; }
+.speed-note {
+  font-size: 0.82rem;
+  color: rgba(244,240,230,0.55);
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.speed-note strong { color: var(--gold); font-weight: 600; }
+.speed-bars { display: flex; flex-direction: column; gap: 9px; max-width: 700px; }
+.speed-row {
+  display: grid;
+  grid-template-columns: 190px 1fr 72px;
+  align-items: center;
+  gap: 14px;
+}
+.speed-lbl { font-size: 0.75rem; color: rgba(244,240,230,0.5); }
+.bar-track { height: 7px; background: rgba(255,255,255,0.07); border-radius: 4px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 4px; }
+.b-skim    { background: var(--sage);  width: 92%; }
+.b-survey  { background: var(--gold);  width: 66%; }
+.b-read    { background: #c09040;      width: 46%; }
+.b-new     { background: var(--rust);  width: 32%; }
+.b-engage  { background: #7a2c10;      width: 20%; }
+.speed-wpm {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  color: rgba(244,240,230,0.65);
+  text-align: right;
+}
+
+/* ── SKIM/SCAN SECTION ────────────────────────────── */
+.skim-section {
+  padding: 44px 64px;
+  background: var(--pale);
+  border-bottom: 1px solid var(--rule);
+}
+.skim-intro {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.72;
+  max-width: 660px;
+  margin-bottom: 28px;
+}
+.skim-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.skim-block {
+  background: white;
+  border-left: 3px solid var(--sage);
+  padding: 20px 22px;
+}
+.skim-block.scan { border-left-color: var(--gold); }
+.skim-block-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 8px;
+}
+.skim-block.scan .skim-block-title { color: #9a7010; }
+.skim-block p {
+  font-size: 0.83rem;
+  line-height: 1.7;
+  color: #3a3028;
+}
+.skim-block p + p { margin-top: 8px; }
+.skim-methods {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.skim-method {
+  background: white;
+  padding: 16px 18px;
+  border-top: 2px solid var(--rule);
+}
+.skim-method-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.skim-method p {
+  font-size: 0.79rem;
+  line-height: 1.67;
+  color: #3a3028;
+}
+
+/* ── ANNOTATION SECTION ───────────────────────────── */
+.anno-section {
+  padding: 44px 64px;
+  border-bottom: 1px solid var(--rule);
+}
+.anno-intro {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.72;
+  max-width: 660px;
+  margin-bottom: 28px;
+}
+.demo-text {
+  display: grid;
+  grid-template-columns: 1fr 268px;
+  border: 1px solid var(--rule);
+  background: white;
+  margin-bottom: 20px;
+}
+.demo-body {
+  padding: 26px 30px;
+  border-right: 1px solid var(--rule);
+}
+.demo-body p {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.9rem;
+  line-height: 2.05;
+  color: #2a2520;
+}
+.ul   { border-bottom: 2px solid var(--rust); }
+.circ { border: 1.5px solid var(--sage); border-radius: 50px; padding: 0 3px; color: var(--sage); }
+.hl   { background: rgba(184,136,42,0.16); padding: 1px 2px; }
+.demo-margin { padding: 20px 16px; background: #fdf9f2; }
+.mn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.69rem;
+  line-height: 1.5;
+  color: var(--muted);
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(28,28,36,0.11);
+}
+.mn:last-child { border-bottom: none; margin-bottom: 0; }
+.mn-tag {
+  display: inline-block;
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1px 5px;
+  border-radius: 2px;
+  margin-bottom: 4px;
+}
+.t-def  { background: rgba(61,90,76,0.12);  color: var(--sage); }
+.t-q    { background: rgba(156,58,30,0.1);   color: var(--rust); }
+.t-con  { background: rgba(184,136,42,0.12); color: #9a7010; }
+.t-rx   { background: rgba(28,28,36,0.07);   color: var(--muted); }
+
+.moves-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 11px;
+}
+.move {
+  background: var(--pale);
+  border-left: 3px solid var(--gold);
+  padding: 14px 17px;
+}
+.move-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+.move p {
+  font-size: 0.79rem;
+  line-height: 1.67;
+  color: #3a3028;
+}
+
+/* ── THREE-PASS (reference) ───────────────────────── */
+.pass-section {
+  background: var(--pale);
+  padding: 36px 64px;
+  border-bottom: 1px solid var(--rule);
+}
+.pass-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+  max-width: 580px;
+  line-height: 1.68;
+  margin-bottom: 20px;
+}
+.pass-note em { font-style: italic; }
+.pass-mini {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.pass-card {
+  background: white;
+  border-top: 2px solid var(--gold);
+  padding: 16px 18px;
+}
+.pass-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.pass-card p {
+  font-size: 0.79rem;
+  line-height: 1.67;
+  color: #3a3028;
+}
+.pass-time {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.64rem;
+  color: var(--rust);
+  margin-top: 8px;
+  display: block;
+}
+
+/* ── PULLQUOTE ────────────────────────────────────── */
+.pq {
+  padding: 38px 64px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--rule);
+}
+.pq-mark {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 4.2rem;
+  line-height: 0.7;
+  color: var(--gold);
+  flex-shrink: 0;
+  user-select: none;
+}
+blockquote {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.12rem;
+  font-style: italic;
+  line-height: 1.62;
+  color: var(--ink);
+  max-width: 680px;
+}
+blockquote cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.73rem;
+  color: var(--muted);
+}
+
+/* ── SOURCES ──────────────────────────────────────── */
+footer.sources {
+  background: var(--ink);
+  padding: 28px 64px;
+  border-top: 3px solid var(--gold);
+}
+footer.sources ol {
+  list-style: decimal;
+  padding-left: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 40px;
+}
+footer.sources li {
+  font-size: 0.69rem;
+  color: rgba(244,240,230,0.45);
+  line-height: 1.58;
+}
+footer.sources li em { font-style: italic; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <p class="eyebrow">Mr. Aranda &nbsp;·&nbsp; Reading Guide</p>
+  <h1>Reading Is Not One Thing.<br><em>Neither Is the Work.</em></h1>
+  <div class="hero-body">
+    <p>There is a version of reading that takes six minutes a page and a version that takes six seconds. Both are legitimate. Both are skills. The confusion — the reason students either slow-crawl everything or skim past what actually matters — is that nobody teaches you to tell the difference.</p>
+    <p>This guide is about that distinction. What kind of reading a text demands, how to move through it efficiently, and how to engage it when efficiency stops being the right goal. The research on this is clear. What follows reflects it.</p>
+  </div>
+  <div class="hero-rule"></div>
+</header>
+
+<!-- READING TYPES -->
+<section class="types-section">
+  <p class="label">Four Modes of Reading — Not All Reading Is the Same Act</p>
+  <p class="types-intro">Before you open a text, you should know what you're doing with it. The purpose shapes everything: how fast you move, what you mark, how much you're allowed to skip. Treating every text the same way — slow and passive or fast and careless — is the source of most reading problems.</p>
+  <div class="types-grid">
+    <div class="type-card tc-skim">
+      <div class="type-name">Skim / Scan</div>
+      <div class="type-speed">450–600<span>words per minute</span></div>
+      <p class="type-desc">Strategic, selective extraction of main ideas. You are not reading every sentence — you are hunting for structure, argument, and signposts. This is a disciplined skill, not a shortcut.</p>
+      <p class="type-when">Use when: orienting to a new text, deciding what deserves closer attention, reviewing before class or an exam, surveying sources for research.</p>
+    </div>
+    <div class="type-card tc-survey">
+      <div class="type-name">Survey / Understand</div>
+      <div class="type-speed">200–300<span>words per minute</span></div>
+      <p class="type-desc">Reading for the meaning of each sentence, following the argument, but not yet interrogating it. You are building comprehension, not yet building a critique.</p>
+      <p class="type-when">Use when: reading background material, textbook chapters, news analysis, primary sources you need to understand but not yet challenge.</p>
+    </div>
+    <div class="type-card tc-study">
+      <div class="type-name">Study / Engage</div>
+      <div class="type-speed">90–180<span>words per minute</span></div>
+      <p class="type-desc">Annotating as you go — circling terms, tracking arguments, writing reactions, asking questions the author hasn't answered. The margin becomes a workspace.</p>
+      <p class="type-when">Use when: reading assigned texts for discussion, preparing for essays, working through dense theoretical or historical material.</p>
+    </div>
+    <div class="type-card tc-close">
+      <div class="type-name">Close Reading</div>
+      <div class="type-speed">60–90<span>words per minute</span></div>
+      <p class="type-desc">Intensive attention to a specific passage — word choice, structure, argument, assumptions. You may read the same paragraph three times. That is the point.</p>
+      <p class="type-when">Use when: analyzing primary sources, working through a difficult theoretical passage, preparing to write directly from or against a specific text.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SPEED BARS -->
+<div class="speed-section">
+  <p class="label">Reading Speed — What the Research Actually Says</p>
+  <p class="speed-note">The optimal reading rate for a skilled adult is <strong>around 300 words per minute</strong> — for familiar material, reading to understand. Speed reading beyond that reduces comprehension in a near-linear fashion. But skimming for main ideas is a different cognitive task entirely, and the average college student can skim effectively at <strong>450–600 wpm</strong>. Speed is not fixed — it is a function of text difficulty, background knowledge, and purpose. Adapted from Rayner et al. (2016) and the Wake Forest Time Estimator.</p>
+  <div class="speed-bars">
+    <div class="speed-row">
+      <span class="speed-lbl">Skim — no new concepts</span>
+      <div class="bar-track"><div class="bar-fill b-skim"></div></div>
+      <span class="speed-wpm">450–600 wpm</span>
+    </div>
+    <div class="speed-row">
+      <span class="speed-lbl">Survey — familiar material</span>
+      <div class="bar-track"><div class="bar-fill b-survey"></div></div>
+      <span class="speed-wpm">250–300 wpm</span>
+    </div>
+    <div class="speed-row">
+      <span class="speed-lbl">Understand — some new concepts</span>
+      <div class="bar-track"><div class="bar-fill b-read"></div></div>
+      <span class="speed-wpm">~200 wpm</span>
+    </div>
+    <div class="speed-row">
+      <span class="speed-lbl">Engage — many new concepts</span>
+      <div class="bar-track"><div class="bar-fill b-new"></div></div>
+      <span class="speed-wpm">~138 wpm</span>
+    </div>
+    <div class="speed-row">
+      <span class="speed-lbl">Close reading / dense annotation</span>
+      <div class="bar-track"><div class="bar-fill b-engage"></div></div>
+      <span class="speed-wpm">60–90 wpm</span>
+    </div>
+  </div>
+</div>
+
+<!-- SKIM / SCAN -->
+<section class="skim-section">
+  <p class="label">Skimming for Arguments — A Skill Worth Building</p>
+  <p class="skim-intro">Skimming is not reading in a hurry. It is a disciplined, systematic technique for finding the most information in the least amount of time — and it deserves as much practice as close reading does. A good skimmer is not lazy; they are strategic. The question they're always answering is: where is the argument, and what does it cost me to skip this sentence?</p>
+  <div class="skim-two-col">
+    <div class="skim-block">
+      <div class="skim-block-title">What to Skim For</div>
+      <p>You are looking for the argument, not the elaboration. Introductions state the claim. Conclusions restate and extend it. First and last sentences of paragraphs carry the load. Section headings telegraph the structure. Bold terms signal what the author thinks matters.</p>
+      <p>Signal words are your navigation: <em>however, therefore, in contrast, I will argue, this suggests, the central problem</em>. When you see them, slow down. Everything around them is likely elaboration you can move through faster.</p>
+    </div>
+    <div class="skim-block scan">
+      <div class="skim-block-title">When to Slow Down</div>
+      <p>Skimming is not an excuse to miss the argument. The moment you notice a claim you don't understand, a term you can't define, or a passage that seems to be doing real structural work — that's the signal to stop and read.</p>
+      <p>The skill is not skimming everything. It's knowing the difference between a paragraph that develops the argument and one that illustrates it. The first demands your attention. The second can often be summarized in a word.</p>
+    </div>
+  </div>
+  <div class="skim-methods">
+    <div class="skim-method">
+      <div class="skim-method-title">Beginnings & Endings</div>
+      <p>First and last sentences of paragraphs, first and last paragraphs of sections, introductions and conclusions of chapters. These carry the structural weight. Everything in between is usually support.</p>
+    </div>
+    <div class="skim-method">
+      <div class="skim-method-title">Wheat vs. Chaff</div>
+      <p>Read only enough to determine whether a section presents a main idea or develops one already stated. Main idea: read carefully. Development of something already understood: move through it.</p>
+    </div>
+    <div class="skim-method">
+      <div class="skim-method-title">Visual & Verbal Cues</div>
+      <p>Headings, bold terms, graphs, italicized key words — these are the author's own navigational system. Use it. They mark where the argument concentrates and where it's most efficient to anchor your attention.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ANNOTATION -->
+<section class="anno-section">
+  <p class="label">Marginalia & Annotation — The Conversation You Have Before Class</p>
+  <p class="anno-intro">Annotation is not note-taking. It is a record of your thinking as it moves through the text — and that thinking is what you bring to discussion. The margin is where you build a position before the room opens. A text you annotated is one you can argue about. A text you only read is one you can describe.</p>
+
+  <div class="demo-text">
+    <div class="demo-body">
+      <p>
+        Skimming is a <span class="circ">strategic, selective</span> reading method in which you focus on the main ideas of a text.
+        When skimming, deliberately skip text that provides details, stories, data, or other elaboration.
+        <span class="ul">Instead of closely reading every word, focus on the introduction, chapter summaries, first and last sentences of paragraphs, bold words, and text features.</span>
+        <span class="hl">Skimming is extracting the essence of the author's main messages rather than the finer points.</span>
+      </p>
+    </div>
+    <div class="demo-margin">
+      <div class="mn">
+        <span class="mn-tag t-def">Define</span><br>
+        "strategic" = you choose what to skip. Not lazy — deliberate.
+      </div>
+      <div class="mn">
+        <span class="mn-tag t-q">Question</span><br>
+        When does skipping details mean missing the argument?
+      </div>
+      <div class="mn">
+        <span class="mn-tag t-con">Connect</span><br>
+        Anderson — same logic: signposts over every sentence
+      </div>
+      <div class="mn">
+        <span class="mn-tag t-rx">React</span><br>
+        "Essence" — too passive? You're not extracting, you're judging.
+      </div>
+    </div>
+  </div>
+
+  <div class="moves-grid">
+    <div class="move">
+      <div class="move-title">Circle + Define</div>
+      <p>Circle terms you can't define. Write the definition in your own words — not the dictionary's. If you can't do it, that's where the gap is.</p>
+    </div>
+    <div class="move">
+      <div class="move-title">Underline the Argument</div>
+      <p>Underline load-bearing sentences: the thesis, key claims, moments where the author commits to something. Not every sentence. The ones the rest depends on.</p>
+    </div>
+    <div class="move">
+      <div class="move-title">Record Your Reactions</div>
+      <p>Skeptical? Say so. Surprised? Note why. Confused? Mark it and keep moving. These are the raw materials for class. Don't wait until discussion to have a response.</p>
+    </div>
+    <div class="move">
+      <div class="move-title">Summarize Each Section</div>
+      <p>At the end of a section, close the text and write two sentences: what the author argued and whether you find it persuasive. If you can't, go back.</p>
+    </div>
+    <div class="move">
+      <div class="move-title">Track the Sequence</div>
+      <p>Number the author's moves in the margin — claim, evidence, objection, response. The order of an argument matters as much as any individual part of it.</p>
+    </div>
+    <div class="move">
+      <div class="move-title">Mark the Gaps</div>
+      <p>Where is the evidence thin? What assumption is doing work the author never defends? What would a critic say here? The margin is where your counter-argument starts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THREE PASS (for academic papers) -->
+<section class="pass-section">
+  <p class="label">For Academic Papers — Keshav's Three-Pass Method</p>
+  <p class="pass-note">Applies specifically to research papers and dense scholarly articles. The logic: don't plow from beginning to end. Read in passes, each with a distinct goal, each building on the last. A first pass takes ten minutes and tells you whether the second pass is worth your time. That's not skimming carelessly — it's resource allocation.</p>
+  <div class="pass-mini">
+    <div class="pass-card">
+      <div class="pass-title">Pass One — Orient</div>
+      <p>Title, abstract, headings, conclusion only. Answer: what kind of argument is this, what's the central claim, and is it worth your time?</p>
+      <span class="pass-time">5–10 minutes</span>
+    </div>
+    <div class="pass-card">
+      <div class="pass-title">Pass Two — Follow</div>
+      <p>Read carefully, skip deep technical weeds. Take margin notes. Examine figures. Goal: explain the argument to someone else from memory.</p>
+      <span class="pass-time">Up to 1 hour</span>
+    </div>
+    <div class="pass-card">
+      <div class="pass-title">Pass Three — Take Apart</div>
+      <p>Challenge every assumption. Find where the evidence is thin. Ask what a rigorous critic would say. This is where understanding becomes judgment.</p>
+      <span class="pass-time">1–5 hours</span>
+    </div>
+  </div>
+</section>
+
+<!-- PULLQUOTE -->
+<div class="pq">
+  <span class="pq-mark">"</span>
+  <blockquote>
+    College readers see texts as entries in an ongoing conversation. As they read, they don't just agree or disagree — they seek to understand the nuances of people who think differently from them, with the purpose of reconsidering their own habitual ways of understanding the world.
+    <cite>— Eric Drown, "College Reading Secrets Your Professor Expects You to Know," <em>Medium</em>, August 12, 2015</cite>
+  </blockquote>
+</div>
+
+<!-- SOURCES -->
+<footer class="sources">
+  <p class="label label-gold">Sources — Chicago</p>
+  <ol>
+    <li>Drown, Eric. "College Reading Secrets Your Professor Expects You to Know." <em>Medium</em>, August 12, 2015.</li>
+    <li>Keshav, S. "How to Read a Paper." <em>ACM SIGCOMM Computer Communication Review</em> 37, no. 3 (2007): 83–84.</li>
+    <li>Rayner, Keith, et al. "So Much to Read, So Little Time: How Do We Read, and Can Speed Reading Help?" <em>Psychological Science in the Public Interest</em> 17, no. 1 (2016): 4–34.</li>
+    <li>The Learning Center, UNC Chapel Hill. "Skimming." Drawing on Holschuh, J. and Nist, S. <em>Active Learning: Strategies for College Success</em>. Allyn &amp; Bacon, 2000.</li>
+    <li>Wake Forest University / Cowley College. "Student Workload Estimator." Drawing on Torrance, Mark, et al. "Individual Differences in Undergraduate Essay-Writing Strategies." <em>Higher Education</em> 39, no. 2 (2000): 181–200.</li>
+    <li>[Untitled Author]. "Staying Afloat: Some Scattered Suggestions on Reading in College." Unpublished course handout. Anderson, Benedict. <em>Imagined Communities</em>. London: Verso, 1983.</li>
+    <li>Rose, Alexandra. "The Elite College Students Who Can't Read Books." <em>The Atlantic</em>, November 2024.</li>
+  </ol>
+</footer>
+
+</body>
+</html>
