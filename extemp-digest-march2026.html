@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>National Extemp Digest — March 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:     #1a1a2e;
+    --paper:   #f5f0e8;
+    --cream:   #ede8dc;
+    --rule:    #2c2c3e;
+    --red:     #8c1c1c;
+    --gold:    #b8860b;
+    --steel:   #3a4a5c;
+    --sage:    #4a6741;
+    --teal:    #1d5c72;
+    --muted:   #6b6b7a;
+    --border:  #c8c0b0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ========== MASTHEAD ========== */
+  .masthead {
+    background: var(--ink);
+    padding: 32px 48px 24px;
+    border-bottom: 4px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.015) 2px,
+      rgba(255,255,255,0.015) 4px
+    );
+    pointer-events: none;
+  }
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .masthead-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+    line-height: 1.8;
+  }
+  .masthead-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 52px;
+    font-weight: 900;
+    color: #f5f0e8;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .masthead-title span {
+    color: var(--gold);
+  }
+  .masthead-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: rgba(245,240,232,0.55);
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+  .category-bar {
+    display: flex;
+    gap: 0;
+    margin-top: 20px;
+    border-top: 1px solid rgba(245,240,232,0.15);
+    padding-top: 14px;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .cat-pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .cat-pill:hover { opacity: 0.8; }
+  .cp-fp  { background: var(--red);   color: #f5f0e8; }
+  .cp-up  { background: var(--steel); color: #f5f0e8; }
+  .cp-eco { background: var(--gold);  color: #1a1a2e; }
+  .cp-hc  { background: #6b3a3a;     color: #f5f0e8; }
+  .cp-ed  { background: var(--sage);  color: #f5f0e8; }
+  .cp-sci { background: var(--teal);  color: #f5f0e8; }
+  .cp-mil { background: #3a3060;      color: #f5f0e8; }
+
+  /* ========== LAYOUT ========== */
+  .page-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 32px;
+  }
+
+  /* Section header */
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 40px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .section-head:first-of-type { margin-top: 0; }
+  .section-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .section-count {
+    margin-left: auto;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+
+  /* ========== STORY CARDS ========== */
+  .story-grid {
+    display: grid;
+    gap: 18px;
+  }
+  .story-grid.two-col { grid-template-columns: 1fr 1fr; }
+  .story-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+  .story-grid.lead-plus { grid-template-columns: 5fr 3fr; }
+  .story-grid.stacked { grid-template-columns: 1fr; }
+
+  .story-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 22px 24px;
+    position: relative;
+    transition: box-shadow 0.2s;
+  }
+  .story-card:hover {
+    box-shadow: 0 4px 20px rgba(26,26,46,0.1);
+  }
+  .story-card.lead {
+    border-left: 4px solid var(--red);
+  }
+  .story-card.secondary {
+    border-left: 3px solid var(--gold);
+  }
+  .story-card.tertiary {
+    border-left: 3px solid var(--border);
+  }
+  .story-card.alert {
+    border-left: 4px solid var(--red);
+    background: #fff8f8;
+  }
+
+  .story-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .tag-breaking { background: var(--red); color: #fff; }
+  .tag-analysis { background: var(--steel); color: #fff; }
+  .tag-economy  { background: var(--gold); color: #1a1a2e; }
+  .tag-policy   { background: var(--sage); color: #fff; }
+  .tag-science  { background: var(--teal); color: #fff; }
+  .tag-politics { background: #4a3870; color: #fff; }
+  .tag-military { background: #3a4a5c; color: #fff; }
+  .tag-health   { background: #6b3a3a; color: #fff; }
+
+  .story-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .story-card.lead .story-headline { font-size: 22px; }
+  .story-card.compact .story-headline { font-size: 15px; }
+
+  .story-body {
+    font-size: 14px;
+    color: #3a3a4a;
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+  .story-card.compact .story-body { font-size: 13px; }
+
+  .story-source {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    border-top: 1px solid var(--border);
+    padding-top: 9px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .source-name { text-transform: uppercase; }
+  .source-date { color: var(--border); }
+
+  /* Pull quote */
+  .pull-quote {
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin: 14px 0;
+    background: var(--cream);
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--rule);
+    line-height: 1.5;
+  }
+  .pull-quote cite {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    font-style: normal;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 6px;
+  }
+
+  /* Data sidebar */
+  .data-box {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 20px;
+    border-radius: 2px;
+  }
+  .data-box-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(245,240,232,0.2);
+  }
+  .data-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(245,240,232,0.08);
+  }
+  .data-item:last-child { border-bottom: none; }
+  .data-label {
+    font-size: 12px;
+    color: rgba(245,240,232,0.75);
+    line-height: 1.3;
+    max-width: 60%;
+  }
+  .data-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--paper);
+    white-space: nowrap;
+  }
+  .data-value.warn { color: #e07070; }
+  .data-value.ok { color: #80c080; }
+  .data-value.neutral { color: var(--gold); }
+
+  /* Stacked compact cards */
+  .compact-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Horizontal rule between sections */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent);
+    margin: 12px 0 0;
+  }
+
+  /* Extemp question callout */
+  .extemp-box {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--ink);
+    padding: 20px 22px;
+    margin-top: 20px;
+  }
+  .extemp-box-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .extemp-q {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--ink);
+    padding: 6px 0 6px 12px;
+    border-left: 2px solid var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--ink);
+    color: rgba(245,240,232,0.5);
+    padding: 24px 48px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 3px solid var(--gold);
+    margin-top: 48px;
+  }
+  footer strong { color: var(--gold); }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 900px) {
+    .story-grid.two-col,
+    .story-grid.three-col,
+    .story-grid.lead-plus { grid-template-columns: 1fr; }
+    .masthead { padding: 24px 24px 18px; }
+    .masthead-title { font-size: 36px; }
+    .page-wrap { padding: 24px 16px; }
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    .story-card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-top">
+    <div>
+      <div class="masthead-title">National Extemp <span>Digest</span></div>
+      <div class="masthead-sub">Seven Topic Areas · December 2025 – March 2026</div>
+    </div>
+    <div class="masthead-meta">
+      Aranda Intel Research<br>
+      Compiled: March 10, 2026<br>
+      Sources: CFR · NYT · Reuters · AP<br>
+      Brookings · SIEPR · Roll Call · BBC
+    </div>
+  </div>
+  <div class="category-bar">
+    <div class="cat-pill cp-fp">U.S. Foreign Policy</div>
+    <div class="cat-pill cp-up">U.S. Politics</div>
+    <div class="cat-pill cp-eco">U.S. Economy</div>
+    <div class="cat-pill cp-hc">Healthcare &amp; Entitlements</div>
+    <div class="cat-pill cp-ed">Education &amp; Social Issues</div>
+    <div class="cat-pill cp-sci">Science, Technology &amp; Environment</div>
+    <div class="cat-pill cp-mil">Business &amp; U.S. Military</div>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <!-- ======================================================= -->
+  <!-- 1. U.S. FOREIGN POLICY -->
+  <!-- ======================================================= -->
+  <div class="section-head">
+    <div class="section-icon" style="background:#8c1c1c;">🌐</div>
+    <div>
+      <span class="section-label">Topic Area 1</span>
+      <div class="section-title">U.S. Foreign Policy</div>
+    </div>
+    <div class="section-count">4 stories</div>
+  </div>
+
+  <div class="story-grid lead-plus">
+    <div class="story-card lead">
+      <div class="story-tag tag-breaking">Breaking</div>
+      <div class="story-headline">Operation Epic Fury: U.S. and Israel Launch Massive Strike on Iran, Killing Supreme Leader Khamenei</div>
+      <div class="story-body">
+        On February 28, 2026, U.S. and Israeli forces launched approximately 900 strikes in just 12 hours against Iranian missiles, air defenses, military infrastructure, and senior leadership—the opening of what the U.S. designated Operation Epic Fury. The coordinated assault killed Supreme Leader Ali Khamenei and dozens of top Iranian officials in the first wave. The strikes also struck a girls' school adjacent to an IRGC naval base near Bandar Abbas, killing more than 160 civilians; Israel denied responsibility and the U.S. said it would investigate. Trump framed the operation as aimed at preventing Iran from acquiring nuclear weapons and suggested a four-week timetable.
+      </div>
+      <div class="pull-quote">
+        <p>"Iran had hidden highly enriched uranium in an underground facility undamaged by previous strikes — the IAEA said it had no evidence of an organized nuclear weapons program, but could not be sure."</p>
+        <cite>— Britannica, March 2026</cite>
+      </div>
+      <div class="story-source">
+        <span class="source-name">Britannica / Roll Call / CNN</span>
+        <span class="source-date">Feb–Mar 2026</span>
+      </div>
+    </div>
+
+    <div class="compact-stack">
+      <div class="story-card secondary compact">
+        <div class="story-tag tag-analysis">Analysis</div>
+        <div class="story-headline">Foreign Aid Gutted: USAID Shuttered, $9B+ in Rescissions</div>
+        <div class="story-body">
+          The Trump administration shut down USAID and slashed foreign assistance from $38.4 billion in FY2025 to an estimated $8.1 billion for FY2026 after rescissions. CFR estimates more than 350,000 deaths have been attributed to the cuts since January 2025. European allies, including France, Germany, and the UK, made additional parallel cuts, compounding the humanitarian toll.
+        </div>
+        <div class="story-source">
+          <span class="source-name">Council on Foreign Relations</span>
+          <span class="source-date">Dec 2025</span>
+        </div>
+      </div>
+      <div class="story-card tertiary compact">
+        <div class="story-tag tag-analysis">Diplomacy</div>
+        <div class="story-headline">New START Expires; U.S.–Russia Nuclear Framework Collapses</div>
+        <div class="story-body">
+          The last remaining arms control treaty between Washington and Moscow expired on February 5, 2026, ending decades of strategic stability verification. The U.S. and Russia together hold 87 percent of the world's nuclear warheads, with no successor agreement in sight.
+        </div>
+        <div class="story-source">
+          <span class="source-name">CFR / Stimson Center</span>
+          <span class="source-date">Feb 2026</span>
+        </div>
+      </div>
+      <div class="story-card tertiary compact">
+        <div class="story-tag tag-politics">Americas</div>
+        <div class="story-headline">U.S. Forces Capture Maduro in Venezuela; Western Hemisphere Operations Expand</div>
+        <div class="story-body">
+          In a January 3, 2026, operation involving 150 aircraft, U.S. forces captured Venezuelan leader Nicolás Maduro and his wife. Separately, a Caribbean Sea and Eastern Pacific campaign (Sep 2025–Jan 2026) targeted drug traffickers, deploying the USS Gerald Ford. In total, U.S. forces conducted 493 strikes in Trump's second term.
+        </div>
+        <div class="story-source">
+          <span class="source-name">EU Institute for Security Studies / CFR</span>
+          <span class="source-date">Jan 2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Extemp Questions -->
+  <div class="extemp-box">
+    <div class="extemp-box-title">🎙 Likely Extemp Questions — U.S. Foreign Policy</div>
+    <div class="extemp-q">Is Operation Epic Fury a strategic success or an overreach?</div>
+    <div class="extemp-q">Should Congress assert the War Powers Resolution against Trump's Iran campaign?</div>
+    <div class="extemp-q">What are the long-term consequences of the expiration of New START for nuclear stability?</div>
+  </div>
+
+  <div class="section-divider"></div>
+
+
+  <!-- ======================================================= -->
+  <!-- 2. U.S. POLITICS -->
+  <!-- ======================================================= -->
+  <div class="section-head" style="margin-top:44px;">
+    <div class="section-icon" style="background:#3a4a5c;">🏛️</div>
+    <div>
+      <span class="section-label">Topic Area 2</span>
+      <div class="section-title">U.S. Politics</div>
+    </div>
+    <div class="section-count">4 stories</div>
+  </div>
+
+  <div class="story-grid three-col">
+    <div class="story-card lead">
+      <div class="story-tag tag-politics">Executive Power</div>
+      <div class="story-headline">DOGE Winds Down After $20B in Cuts — Far Short of $2T Target</div>
+      <div class="story-body">
+        Elon Musk's Department of Government Efficiency effectively concluded its largest phase with a final tally of roughly $20–40 billion in annual savings — a fraction of the $2 trillion Musk initially claimed. Congress largely rejected the administration's discretionary spending cut proposals in the FY2026 budget, with only 1 of 30 sampled programs eliminated. Budget experts now expect battles to shift to courts, where judges will decide the legality of Trump's impoundments and agency personnel reductions.
+      </div>
+      <div class="story-source">
+        <span class="source-name">Washington Times / Brookings Institution</span>
+        <span class="source-date">Feb 2026</span>
+      </div>
+    </div>
+
+    <div class="story-card secondary">
+      <div class="story-tag tag-politics">Immigration</div>
+      <div class="story-headline">Courts vs. Executive: Third-Country Deportations Become Constitutional Flashpoint</div>
+      <div class="story-body">
+        The Supreme Court allowed the Trump administration to resume swift deportations to third countries (June 2025), while a Massachusetts federal judge ruled in February 2026 that such removals without notice or due process are unlawful. The administration deported individuals to South Sudan despite State Department warnings about conditions there. The Court's 2025 term saw it side with the administration on the Alien Enemies Act, termination of Temporary Protected Status, and universal injunction authority — the administration filed as many emergency Supreme Court requests in 20 weeks as Biden did in four years.
+      </div>
+      <div class="story-source">
+        <span class="source-name">Marshall Project / Al Jazeera / NBC News</span>
+        <span class="source-date">Jun 2025 – Feb 2026</span>
+      </div>
+    </div>
+
+    <div class="story-card secondary">
+      <div class="story-tag tag-politics">2026 Midterms</div>
+      <div class="story-headline">Medicaid Cuts Emerge as Defining Battleground for 2026 Elections</div>
+      <div class="story-body">
+        Democrats have declared the Republican "One Big Beautiful Bill Act's" $700–880 billion in projected Medicaid cuts the "defining contrast" of the 2026 cycle. The DCCC is running a "Tax Scam" messaging campaign targeting vulnerable House Republicans. The law also inadvertently triggers $45 billion in automatic Medicare sequestration cuts for 2026 under the Statutory PAYGO Act — growing to $536 billion over nine years — though Congress could waive the sequestration. Senate Republicans are reportedly uncomfortable with the scope of cuts.
+      </div>
+      <div class="story-source">
+        <span class="source-name">NBC News / PBS NewsHour / CBO</span>
+        <span class="source-date">Jul–Aug 2025</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="story-grid two-col" style="margin-top:18px;">
+    <div class="story-card tertiary compact">
+      <div class="story-tag tag-politics">War Powers</div>
+      <div class="story-headline">Congress Debates War Powers Resolutions on Iran; Passage Unlikely</div>
+      <div class="story-body">Both chambers are considering resolutions that would bar additional Iran military action without congressional authorization. Speaker Johnson acknowledged supplemental defense funding discussions are underway, but passage of a binding war powers check is considered unlikely given Republican leadership alignment with the administration's Iran posture.</div>
+      <div class="story-source">
+        <span class="source-name">Roll Call</span>
+        <span class="source-date">Mar 3, 2026</span>
+      </div>
+    </div>
+    <div class="story-card tertiary compact">
+      <div class="story-tag tag-analysis">Judiciary</div>
+      <div class="story-headline">Supreme Court's IEEPA Tariff Ruling Looms as Major Economic Wildcard</div>
+      <div class="story-body">The Supreme Court is evaluating the constitutionality of Trump's tariffs imposed under the International Emergency Economic Powers Act. A ruling against the administration could force refunds of approximately $180 billion in annualized tariff revenue and require the administration to find alternative legal authority — creating significant near-term economic volatility.</div>
+      <div class="story-source">
+        <span class="source-name">SIEPR Stanford / J.P. Morgan</span>
+        <span class="source-date">Jan 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="extemp-box">
+    <div class="extemp-box-title">🎙 Likely Extemp Questions — U.S. Politics</div>
+    <div class="extemp-q">Has DOGE achieved meaningful government reform, or was it political theater?</div>
+    <div class="extemp-q">Will the Supreme Court's deportation rulings cause a constitutional crisis?</div>
+    <div class="extemp-q">Are Medicaid cuts politically viable heading into 2026 midterms?</div>
+  </div>
+
+  <div class="section-divider"></div>
+
+
+  <!-- ======================================================= -->
+  <!-- 3. U.S. ECONOMY -->
+  <!-- ======================================================= -->
+  <div class="section-head" style="margin-top:44px;">
+    <div class="section-icon" style="background:#b8860b;">📈</div>
+    <div>
+      <span class="section-label">Topic Area 3</span>
+      <div class="section-title">U.S. Economy</div>
+    </div>
+    <div class="section-count">5 stories</div>
+  </div>
+
+  <div class="story-grid lead-plus">
+    <div class="story-card lead">
+      <div class="story-tag tag-economy">Tariffs</div>
+      <div class="story-headline">Tariff Regime at Highest Rate Since 1932 — Average Household Faces $1,500 Hit</div>
+      <div class="story-body">
+        The Trump tariffs have elevated the average effective U.S. tariff rate to 16.9% — the highest level since 1932 — before accounting for new Greenland-related tariffs that could push that figure to 17.5%. The Tax Foundation estimates this constitutes the largest U.S. tax increase as a share of GDP since 1993, imposing an average burden of $1,500 per household in 2026. Roughly 40–50% of tariff costs have been passed on to consumers so far, with businesses expected to pass through more as pre-tariff inventory depletes. Yale's Budget Lab projects a 0.4-point drag on GDP growth and 1.3 million fewer payroll jobs by year-end.
+      </div>
+      <div class="pull-quote">
+        <p>"The negative effects of tariffs on GDP growth have yet to play out fully — the impact on consumption won't be fully seen until consumer prices rise further."</p>
+        <cite>— Morningstar, January 2026</cite>
+      </div>
+      <div class="story-source">
+        <span class="source-name">Tax Foundation / Yale Budget Lab / Morningstar</span>
+        <span class="source-date">Jan 2026</span>
+      </div>
+    </div>
+
+    <div class="data-box">
+      <div class="data-box-title">📊 Key Economic Indicators</div>
+      <div class="data-item">
+        <div class="data-label">Avg. Effective Tariff Rate</div>
+        <div class="data-value warn">16.9%</div>
+      </div>
+      <div class="data-item">
+        <div class="data-label">Unemployment Rate</div>
+        <div class="data-value warn">4.4%</div>
+      </div>
+      <div class="data-item">
+        <div class="data-label">PCE Inflation (est. 2026)</div>
+        <div class="data-value warn">2.7%</div>
+      </div>
+      <div class="data-item">
+        <div class="data-label">GDP Growth Forecast</div>
+        <div class="data-value neutral">1.9%</div>
+      </div>
+      <div class="data-item">
+        <div class="data-label">Payroll Jobs Lost (est.)</div>
+        <div class="data-value warn">1.3M</div>
+      </div>
+      <div class="data-item">
+        <div class="data-label">Avg. Monthly Job Gains</div>
+        <div class="data-value neutral">50K</div>
+      </div>
+      <div class="data-item">
+        <div class="data-label">Iran War Cost (10 days)</div>
+        <div class="data-value warn">$10.3B</div>
+      </div>
+      <div class="data-item">
+        <div class="data-label">Fed Funds Rate Direction</div>
+        <div class="data-value neutral">Hold</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="story-grid three-col" style="margin-top:18px;">
+    <div class="story-card secondary compact">
+      <div class="story-tag tag-economy">Labor Market</div>
+      <div class="story-headline">Job Growth Slows to 50K/Month; Stagflation Risk Rises</div>
+      <div class="story-body">
+        Monthly payroll growth has slowed from approximately 110,000 in 2024 to just 50,000 in 2025, with unemployment rising from 4.1% to 4.4%. Stanford SIEPR notes the Fed faces a genuine stagflation dilemma: tariff-driven inflation says "hold" while weakening employment says "cut." Three FOMC members dissented at the December 2025 meeting — the most since 2019.
+      </div>
+      <div class="story-source">
+        <span class="source-name">SIEPR Stanford / PIMCO / OMFIF</span>
+        <span class="source-date">Dec 2025 – Jan 2026</span>
+      </div>
+    </div>
+    <div class="story-card secondary compact">
+      <div class="story-tag tag-economy">Fiscal Policy</div>
+      <div class="story-headline">One Big Beautiful Bill Act Adds AI &amp; Tax Stimulus to Economy</div>
+      <div class="story-body">
+        Congress's July 2025 reconciliation bill provides $200 billion in household tax relief arriving as refund checks in early 2026. AI and tech investment, estimated to have contributed 0.5 points to 2025 GDP, is expected to continue. UCLA Anderson's March 2026 forecast shifted from "muddling through" to "reacceleration," citing converging fiscal stimulus and AI investment — though structural labor market imbalances persist.
+      </div>
+      <div class="story-source">
+        <span class="source-name">UCLA Anderson / Deloitte / U.S. Chamber</span>
+        <span class="source-date">Mar 2026</span>
+      </div>
+    </div>
+    <div class="story-card secondary compact">
+      <div class="story-tag tag-economy">Trade War</div>
+      <div class="story-headline">U.S.–China Truce After 9 Months of Escalation; Xi–Trump Summit in Busan</div>
+      <div class="story-body">
+        After a year of escalating reciprocal tariffs and export controls, Trump and Xi Jinping met in Busan in October 2025 to declare a truce. China meanwhile positioned itself as a "stable, pro-free trade alternative" to the U.S. amid tariff chaos. Critical minerals remain a core strategic pressure point — China's near-total control of many rare earths emerged as a primary geoeconomic vulnerability for the U.S.
+      </div>
+      <div class="story-source">
+        <span class="source-name">Stimson Center / CFR</span>
+        <span class="source-date">Oct–Dec 2025</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="extemp-box">
+    <div class="extemp-box-title">🎙 Likely Extemp Questions — U.S. Economy</div>
+    <div class="extemp-q">Are Trump's tariffs an effective long-term economic strategy or a costly mistake?</div>
+    <div class="extemp-q">How should the Federal Reserve respond to simultaneous inflation and unemployment pressures?</div>
+    <div class="extemp-q">Will AI investment be enough to offset the economic drag of the current tariff regime?</div>
+  </div>
+
+  <div class="section-divider"></div>
+
+
+  <!-- ======================================================= -->
+  <!-- 4. HEALTHCARE & ENTITLEMENTS -->
+  <!-- ======================================================= -->
+  <div class="section-head" style="margin-top:44px;">
+    <div class="section-icon" style="background:#6b3a3a;">🏥</div>
+    <div>
+      <span class="section-label">Topic Area 4</span>
+      <div class="section-title">Healthcare &amp; Entitlement Programs</div>
+    </div>
+    <div class="section-count">3 stories</div>
+  </div>
+
+  <div class="story-grid two-col">
+    <div class="story-card lead">
+      <div class="story-tag tag-health">Medicaid</div>
+      <div class="story-headline">One Big Beautiful Bill Imposes Largest Medicaid Cut in History — 8.6M Lose Coverage</div>
+      <div class="story-body">
+        The Republican reconciliation legislation signed into law in July 2025 imposes approximately $700 billion in Medicaid cuts over 10 years, according to the CBO — the largest single-bill reduction in the program's history. The CBO estimates 8.6 million people will lose coverage. Key mechanisms include a new 80-hour monthly work requirement (taking effect in late 2026), more frequent eligibility verification, and tightened immigration status screening. The bill simultaneously triggers $45 billion in automatic Medicare sequestration cuts for 2026 under PAYGO, growing to $536 billion over nine years unless Congress acts to waive those cuts.
+      </div>
+      <div class="pull-quote">
+        <p>"Congressional Republicans cannot cut Medicaid by hundreds of billions without hurting people — and that is the point."</p>
+        <cite>— Center on Budget and Policy Priorities, 2025</cite>
+      </div>
+      <div class="story-source">
+        <span class="source-name">PBS NewsHour / CBO / CBPP</span>
+        <span class="source-date">Jul–Aug 2025</span>
+      </div>
+    </div>
+
+    <div class="compact-stack">
+      <div class="story-card secondary compact">
+        <div class="story-tag tag-health">Long-Term Care</div>
+        <div class="story-headline">Nursing Home Staffing Standards at Risk; Medicaid Covers 6 in 10 Residents</div>
+        <div class="story-body">
+          The Biden administration's nursing home minimum staffing rules, set to phase in starting May 2026, are under threat from Republican rescission efforts. Medicaid covers more than 60% of nursing facility residents. If states cannot offset lost federal Medicaid funding, they face painful choices — cutting the program or slashing other budget areas like education.
+        </div>
+        <div class="story-source">
+          <span class="source-name">CBPP / Medicare Rights Center</span>
+          <span class="source-date">2025</span>
+        </div>
+      </div>
+      <div class="story-card secondary compact">
+        <div class="story-tag tag-health">HHS</div>
+        <div class="story-headline">RFK Jr. Faces Congressional Grilling as DOGE Dismantles HHS Programs</div>
+        <div class="story-body">
+          Health and Human Services Secretary Robert F. Kennedy Jr. appeared before Senate Appropriations three times in a single week amid intense scrutiny of DOGE-led cuts to the department. Programs under scrutiny include the Ryan White AIDS program, cancer research funding, and vaccine advisory infrastructure. Kennedy's vaccine skepticism has become a flashpoint in hearings about the scope of HHS reform.
+        </div>
+        <div class="story-source">
+          <span class="source-name">NBC News / PBS NewsHour</span>
+          <span class="source-date">May 2025</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="extemp-box">
+    <div class="extemp-box-title">🎙 Likely Extemp Questions — Healthcare &amp; Entitlements</div>
+    <div class="extemp-q">Will Medicaid work requirements improve program integrity or simply cut coverage for the vulnerable?</div>
+    <div class="extemp-q">Should Congress waive the PAYGO Medicare sequestration triggered by the reconciliation bill?</div>
+    <div class="extemp-q">What are the long-term consequences of DOGE's cuts to HHS and public health infrastructure?</div>
+  </div>
+
+  <div class="section-divider"></div>
+
+
+  <!-- ======================================================= -->
+  <!-- 5. EDUCATION & SOCIAL ISSUES -->
+  <!-- ======================================================= -->
+  <div class="section-head" style="margin-top:44px;">
+    <div class="section-icon" style="background:#4a6741;">📚</div>
+    <div>
+      <span class="section-label">Topic Area 5</span>
+      <div class="section-title">Education &amp; Social Issues</div>
+    </div>
+    <div class="section-count">3 stories</div>
+  </div>
+
+  <div class="story-grid three-col">
+    <div class="story-card lead">
+      <div class="story-tag tag-policy">Immigration Policy</div>
+      <div class="story-headline">Mass Deportation Campaign Accelerates; 250,000 Asylum Seekers Face Expedited Removal</div>
+      <div class="story-body">
+        The administration is moving to dismiss asylum claims for an estimated 250,000+ individuals who entered unlawfully and have pending affirmative asylum applications, placing them in expedited removal without a full hearing. More than 1.45 million asylum applications were pending as of December 2024. The Alien Enemies Act has been invoked to deport suspected gang members without individual due process hearings, a policy that triggered emergency Supreme Court proceedings throughout 2025.
+      </div>
+      <div class="story-source">
+        <span class="source-name">National Immigration Forum / NBC News</span>
+        <span class="source-date">Jun 2025</span>
+      </div>
+    </div>
+
+    <div class="story-card secondary">
+      <div class="story-tag tag-policy">Civil Rights</div>
+      <div class="story-headline">Universal Injunctions Curtailed by Supreme Court; DEI Rollback Accelerates</div>
+      <div class="story-body">
+        The Supreme Court's 2024–2025 term sharply limited the ability of lower courts to issue nationwide injunctions blocking executive policies. The ruling has downstream effects on DEI regulations, environmental policies, and education guidance. Simultaneously, the Trump administration has aggressively rolled back DEI requirements across federal agencies and federal contractors, with executive orders targeting diversity programs at universities receiving federal funds.
+      </div>
+      <div class="story-source">
+        <span class="source-name">Marshall Project / multiple outlets</span>
+        <span class="source-date">Jul 2025</span>
+      </div>
+    </div>
+
+    <div class="story-card secondary">
+      <div class="story-tag tag-policy">Social Policy</div>
+      <div class="story-headline">Transgender Rights: Supreme Court Upholds Tennessee Ban on Gender-Affirming Care for Minors</div>
+      <div class="story-body">
+        The Supreme Court's 2025 ruling upholding Tennessee's ban on gender-affirming care for minors set a significant precedent that other states have moved to follow. The decision is among the most prominent social-issue rulings of the term and marks a significant shift from prior circuit court decisions that had blocked similar laws. Over 20 states had enacted or were considering comparable legislation by the time of the ruling.
+      </div>
+      <div class="story-source">
+        <span class="source-name">PBS NewsHour</span>
+        <span class="source-date">2025</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="extemp-box">
+    <div class="extemp-box-title">🎙 Likely Extemp Questions — Education &amp; Social Issues</div>
+    <div class="extemp-q">Does the Supreme Court's limitation of universal injunctions undermine the judicial check on executive power?</div>
+    <div class="extemp-q">How should the United States balance immigration enforcement with asylum obligations under international law?</div>
+    <div class="extemp-q">What are the civil rights implications of the federal DEI rollback in education and employment?</div>
+  </div>
+
+  <div class="section-divider"></div>
+
+
+  <!-- ======================================================= -->
+  <!-- 6. SCIENCE, TECHNOLOGY & ENVIRONMENT -->
+  <!-- ======================================================= -->
+  <div class="section-head" style="margin-top:44px;">
+    <div class="section-icon" style="background:#1d5c72;">🔬</div>
+    <div>
+      <span class="section-label">Topic Area 6</span>
+      <div class="section-title">Science, Technology &amp; Environment</div>
+    </div>
+    <div class="section-count">4 stories</div>
+  </div>
+
+  <div class="story-grid lead-plus">
+    <div class="story-card lead">
+      <div class="story-tag tag-science">Artificial Intelligence</div>
+      <div class="story-headline">DeepSeek Shock: Chinese AI Rivals U.S. Frontier Models at Fraction of Cost</div>
+      <div class="story-body">
+        In January 2025, Chinese startup DeepSeek released its R1 model — matching OpenAI's leading o1 reasoning model while reportedly costing under $6 million to train, compared to hundreds of billions spent by U.S. tech giants. The release wiped over $590 billion from Nvidia's market cap in a single day and became the most downloaded app in the United States within a week. Anthropic later alleged "industrial-scale" distillation campaigns — involving more than 150,000 exchanges — by DeepSeek and Chinese AI firms attempting to extract capabilities from its Claude model, citing major national security risks. Multiple states (Texas, New York, Virginia) banned the app from state devices. A bipartisan House bill (HR 1121) sought a federal ban on government devices.
+      </div>
+      <div class="pull-quote">
+        <p>"The panic isn't really about DeepSeek. It's about the realisation that AI capability is diffusing faster than anyone predicted."</p>
+        <cite>— TechRound, Feb 2026</cite>
+      </div>
+      <div class="story-source">
+        <span class="source-name">Stanford HAI / Atlantic Council / TechRound / Cornell J.L.</span>
+        <span class="source-date">Jan 2025 – Feb 2026</span>
+      </div>
+    </div>
+
+    <div class="compact-stack">
+      <div class="story-card secondary compact">
+        <div class="story-tag tag-science">AI Governance</div>
+        <div class="story-headline">Congress Fails to Pass AI Regulation; Trump Orders DOJ to Sue States Over Laws</div>
+        <div class="story-body">
+          Congress passed no major AI regulation in 2025 beyond the TAKE IT DOWN Act (addressing nonconsensual intimate images). States passed bipartisan laws on deepfakes, algorithmic discrimination, and AI in healthcare. In response, tech companies poured hundreds of millions into super PACs. Trump issued an executive order directing the DOJ to challenge state AI consumer protection laws deemed "burdensome."
+        </div>
+        <div class="story-source">
+          <span class="source-name">TechPolicy Press</span>
+          <span class="source-date">Jan 2026</span>
+        </div>
+      </div>
+      <div class="story-card secondary compact">
+        <div class="story-tag tag-science">Environment</div>
+        <div class="story-headline">One Big Beautiful Bill Eliminates Clean Energy Incentives; Climate Policy Retreats</div>
+        <div class="story-body">
+          The July 2025 reconciliation bill eliminated incentives for renewable energy investment, reversing key provisions of the Inflation Reduction Act. The administration also withdrew from the Paris Climate Accords. China, by contrast, accelerated domestic electrification investment and has positioned itself as the leading force in global clean energy adoption, according to CFR analysts.
+        </div>
+        <div class="story-source">
+          <span class="source-name">CFR Climate Realism Initiative</span>
+          <span class="source-date">2025</span>
+        </div>
+      </div>
+      <div class="story-card tertiary compact">
+        <div class="story-tag tag-science">Critical Minerals</div>
+        <div class="story-headline">China's Critical Mineral Dominance Emerges as Core Geoeconomic Vulnerability</div>
+        <div class="story-body">
+          CFR's 2026 foreign policy outlook identified China's near-total control over critical minerals and rare earth elements as a top structural vulnerability for U.S. national security and manufacturing. Beijing demonstrated willingness to weaponize that control in 2025, sending a direct signal to U.S. and allied supply chains.
+        </div>
+        <div class="story-source">
+          <span class="source-name">CFR</span>
+          <span class="source-date">Dec 2025</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="extemp-box">
+    <div class="extemp-box-title">🎙 Likely Extemp Questions — Science, Technology &amp; Environment</div>
+    <div class="extemp-q">Is DeepSeek a national security threat or an opportunity to reassess U.S. AI strategy?</div>
+    <div class="extemp-q">Should the U.S. federal government regulate AI, or defer to states?</div>
+    <div class="extemp-q">What are the long-term consequences of abandoning clean energy incentives for U.S. climate competitiveness?</div>
+  </div>
+
+  <div class="section-divider"></div>
+
+
+  <!-- ======================================================= -->
+  <!-- 7. BUSINESS & U.S. MILITARY -->
+  <!-- ======================================================= -->
+  <div class="section-head" style="margin-top:44px;">
+    <div class="section-icon" style="background:#3a3060;">🎖️</div>
+    <div>
+      <span class="section-label">Topic Area 7</span>
+      <div class="section-title">Business &amp; U.S. Military</div>
+    </div>
+    <div class="section-count">4 stories</div>
+  </div>
+
+  <div class="story-grid two-col">
+    <div class="story-card alert">
+      <div class="story-tag tag-military">Active Operations</div>
+      <div class="story-headline">Iran War Costs Surge Past $10B in Ten Days; Supplemental Funding Under Discussion</div>
+      <div class="story-body">
+        Operation Epic Fury has generated an estimated $10.35 billion in U.S. costs in its first ten days — roughly $1 billion per day — combining operational spending and equipment losses. Iran struck and damaged a U.S. early warning radar at Al-Udeid Air Base in Qatar (valued at $1.1 billion). Iran also targeted U.S. embassies and military installations across 9 Middle Eastern countries, as well as Strait of Hormuz shipping lanes through which 20% of the world's oil transits. The Penn Wharton Budget Model estimates a two-month campaign could cost $40–95 billion. Speaker Johnson has acknowledged supplemental funding discussions, noting a "cushion" of $153.3 billion in defense reconciliation funding. The total 2026 defense budget, after reconciliation additions, stands at $1 trillion — the first time in U.S. history.
+      </div>
+      <div class="story-source">
+        <span class="source-name">Roll Call / CNN / Al Jazeera / Anadolu Agency</span>
+        <span class="source-date">Mar 2026</span>
+      </div>
+    </div>
+
+    <div class="compact-stack">
+      <div class="story-card secondary compact">
+        <div class="story-tag tag-military">NDAA 2026</div>
+        <div class="story-headline">Defense Budget Hits $901B; Ukraine Aid Cut Sharply but Preserved</div>
+        <div class="story-body">
+          Trump signed the FY2026 NDAA in December 2025, authorizing $901 billion — $8 billion above the White House request. Ukraine Security Assistance Initiative funding was set at $400 million for 2026–2027, down from $14 billion in the April 2024 supplemental. The bill prohibits redirecting Ukraine-designated weapons into U.S. stocks without replacement. The NDAA also constrains Trump from drawing down U.S. troops in Europe below 76,000 without congressional notification.
+        </div>
+        <div class="story-source">
+          <span class="source-name">OSW Centre for Eastern Studies / Atlantic Council</span>
+          <span class="source-date">Dec 2025</span>
+        </div>
+      </div>
+      <div class="story-card secondary compact">
+        <div class="story-tag tag-military">Munitions</div>
+        <div class="story-headline">Weapons Stockpile Depletion Raises Strategic Concerns Across Theaters</div>
+        <div class="story-body">
+          Military analysts warn that the Iran campaign is drawing down air defense interceptors (Patriot, THAAD, SM-6) that were originally designated for Ukraine and the Indo-Pacific. The Pentagon estimated 20,000 anti-drone interceptors were redirected from Ukraine to the Middle East in June 2025. Replacement manufacturing is slow — each interceptor takes months to produce. This creates a compounding strategic risk across simultaneous potential theaters.
+        </div>
+        <div class="story-source">
+          <span class="source-name">Al Jazeera / CSIS</span>
+          <span class="source-date">Mar 2026</span>
+        </div>
+      </div>
+      <div class="story-card tertiary compact">
+        <div class="story-tag tag-military">Tech &amp; Business</div>
+        <div class="story-headline">Nvidia AI Chip Sales to China Allowed After December 2025 Reversal</div>
+        <div class="story-body">
+          Trump allowed Nvidia to sell H200 chips to China in December 2025, reversing a key export control restriction. The decision was part of a broader bilateral economic truce agreed at the October 2025 Busan summit. Critics argue the move undermines the goal of restricting China's AI military development while providing short-term revenue gains for U.S. chipmakers.
+        </div>
+        <div class="story-source">
+          <span class="source-name">CFR</span>
+          <span class="source-date">Dec 2025</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="extemp-box">
+    <div class="extemp-box-title">🎙 Likely Extemp Questions — Business &amp; U.S. Military</div>
+    <div class="extemp-q">Can the U.S. sustain military operations in Iran without jeopardizing readiness in Asia and Europe?</div>
+    <div class="extemp-q">Should Congress pass a supplemental defense appropriation for the Iran campaign?</div>
+    <div class="extemp-q">What are the strategic consequences of declining U.S. weapons stockpiles across multiple theaters?</div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div><strong>ARANDA INTEL</strong> — National Extemp Digest</div>
+  <div>Sources: CFR · Brookings · SIEPR · AP · Reuters · Roll Call · Yale Budget Lab · Deloitte · Britannica · Al Jazeera · PBS · NBC · Marshall Project · TechPolicy Press · Atlantic Council · OSW</div>
+  <div><strong>March 10, 2026</strong></div>
+</footer>
+
+</body>
+</html>
