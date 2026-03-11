@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hagia Sophia — World Architecture Handout</title>
+<style>
+  :root {
+    --slate:   #282F44;
+    --crimson: #8C2122;
+    --red:     #C8102E;
+    --teal:    #1F5673;
+    --gold:    #BF9000;
+    --gray:    #474747;
+    --lgray:   #f3f3f3;
+    --mgray:   #d0d0d0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', serif;
+    font-size: 10.5pt;
+    color: var(--gray);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  /* ── PAGE SHELL ── */
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto;
+    padding-bottom: 0.7in;
+    position: relative;
+    page-break-after: always;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    background: var(--slate);
+    border-bottom: 3px solid var(--crimson);
+    padding: 14px 24px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .header-left .doc-title {
+    font-family: 'Georgia', serif;
+    font-size: 16pt;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 0.04em;
+  }
+  .header-left .doc-subtitle {
+    font-size: 8pt;
+    color: var(--mgray);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 2px;
+    font-family: 'Courier New', monospace;
+  }
+  .header-right {
+    text-align: right;
+  }
+  .header-right .brand {
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    font-weight: bold;
+  }
+  .header-right .course-tag {
+    font-family: 'Courier New', monospace;
+    font-size: 7pt;
+    color: var(--mgray);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* ── CLASSBAR ── */
+  .classbar {
+    background: var(--crimson);
+    text-align: center;
+    padding: 4px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 6.5pt;
+    color: rgba(255,255,255,0.88);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  /* ── CONTENT BODY ── */
+  .content {
+    padding: 18px 28px 10px;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-bar {
+    background: var(--slate);
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 7.5pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    margin: 18px 0 10px;
+    border-left: 4px solid var(--crimson);
+  }
+  .section-bar.teal {
+    background: var(--teal);
+    border-left-color: var(--gold);
+  }
+  .section-bar.crimson {
+    background: var(--crimson);
+    border-left-color: var(--gold);
+  }
+
+  /* ── INTRO HERO ── */
+  .intro-hero {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 20px;
+    margin-bottom: 12px;
+  }
+  .intro-text p {
+    margin-bottom: 8px;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .intro-text p:first-child::first-letter {
+    font-size: 2.4em;
+    float: left;
+    line-height: 0.85;
+    padding-right: 5px;
+    color: var(--crimson);
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+  }
+
+  /* ── BUILDING PROFILE CARD ── */
+  .profile-card {
+    background: var(--lgray);
+    border: 1px solid var(--mgray);
+    border-top: 3px solid var(--teal);
+    padding: 12px 14px;
+    font-size: 9pt;
+  }
+  .profile-card .card-title {
+    font-family: 'Courier New', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    border-bottom: 1px solid var(--mgray);
+    padding-bottom: 5px;
+    margin-bottom: 8px;
+  }
+  .profile-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 0;
+    border-bottom: 1px solid var(--mgray);
+    font-size: 8.5pt;
+  }
+  .profile-row:last-child { border-bottom: none; }
+  .profile-label {
+    color: var(--slate);
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    font-size: 7.5pt;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    min-width: 90px;
+  }
+  .profile-value {
+    color: var(--gray);
+    text-align: right;
+    flex: 1;
+    padding-left: 8px;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    border-left: 3px solid var(--crimson);
+    margin: 4px 0 10px 8px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .timeline li {
+    position: relative;
+    padding: 6px 0 6px 20px;
+    border-bottom: 1px dotted var(--mgray);
+    font-size: 9.5pt;
+  }
+  .timeline li:last-child { border-bottom: none; }
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 12px;
+    width: 10px;
+    height: 10px;
+    background: var(--crimson);
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px var(--crimson);
+  }
+  .tl-year {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: var(--crimson);
+    font-size: 9pt;
+    letter-spacing: 0.06em;
+    display: inline-block;
+    min-width: 52px;
+  }
+  .tl-regime {
+    display: inline-block;
+    background: var(--slate);
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.1em;
+    padding: 1px 5px;
+    margin-left: 6px;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+  .tl-text {
+    display: block;
+    margin-top: 2px;
+    padding-left: 52px;
+    color: var(--gray);
+    line-height: 1.4;
+  }
+
+  /* ── TWO-COLUMN LAYOUT ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+  }
+
+  /* ── FEATURE BOX ── */
+  .feature-box {
+    background: var(--lgray);
+    border: 1px solid var(--mgray);
+    border-top: 3px solid var(--teal);
+    padding: 12px 14px;
+  }
+  .feature-box.crimson-top { border-top-color: var(--crimson); }
+  .feature-box.gold-top    { border-top-color: var(--gold); }
+  .feature-box .box-title {
+    font-family: 'Courier New', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 7px;
+    font-weight: bold;
+  }
+  .feature-box.crimson-top .box-title { color: var(--crimson); }
+  .feature-box.gold-top    .box-title { color: var(--gold); }
+  .feature-box p, .feature-box ul {
+    font-size: 9pt;
+    line-height: 1.5;
+    color: var(--gray);
+  }
+  .feature-box ul { padding-left: 14px; }
+  .feature-box li { margin-bottom: 4px; }
+
+  /* ── ANALYSIS TABLE ── */
+  table.main-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+    margin-top: 4px;
+  }
+  table.main-table thead tr {
+    background: var(--slate);
+    color: #fff;
+  }
+  table.main-table th {
+    font-family: 'Courier New', monospace;
+    font-size: 7.5pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 7px 10px;
+    text-align: left;
+    font-weight: normal;
+  }
+  table.main-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--mgray);
+    vertical-align: top;
+  }
+  table.main-table tr:nth-child(even) td { background: var(--lgray); }
+  table.main-table .td-label {
+    font-weight: bold;
+    color: var(--slate);
+    font-family: 'Courier New', monospace;
+    font-size: 8pt;
+  }
+
+  /* ── CONCEPT GRID ── */
+  .concept-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 6px 0;
+  }
+  .concept-cell {
+    background: var(--lgray);
+    border-left: 3px solid var(--teal);
+    padding: 8px 10px;
+    font-size: 9pt;
+  }
+  .concept-cell.crimson { border-left-color: var(--crimson); }
+  .concept-cell.gold    { border-left-color: var(--gold); }
+  .concept-cell .concept-term {
+    font-family: 'Courier New', monospace;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .concept-cell.crimson .concept-term { color: var(--crimson); }
+  .concept-cell.gold    .concept-term { color: var(--gold); }
+
+  /* ── ALERT BOX ── */
+  .alert-box {
+    border: 2px solid var(--crimson);
+    background: #fdf5f5;
+    padding: 12px 16px;
+    margin: 12px 0;
+  }
+  .alert-box .alert-label {
+    font-family: 'Courier New', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .alert-box p {
+    font-size: 9.5pt;
+    line-height: 1.5;
+  }
+
+  /* ── GOLD CALLOUT ── */
+  .callout-gold {
+    border-left: 4px solid var(--gold);
+    background: #faf7ed;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 9.5pt;
+    font-style: italic;
+    color: var(--gray);
+  }
+
+  /* ── DISCUSSION QUESTIONS ── */
+  .dq-list {
+    counter-reset: dq;
+    list-style: none;
+    padding: 0;
+  }
+  .dq-list li {
+    counter-increment: dq;
+    display: flex;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--mgray);
+    align-items: flex-start;
+  }
+  .dq-list li:last-child { border-bottom: none; }
+  .dq-list li::before {
+    content: counter(dq);
+    background: var(--crimson);
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 8pt;
+    min-width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .dq-list li p {
+    font-size: 9.5pt;
+    line-height: 1.5;
+  }
+
+  /* ── SOURCES ── */
+  .sources-list {
+    list-style: none;
+    padding: 0;
+    font-size: 8.5pt;
+  }
+  .sources-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid var(--mgray);
+    line-height: 1.5;
+  }
+  .sources-list li:last-child { border-bottom: none; }
+
+  /* ── WATERMARK ── */
+  .watermark-row {
+    text-align: center;
+    margin: 16px 0 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mgray);
+  }
+
+  /* ── DISCLOSURE ── */
+  .disclosure {
+    font-size: 7.5pt;
+    color: #aaa;
+    font-style: italic;
+    text-align: center;
+    margin-top: 8px;
+    padding: 0 20px;
+    line-height: 1.4;
+  }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    background: var(--slate);
+    border-top: 2px solid var(--crimson);
+    padding: 6px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-brand {
+    font-family: 'Courier New', monospace;
+    font-size: 7.5pt;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    font-weight: bold;
+  }
+  .footer-center {
+    font-family: 'Courier New', monospace;
+    font-size: 7pt;
+    color: var(--mgray);
+    letter-spacing: 0.1em;
+  }
+  .footer-page {
+    font-family: 'Courier New', monospace;
+    font-size: 7pt;
+    color: var(--mgray);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { margin: 0; }
+    .page { margin: 0; width: 100%; page-break-after: always; }
+  }
+
+  /* ── INLINE UTILITIES ── */
+  .bold { font-weight: bold; }
+  .italic { font-style: italic; }
+  .small  { font-size: 8.5pt; }
+  .mt4  { margin-top: 4px; }
+  .mt8  { margin-top: 8px; }
+  .mt12 { margin-top: 12px; }
+
+  /* ── DOME DIAGRAM ── */
+  .dome-diagram {
+    text-align: center;
+    margin: 10px 0;
+  }
+  .dome-diagram svg {
+    display: inline-block;
+  }
+  .dome-label {
+    font-family: 'Courier New', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  /* ── REGIME BADGE ── */
+  .badge {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 2px;
+    font-weight: bold;
+  }
+  .badge.byz  { background: #2a4070; color: #fff; }
+  .badge.lat  { background: #5a4a2a; color: #fff; }
+  .badge.ott  { background: #1a5a2a; color: #fff; }
+  .badge.sec  { background: #4a4a4a; color: #fff; }
+  .badge.mos  { background: var(--crimson); color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     PAGE 1 — OVERVIEW + TIMELINE
+═══════════════════════════════════════════════════ -->
+<div class="page">
+
+  <div class="page-header">
+    <div class="header-left">
+      <div class="doc-title">Hagia Sophia</div>
+      <div class="doc-subtitle">Architectural Study // World Architecture</div>
+    </div>
+    <div class="header-right">
+      <div class="brand">ARANDA INTEL</div>
+      <div class="course-tag">World Architecture | 11–12</div>
+    </div>
+  </div>
+  <div class="classbar">Unclassified // For Educational Use // Student Distribution</div>
+
+  <div class="content">
+
+    <div class="intro-hero">
+      <div class="intro-text">
+        <p>Built in just five years under the Byzantine Emperor Justinian I, the Hagia Sophia was consecrated in 537 CE as the patriarchal cathedral of Constantinople. Its Greek name — <em>Hagia Sophia</em>, meaning Holy Wisdom — pointed not toward an individual saint but toward the second person of the Trinity itself. Justinian, surveying the completed structure, is said to have declared: "Solomon, I have surpassed thee." The statement was not modesty. He was claiming continuity with, and superiority over, the First Temple of Jerusalem — the archetype of all sacred architecture in the Abrahamic world.</p>
+        <p>For nearly a thousand years, the building was the largest enclosed space on earth and the symbolic center of Eastern Christendom. Then, in 1453, Constantinople fell to Ottoman Sultan Mehmed II, and Hagia Sophia was converted into a mosque. In 1934, Mustafa Kemal Atatürk converted it into a secular museum as a signal of modern Turkey's break from Ottoman religious identity. In 2020, by decree of Turkish President Recep Tayyip Erdogan, it was reconverted into a functioning mosque — a decision that reverberated through Orthodox Christian communities, UNESCO, and international diplomatic channels. The building has now served under four distinct institutional regimes across fifteen centuries, and each transition has been, in its own way, a claim about who owns sacred space and what history means.</p>
+        <p>What makes Hagia Sophia irreplaceable as an object of architectural study is not simply its age or size, but the degree to which it solved a problem no one had solved before: how to place a circular dome on a square base at enormous scale, flooding the interior with light in a way that made the dome appear to float. That solution — achieved through the invention of the pendentive — transformed the grammar of sacred architecture in both East and West.</p>
+      </div>
+      <div>
+        <div class="profile-card">
+          <div class="card-title">Building Profile</div>
+          <div class="profile-row"><span class="profile-label">Location</span><span class="profile-value">Istanbul, Turkey (formerly Constantinople)</span></div>
+          <div class="profile-row"><span class="profile-label">Completed</span><span class="profile-value">537 CE</span></div>
+          <div class="profile-row"><span class="profile-label">Architects</span><span class="profile-value">Isidore of Miletus; Anthemius of Tralles</span></div>
+          <div class="profile-row"><span class="profile-label">Patron</span><span class="profile-value">Emperor Justinian I</span></div>
+          <div class="profile-row"><span class="profile-label">Dome Diameter</span><span class="profile-value">31.2 m (102 ft)</span></div>
+          <div class="profile-row"><span class="profile-label">Dome Height</span><span class="profile-value">55.6 m (182 ft) from floor</span></div>
+          <div class="profile-row"><span class="profile-label">Structural System</span><span class="profile-value">Pendentive dome; half-domes; exedrae</span></div>
+          <div class="profile-row"><span class="profile-label">Primary Material</span><span class="profile-value">Brick, mortar, recycled Roman columns</span></div>
+          <div class="profile-row"><span class="profile-label">UNESCO Status</span><span class="profile-value">World Heritage Site (1985, as museum)</span></div>
+          <div class="profile-row"><span class="profile-label">Current Function</span><span class="profile-value">Active mosque (reconverted 2020)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-bar">Institutional Timeline — Five Transitions Across Fifteen Centuries</div>
+
+    <ul class="timeline">
+      <li>
+        <span class="tl-year">360 CE</span>
+        <span class="tl-regime">Pre-Justinian</span>
+        <span class="tl-text">First church on the site, called Megale Ekklesia ("Great Church"), dedicated under Emperor Constantius II. Burned in a riot in 404; rebuilt and burned again in 532 during the Nika Revolt, which killed tens of thousands and nearly toppled Justinian's rule.</span>
+      </li>
+      <li>
+        <span class="tl-year">537 CE</span>
+        <span class="tl-regime byz">Byzantine Cathedral</span>
+        <span class="tl-text">Justinian's Hagia Sophia consecrated December 27, 537 CE. Serves as the patriarchal cathedral of Constantinople, seat of the Ecumenical Patriarch of the Eastern Orthodox Church, for 916 years. Dome partially collapses in 558 CE and is rebuilt at greater height by Isidore the Younger.</span>
+      </li>
+      <li>
+        <span class="tl-year">1204–1261</span>
+        <span class="tl-regime lat">Latin Cathedral</span>
+        <span class="tl-text">Fourth Crusade sacks Constantinople; Hagia Sophia is looted and reconsecrated as a Roman Catholic cathedral. The event produces an enduring rupture between Eastern and Western Christianity. Byzantine forces retake Constantinople in 1261 and restore Orthodox use.</span>
+      </li>
+      <li>
+        <span class="tl-year">1453 CE</span>
+        <span class="tl-regime ott">Ottoman Mosque</span>
+        <span class="tl-text">Mehmed II conquers Constantinople. He enters Hagia Sophia on horseback, climbs the altar, and offers Friday prayers. Christian mosaics are plastered over or concealed. Four minarets added over the following centuries. The building serves as Istanbul's imperial mosque for 481 years.</span>
+      </li>
+      <li>
+        <span class="tl-year">1934 CE</span>
+        <span class="tl-regime sec">Secular Museum</span>
+        <span class="tl-text">Atatürk's government converts Hagia Sophia into a museum by cabinet decree. The act is a deliberate signal of Turkish secularism and modernity. Christian mosaics are gradually restored and revealed. UNESCO inscribes it as a World Heritage Site in 1985.</span>
+      </li>
+      <li>
+        <span class="tl-year">2020 CE</span>
+        <span class="tl-regime mos">Active Mosque (Reconverted)</span>
+        <span class="tl-text">Turkish Council of State annuls 1934 decree; President Erdogan orders reconversion to mosque. First Friday prayers held July 24, 2020. Christian mosaics covered during prayer times with curtains or lighting changes. UNESCO, the Greek Orthodox Church, and several governments issue formal objections.</span>
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">ARANDA INTEL</div>
+    <div class="footer-center">ARANDA | WORLD ARCHITECTURE | 2026</div>
+    <div class="footer-page">PAGE 1</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PAGE 2 — ARCHITECTURAL ANALYSIS
+═══════════════════════════════════════════════════ -->
+<div class="page">
+
+  <div class="page-header">
+    <div class="header-left">
+      <div class="doc-title">Hagia Sophia</div>
+      <div class="doc-subtitle">Architectural Analysis // Structural Innovation</div>
+    </div>
+    <div class="header-right">
+      <div class="brand">ARANDA INTEL</div>
+      <div class="course-tag">World Architecture | 11–12</div>
+    </div>
+  </div>
+  <div class="classbar">Unclassified // For Educational Use // Student Distribution</div>
+
+  <div class="content">
+
+    <div class="section-bar">The Structural Problem — Dome on Square Base</div>
+
+    <div class="two-col" style="margin-bottom:12px;">
+      <div>
+        <p style="margin-bottom:8px;">Every great religious building is, at its core, an attempt to solve an engineering problem in a way that also solves a theological one. In the case of Hagia Sophia, the problem was this: how do you place a circular dome — the shape that represented the vault of heaven, the cosmos, divine completeness — on top of a rectangular or square nave that could hold thousands of worshippers?</p>
+        <p style="margin-bottom:8px;">The Romans had built enormous domes before, most famously the Pantheon (128 CE), but the Pantheon sits on a circular drum — a drum-to-dome transfer that is structurally elegant but liturgically limiting. You cannot build a long processional nave out of a circle. The basilica plan — long, rectangular, with nave and side aisles — was the standard Christian form, inherited from Roman civic architecture. But a basilica and a dome seemed architecturally incompatible at scale.</p>
+        <p>Anthemius of Tralles and Isidore of Miletus solved this problem with the <strong>pendentive</strong>: a curved triangular section of masonry that transitions from the corner of a square bay to the circular base of a dome. Four pendentives fill the four corners of the square, effectively converting it into a circle. The dome then rests on that circle. This is not merely clever — it is one of the pivotal structural inventions in the history of architecture, and it made possible every Byzantine church, every Ottoman mosque, and ultimately the domed churches of the Renaissance, from Florence's Santa Maria del Fiore to St. Peter's Basilica in Rome.</p>
+      </div>
+
+      <!-- SVG Pendentive Diagram -->
+      <div>
+        <div class="dome-diagram">
+          <svg width="230" height="220" viewBox="0 0 230 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- Square base -->
+            <rect x="25" y="100" width="180" height="100" fill="none" stroke="#474747" stroke-width="1.5"/>
+            <!-- Four piers -->
+            <rect x="25" y="100" width="20" height="100" fill="#c0c8d8"/>
+            <rect x="185" y="100" width="20" height="100" fill="#c0c8d8"/>
+            <rect x="25" y="100" width="20" height="20" fill="#282F44"/>
+            <rect x="185" y="100" width="20" height="20" fill="#282F44"/>
+            <!-- Pendentives (triangular curves) -->
+            <path d="M25,100 Q115,140 205,100" fill="none" stroke="#1F5673" stroke-width="2.5" stroke-dasharray="4,2"/>
+            <!-- Dome -->
+            <ellipse cx="115" cy="80" rx="60" ry="30" fill="#BF9000" fill-opacity="0.18" stroke="#BF9000" stroke-width="2"/>
+            <path d="M55,80 Q115,18 175,80" fill="#BF9000" fill-opacity="0.12" stroke="#BF9000" stroke-width="2"/>
+            <!-- Half-dome left -->
+            <path d="M25,100 Q10,90 25,80 Q55,72 55,80" fill="#8C2122" fill-opacity="0.12" stroke="#8C2122" stroke-width="1.5"/>
+            <!-- Half-dome right -->
+            <path d="M205,100 Q220,90 205,80 Q175,72 175,80" fill="#8C2122" fill-opacity="0.12" stroke="#8C2122" stroke-width="1.5"/>
+            <!-- Labels -->
+            <text x="115" y="56" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" fill="#BF9000" font-weight="bold">MAIN DOME</text>
+            <text x="115" y="135" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#1F5673">PENDENTIVE CURVE</text>
+            <text x="15" y="92" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#8C2122">HALF</text>
+            <text x="15" y="100" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#8C2122">DOME</text>
+            <text x="215" y="92" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#8C2122">HALF</text>
+            <text x="215" y="100" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#8C2122">DOME</text>
+            <text x="35" y="112" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#282F44">PIER</text>
+            <!-- Ground line -->
+            <line x1="10" y1="200" x2="220" y2="200" stroke="#d0d0d0" stroke-width="1"/>
+            <text x="115" y="215" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#474747">SCHEMATIC SECTION — NOT TO SCALE</text>
+          </svg>
+        </div>
+        <p class="dome-label">Structural system: pendentive dome with flanking half-domes</p>
+        <div class="mt8" style="background:var(--lgray);border:1px solid var(--mgray);border-left:3px solid var(--gold);padding:8px 10px;font-size:8.5pt;">
+          <strong style="font-family:'Courier New',monospace;font-size:7pt;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);">Note on Materials</strong><br>
+          The dome is not stone but <em>brick</em> — deliberately lighter. Builders used special hollow clay pots from Rhodes to reduce weight in the upper drum. The mortar between courses includes brick dust, which creates a self-healing hydraulic compound. These were not accidents; they were calculated responses to the structural loads the builders themselves had to work out from first principles, with no prior model at this scale.
+        </div>
+      </div>
+    </div>
+
+    <div class="section-bar teal">Key Architectural Concepts — Hagia Sophia</div>
+
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="concept-term">Pendentive</span>
+        A concave triangular surface that transitions between the corner of a square and the circular base of a dome. The critical structural invention that made Hagia Sophia possible — and that reshaped the history of domed architecture in both Islamic and Western building traditions.
+      </div>
+      <div class="concept-cell crimson">
+        <span class="concept-term">Squinch (Alternative)</span>
+        An arch or set of corbelled arches built across the corner of a square room to support a dome. The Persian/Sassanid solution to the same problem the pendentive solves — used in early Islamic architecture before the pendentive became universal. Compare to understand the design choice Anthemius made.
+      </div>
+      <div class="concept-cell gold">
+        <span class="concept-term">Half-Dome Buttressing</span>
+        Two large half-domes on the east and west flanks of the main dome act as structural counterweights, absorbing and redirecting the outward thrust of the central dome. This allows the nave walls to be opened for windows rather than solid masonry — the source of the building's famous luminosity.
+      </div>
+      <div class="concept-cell">
+        <span class="concept-term">Nave Lighting Strategy</span>
+        Forty windows ring the base of the dome. Because the window zone is recessed and the dome curves inward above it, sunlight appears to enter from <em>within</em> the dome rather than through it. The effect — described by the contemporary historian Procopius as the dome "suspended from heaven by a golden chain" — was intentional and theologically loaded.
+      </div>
+    </div>
+
+    <div class="two-col mt12">
+      <div class="feature-box crimson-top">
+        <div class="box-title">Structural Weakness — The Dome Problem</div>
+        <p>The original dome, built hastily under Justinian's time pressure, was too shallow in its curvature. It partially collapsed in an earthquake in 558 CE, just twenty years after completion. Isidore the Younger rebuilt it at a steeper pitch, raising the crown by roughly six meters. The steeper curvature distributes thrust more efficiently — a lesson that Brunelleschi would essentially rediscover when designing the Florence Cathedral dome nine centuries later.</p>
+      </div>
+      <div class="feature-box gold-top">
+        <div class="box-title">Axis Mundi — Cosmos and Church</div>
+        <p>The dome in Byzantine theology was not merely a structural solution — it was a cosmological claim. The dome represented the vault of heaven; the floor, the earth; the axis connecting them, the vertical channel between the human and the divine. Mircea Eliade called this the <em>axis mundi</em> — the world's axis. In Hagia Sophia, the emperor entered from the west, processed east toward the altar and the dome, and stood at the precise center of the cosmos as defined by Byzantine theology. The building was a machine for locating the emperor — and through him, the empire — at the center of sacred space.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">ARANDA INTEL</div>
+    <div class="footer-center">ARANDA | WORLD ARCHITECTURE | 2026</div>
+    <div class="footer-page">PAGE 2</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PAGE 3 — OTTOMAN CONVERSION + 2020 RECONVERSION
+═══════════════════════════════════════════════════ -->
+<div class="page">
+
+  <div class="page-header">
+    <div class="header-left">
+      <div class="doc-title">Hagia Sophia</div>
+      <div class="doc-subtitle">Conversion, Reconversion // Heritage & Sovereignty</div>
+    </div>
+    <div class="header-right">
+      <div class="brand">ARANDA INTEL</div>
+      <div class="course-tag">World Architecture | 11–12</div>
+    </div>
+  </div>
+  <div class="classbar">Unclassified // For Educational Use // Student Distribution</div>
+
+  <div class="content">
+
+    <div class="section-bar">Ottoman Adaptation — Mosque, 1453–1934</div>
+
+    <div class="two-col" style="margin-bottom:14px;">
+      <div>
+        <p style="margin-bottom:8px;">When Mehmed II entered Hagia Sophia in May 1453, his first act was to stop the conquest's violence at its threshold and offer prayers — a gesture communicating that the building was not being destroyed but claimed. The Ottoman approach to Hagia Sophia over the following four centuries is, architecturally, a study in pragmatic adaptation rather than erasure.</p>
+        <p style="margin-bottom:8px;">Christian figural mosaics — the faces of Christ, the Virgin, the saints — were plastered over, as Islamic tradition prohibits figural representation in sacred space. But the structural fabric of the building was not only preserved; it was elaborated. Four minarets were added between the 15th and 17th centuries, transforming the silhouette from a low-slung Byzantine mass into a vertically dynamic Ottoman landmark. The minarets also solved a functional problem: the building had no muezzin towers for the call to prayer.</p>
+        <p>New Islamic elements were added to the interior: a mihrab (niche indicating the direction of Mecca, oriented slightly differently from the Christian altar axis), a minbar (pulpit for the Friday sermon), large Ottoman calligraphic roundels bearing the names of Allah, Muhammad, and the early caliphs, and a sultan's loge for royal prayers. The result was not a destroyed Byzantine church but a layered palimpsest — two distinct sacred traditions inhabiting the same structural shell, each partially visible beneath the other.</p>
+      </div>
+      <div>
+        <table class="main-table">
+          <thead>
+            <tr>
+              <th>Element</th>
+              <th>Function</th>
+              <th>Status Today</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-label">Mihrab</td>
+              <td>Marks qibla direction (toward Mecca); focal point of Islamic prayer</td>
+              <td>Active; restored</td>
+            </tr>
+            <tr>
+              <td class="td-label">Minbar</td>
+              <td>Pulpit for Friday khutba (sermon)</td>
+              <td>Active</td>
+            </tr>
+            <tr>
+              <td class="td-label">Calligraphic Roundels</td>
+              <td>Eight large Ottoman roundels (1.5m diam.) with names of God, Prophet, Companions</td>
+              <td>In place; visible</td>
+            </tr>
+            <tr>
+              <td class="td-label">4 Minarets</td>
+              <td>Adhan (call to prayer); Ottoman imperial signature</td>
+              <td>Active; used for calls</td>
+            </tr>
+            <tr>
+              <td class="td-label">Deësis Mosaic</td>
+              <td>Byzantine: Christ flanked by Virgin and John the Baptist (c. 1261)</td>
+              <td>Covered during prayer times</td>
+            </tr>
+            <tr>
+              <td class="td-label">Virgin &amp; Child (Apse)</td>
+              <td>Byzantine: central apse mosaic, 9th century</td>
+              <td>Covered during prayer times</td>
+            </tr>
+            <tr>
+              <td class="td-label">Imperial Doors Mosaic</td>
+              <td>Byzantine: Emperor prostrating before Christ (c. 900 CE)</td>
+              <td>Visible; in narthex</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-bar crimson">2020 Reconversion — Context, Decision, Consequences</div>
+
+    <div class="alert-box">
+      <span class="alert-label">Key Development — July 10, 2020</span>
+      <p>Turkey's Council of State annulled the 1934 cabinet decree that had converted Hagia Sophia into a museum, declaring that the building had been legally registered as a mosque under an Ottoman-era endowment (waqf) and that the 1934 conversion was legally invalid. President Erdogan signed the order converting it back to an active mosque within hours. The first Friday prayers were held July 24, 2020 — the anniversary of the 1923 Treaty of Lausanne, which established modern Turkey's borders. The date was not accidental.</p>
+    </div>
+
+    <div class="two-col mt8">
+      <div class="feature-box">
+        <div class="box-title">Arguments Supporting Reconversion</div>
+        <ul>
+          <li>Turkey is a sovereign state; the disposition of buildings within its borders is an internal legal matter, not subject to international veto.</li>
+          <li>The original 1934 conversion was itself an ideologically motivated act — Atatürk's secularism was a form of state imposition, not neutral administration.</li>
+          <li>Active religious use is a form of preservation; praying communities maintain buildings more rigorously than bureaucratic heritage programs.</li>
+          <li>The building can function as a mosque while remaining accessible to visitors outside prayer times — the museum function is not fully abolished.</li>
+          <li>Domestic polling in Turkey showed majority support, reflecting significant popular religiosity and post-Kemalist cultural reorientation.</li>
+        </ul>
+      </div>
+      <div class="feature-box crimson-top">
+        <div class="box-title">Arguments Against Reconversion</div>
+        <ul>
+          <li>UNESCO World Heritage designation creates international obligations to preserve universal cultural value — the 1985 listing was made on the basis of the building's status as a museum accessible to all faiths.</li>
+          <li>Covering Christian mosaics during prayer times impairs physical access to a world heritage asset and conditions viewing on Islamic prayer schedules.</li>
+          <li>The Ecumenical Patriarchate of Constantinople, headquartered in Istanbul, condemned the move as an insult to Orthodox Christianity globally.</li>
+          <li>The decision was read internationally as part of Erdogan's AKP party's deliberate reversal of Kemalist secularism — a domestic political signal dressed as a heritage decision.</li>
+          <li>Greece, Cyprus, the European Union, and the United States issued formal objections, straining Turkish foreign relations during an already tense period.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout-gold mt8">
+      <strong>The deeper question the 2020 decision forces:</strong> Who has legitimate authority over a building that has been, across its life, a Christian cathedral, a Catholic cathedral, an Orthodox cathedral again, an imperial mosque, a secular museum, and now a mosque once more — and which carries within its walls the material residue of all five? Can sovereignty answer this question, or does the building's layered history generate obligations that sovereignty alone cannot discharge?
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">ARANDA INTEL</div>
+    <div class="footer-center">ARANDA | WORLD ARCHITECTURE | 2026</div>
+    <div class="footer-page">PAGE 3</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PAGE 4 — INFLUENCE + DISCUSSION QUESTIONS
+═══════════════════════════════════════════════════ -->
+<div class="page">
+
+  <div class="page-header">
+    <div class="header-left">
+      <div class="doc-title">Hagia Sophia</div>
+      <div class="doc-subtitle">Influence & Legacy // Discussion Questions</div>
+    </div>
+    <div class="header-right">
+      <div class="brand">ARANDA INTEL</div>
+      <div class="course-tag">World Architecture | 11–12</div>
+    </div>
+  </div>
+  <div class="classbar">Unclassified // For Educational Use // Student Distribution</div>
+
+  <div class="content">
+
+    <div class="section-bar">Influence Across Three Architectural Traditions</div>
+
+    <table class="main-table" style="margin-bottom:14px;">
+      <thead>
+        <tr>
+          <th style="width:18%">Tradition</th>
+          <th style="width:28%">Key Descendants</th>
+          <th>How Hagia Sophia Shaped Them</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-label"><span class="badge byz">Byzantine</span></td>
+          <td>Church of the Holy Apostles, Constantinople (destroyed 1461); Saint Mark's Basilica, Venice; churches throughout Bulgaria, Serbia, Russia</td>
+          <td>The pendentive dome system, the central nave flooded with diffused light, and the hierarchical mosaic program (Christ Pantocrator in the dome, Virgin in the apse) were all directly exported to Orthodox Christian building throughout the medieval world. Byzantine missionaries carried the architectural vocabulary as deliberately as they carried the liturgical vocabulary.</td>
+        </tr>
+        <tr>
+          <td class="td-label"><span class="badge ott">Ottoman</span></td>
+          <td>Süleymaniye Mosque, Istanbul (1558); Sultanahmet / Blue Mosque, Istanbul (1616); mosques throughout the Ottoman Empire from Cairo to Sarajevo</td>
+          <td>The Ottoman court architect Mimar Sinan explicitly studied Hagia Sophia when designing the Süleymaniye — his goal was to match and then surpass it within an Islamic architectural vocabulary. The Blue Mosque, built 50 years after Sinan's death, used six minarets in part as a way to signal superiority over Hagia Sophia's four. The entire Ottoman imperial mosque tradition is, in a structural sense, a centuries-long dialogue with the 6th-century building down the hill.</td>
+        </tr>
+        <tr>
+          <td class="td-label"><span class="badge" style="background:#6a3a7a;color:#fff;">Western</span></td>
+          <td>St. Peter's Basilica, Rome (1590); Panthéon, Paris (1790); United States Capitol dome (1866); Sacré-Cœur, Paris (1914)</td>
+          <td>The pendentive as a formal device entered Western architecture through the Italian Renaissance, when architects studying Byzantine and Roman ruins grasped the structural logic of the pendentive-dome transition. Michelangelo's design for St. Peter's dome is structurally inconceivable without the Hagia Sophia precedent — not because Michelangelo copied it, but because the pendentive solution had, by the 16th century, been absorbed into the common stock of architectural knowledge.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-bar teal">Discussion Questions</div>
+
+    <ul class="dq-list">
+      <li><p>Hagia Sophia has served as a Christian cathedral, a Catholic cathedral, an Orthodox cathedral again, an imperial mosque, a secular museum, and now an active mosque. Does the building have a single "authentic" identity, or is the layering of uses itself its identity? What would it mean to restore it to its "original" state — and is that even possible?</p></li>
+      <li><p>The 2020 reconversion was challenged by UNESCO on the grounds that world heritage sites carry obligations beyond national sovereignty. Turkey rejected this framing entirely. Who has the stronger argument — and does your answer change depending on whether the building is primarily understood as a religious site, a cultural artifact, or both simultaneously?</p></li>
+      <li><p>The Ottoman architects of the Süleymaniye and Blue Mosques were consciously trying to surpass Hagia Sophia within Islamic architectural conventions. What does it mean architecturally to "respond" to a building? Is influence the same as competition, or are they different relationships to a predecessor? Find a specific example in the building traditions above to support your answer.</p></li>
+      <li><p>Mircea Eliade argued that sacred architecture enacts the <em>axis mundi</em> — placing the worshipper at the center of the cosmos, connecting earth to heaven. Does the axis mundi concept apply equally to Byzantine Christianity and to Islam as practiced in Hagia Sophia? Or does the conversion of the building require that we think about the concept differently for each tradition?</p></li>
+      <li><p>The architects Anthemius and Isidore solved the dome-on-square problem with the pendentive, which then spread to Byzantine, Ottoman, and Western architecture. The same structural problem was solved differently in Persia using the squinch. What does it tell us about the history of architecture that two distinct civilizations arrived at different solutions to the same engineering constraint — and that one solution eventually became nearly universal?</p></li>
+    </ul>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">ARANDA INTEL</div>
+    <div class="footer-center">ARANDA | WORLD ARCHITECTURE | 2026</div>
+    <div class="footer-page">PAGE 4</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PAGE 5 — SOURCES
+═══════════════════════════════════════════════════ -->
+<div class="page">
+
+  <div class="page-header">
+    <div class="header-left">
+      <div class="doc-title">Hagia Sophia</div>
+      <div class="doc-subtitle">Sources & References</div>
+    </div>
+    <div class="header-right">
+      <div class="brand">ARANDA INTEL</div>
+      <div class="course-tag">World Architecture | 11–12</div>
+    </div>
+  </div>
+  <div class="classbar">Unclassified // For Educational Use // Student Distribution</div>
+
+  <div class="content">
+
+    <div class="section-bar">Sources — Alphabetical</div>
+
+    <ul class="sources-list">
+      <li>Bardill, Jonathan. <em>Brickstamps of Constantinople.</em> Oxford: Oxford University Press, 2004.</li>
+      <li>Cormack, Robin. <em>Byzantine Art.</em> Oxford: Oxford University Press, 2000.</li>
+      <li>Freely, John and Ahmet S. Çakmak. <em>Byzantine Monuments of Istanbul.</em> Cambridge: Cambridge University Press, 2004.</li>
+      <li>Elsner, Jaś. "The Viewer and the Vision: The Case of the Sinai Apse." <em>Art History</em> 17, no. 1 (1994): 81–102.</li>
+      <li>Eliade, Mircea. <em>The Sacred and the Profane: The Nature of Religion.</em> Translated by Willard R. Trask. New York: Harcourt, 1959.</li>
+      <li>Hawkins, Ernest J. W. and Cyril Mango. "The Mosaics of St. Sophia at Istanbul: The Church Fathers in the North Tympanum." <em>Dumbarton Oaks Papers</em> 26 (1972): 1–41.</li>
+      <li>Krautheimer, Richard. <em>Early Christian and Byzantine Architecture.</em> 4th ed. New Haven: Yale University Press, 1986.</li>
+      <li>Mainstone, Rowland J. <em>Hagia Sophia: Architecture, Structure, and Liturgy of Justinian's Great Church.</em> New York: Thames and Hudson, 1988.</li>
+      <li>Mango, Cyril. <em>The Art of the Byzantine Empire, 312–1453: Sources and Documents.</em> Toronto: University of Toronto Press, 1986. [Includes Procopius, <em>Buildings</em>, I.i.27–78, the primary account of the original construction.]</li>
+      <li>Mark, Robert and Ahmet S. Çakmak, eds. <em>Hagia Sophia from the Age of Justinian to the Present.</em> Cambridge: Cambridge University Press, 1992.</li>
+      <li>Necipoğlu, Gülru. "The Life of an Imperial Monument: Hagia Sophia after Byzantium." In <em>Hagia Sophia from the Age of Justinian to the Present,</em> edited by Robert Mark and Ahmet S. Çakmak, 195–225. Cambridge: Cambridge University Press, 1992.</li>
+      <li>Procopius of Caesarea. <em>Buildings</em> [<em>Peri Ktismaton</em>]. 6th century CE. Trans. H. B. Dewing. Loeb Classical Library. Cambridge: Harvard University Press, 1940.</li>
+      <li>Tronzo, William. "Mimesis in Byzantium: Notes toward a History of the Function of the Image." <em>RES: Anthropology and Aesthetics</em> 25 (1994): 61–76.</li>
+      <li>UNESCO World Heritage Centre. "Historic Areas of Istanbul." UNESCO, 1985. <em>whc.unesco.org/en/list/356.</em></li>
+      <li>UNESCO World Heritage Committee. "Statement of Outstanding Universal Value — Historic Areas of Istanbul." UNESCO, 2012. <em>whc.unesco.org/en/list/356/documents.</em></li>
+      <li>Yildiz, Elif. "Hagia Sophia and the Politics of Conversion: From Museum to Mosque." <em>International Journal of Heritage Studies</em> 27, no. 6 (2021): 589–604.</li>
+    </ul>
+
+    <div class="watermark-row">— Aranda | World Architecture | 2026 —</div>
+
+    <div class="disclosure">
+      <em>This handout reflects original research, instructional framing, and editorial selection; it has been analytically elevated, organizationally collated, and visually polished using Claude Tools.</em>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">ARANDA INTEL</div>
+    <div class="footer-center">ARANDA | WORLD ARCHITECTURE | 2026</div>
+    <div class="footer-page">PAGE 5</div>
+  </div>
+</div>
+
+</body>
+</html>
